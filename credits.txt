@@ -22,3 +22,5 @@ Art by
 Music by
 	Andrew
 
+Licensed assets:
+	512 Sound Effects (8-bit style) by Subspace Audio
