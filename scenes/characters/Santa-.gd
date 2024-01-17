@@ -40,6 +40,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("coal") and can_missile==false and facing_right==1:
 		var coal_pos = $CoalStartPos/rightMarker
 		throw.emit(coal_pos.global_position, facing_right)
+	if Input.is_action_just_pressed("coal") and can_missile==false and facing_right==-1:
+		var coal_pos = $CoalStartPos/leftMarker
+		throw.emit(coal_pos.global_position, facing_right)
 	elif Input.is_action_just_pressed("coal") and can_missile==true:
 		var coal_pos = $CoalStartPos/Marker2D
 		missile.emit(coal_pos.global_position)
