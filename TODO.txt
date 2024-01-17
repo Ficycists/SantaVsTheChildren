@@ -1,0 +1,22 @@
+== TODO ==
+Please mark everything that is complete and up for review with an asterisk [*] at the beginning of the line, such as:
+	* Created TODO file
+
+For discussion, please indent the line and add a doubleslash comment.
+
+-Gameplay-
+	Jumping works
+	Consistent movement
+	
+-Art-
+	Children
+		Run animation
+	Santa
+		Jump animation
+		* Walk animation
+		* Idle animation
+		Throw coal animation
+	Terrain
+		Buildings!
+		Rice University
+			// Yes, we're doing this.
