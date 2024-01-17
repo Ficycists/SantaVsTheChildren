@@ -18,3 +18,9 @@ func _process(delta):
 	
 #func throw(delta):
 	
+
+
+func _on_area_2_dcoal_area_entered(body):
+	$".".queue_free()
+
+

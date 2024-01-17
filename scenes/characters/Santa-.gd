@@ -5,7 +5,7 @@ var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_c
 var facing_right: int = 1
 
 signal throw(pos,direction)
-signal missile(pos)
+signal missile(pos,direction)
 
 const Gravity = 20
 const jumpspeed = 700
@@ -40,13 +40,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("coal") and can_missile==false and facing_right==1:
 		var coal_pos = $CoalStartPos/rightMarker
 		throw.emit(coal_pos.global_position, facing_right)
-	if Input.is_action_just_pressed("coal") and can_missile==false and facing_right==-1:
+	elif Input.is_action_just_pressed("coal") and can_missile==false and facing_right==-1:
 		var coal_pos = $CoalStartPos/leftMarker
 		throw.emit(coal_pos.global_position, facing_right)
-	elif Input.is_action_just_pressed("coal") and can_missile==true:
-		var coal_pos = $CoalStartPos/Marker2D
-		missile.emit(coal_pos.global_position)
-		#var pcoal = throw_coal_scene.instantiate()
-		#add_child(pcoal)
+	elif Input.is_action_just_pressed("coal") and can_missile==true and facing_right==1:
+		var coal_pos = $CoalStartPos/rightMarker
+		missile.emit(coal_pos.global_position,facing_right)
+	elif Input.is_action_just_pressed("coal") and can_missile==true and facing_right==-1:
+		var coal_pos = $CoalStartPos/leftMarker
+		missile.emit(coal_pos.global_position,facing_right)
 		
 	pass

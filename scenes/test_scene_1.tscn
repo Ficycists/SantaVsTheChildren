@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://tdaqke1quwt8"]
+[gd_scene load_steps=6 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="3_21xm2"]
-[ext_resource type="PackedScene" uid="uid://dwiqc7qjwdl2q" path="res://zombi_child.tscn" id="4_xlglu"]
-[ext_resource type="Script" path="res://zombi_child.gd" id="5_87t7h"]
+[ext_resource type="PackedScene" uid="uid://dl1dmoijq4vkg" path="res://scenes/characters/zombi_child.tscn" id="4_xlglu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
@@ -18,6 +17,7 @@ position = Vector2(47, 591)
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(575, 631)
 scale = Vector2(35.75, 1)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 texture = ExtResource("1_awjfy")
@@ -30,7 +30,6 @@ shape = SubResource("RectangleShape2D_33qmm")
 
 [node name="ZombiChild" parent="." instance=ExtResource("4_xlglu")]
 position = Vector2(8, 9)
-script = ExtResource("5_87t7h")
 
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]

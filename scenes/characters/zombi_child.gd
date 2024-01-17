@@ -33,3 +33,7 @@ func _process(delta):
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 #
 	#move_and_slide()
+
+
+func _on_area_2d_area_entered(area):
+	$".".queue_free() # Replace with function body.
