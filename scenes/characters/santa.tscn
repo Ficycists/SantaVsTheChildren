@@ -7,7 +7,7 @@
 size = Vector2(20, 29)
 
 [node name="Santa" type="CharacterBody2D"]
-position = Vector2(115, 101)
+position = Vector2(111, 105)
 script = ExtResource("1_prmy7")
 metadata/_edit_group_ = true
 
@@ -23,5 +23,8 @@ shape = SubResource("RectangleShape2D_dw754")
 
 [node name="CoalStartPos" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="CoalStartPos"]
+[node name="rightMarker" type="Marker2D" parent="CoalStartPos"]
 position = Vector2(20, 0)
+
+[node name="leftMarker" type="Marker2D" parent="CoalStartPos"]
+position = Vector2(-20, 0)

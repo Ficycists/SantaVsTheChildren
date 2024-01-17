@@ -5,6 +5,7 @@ const horizspeed = 200
 #pos = 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#var linear_velocity = Vector2(350,-350)
 	#position = Vector2(100,100)
 	pass # Replace with function body.
 

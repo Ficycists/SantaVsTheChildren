@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccdctqpwfp7df"]
+[gd_scene load_steps=6 format=3 uid="uid://ccdctqpwfp7df"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/parabola_coal.gd" id="1_c4mlw"]
 [ext_resource type="Texture2D" uid="uid://by2snji7xk1vx" path="res://assets/sprites/coal.png" id="1_r5xj8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wtnax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nuxwt"]
 radius = 8.0
@@ -10,6 +12,7 @@ radius = 8.0
 radius = 9.0
 
 [node name="parabola_coal" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_wtnax")
 script = ExtResource("1_c4mlw")
 
 [node name="coal_img" type="Sprite2D" parent="."]

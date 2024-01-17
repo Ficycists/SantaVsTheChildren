@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 var can_missile: bool = false
 var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_coal.tscn")
+var facing_right: int = 1
 
-signal throw(pos)
+signal throw(pos,direction)
 signal missile(pos)
 
 const Gravity = 20
@@ -22,8 +23,10 @@ func _process(delta):
 
 	if Input.is_action_pressed("left"):
 		velocity.x -= horizspeed*delta
+		facing_right = -1
 	elif Input.is_action_pressed("right"):
 		velocity.x += horizspeed*delta
+		facing_right = 1
 	else:
 		velocity.x = 0
 	
@@ -34,11 +37,12 @@ func _process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("coal") and can_missile==false:
-		var coal_pos = $CoalStartPos/Marker2D
-		throw.emit(coal_pos.global_position)
+	if Input.is_action_just_pressed("coal") and can_missile==false and facing_right==1:
+		var coal_pos = $CoalStartPos/rightMarker
+		throw.emit(coal_pos.global_position, facing_right)
 	elif Input.is_action_just_pressed("coal") and can_missile==true:
-		missile.emit()
+		var coal_pos = $CoalStartPos/Marker2D
+		missile.emit(coal_pos.global_position)
 		#var pcoal = throw_coal_scene.instantiate()
 		#add_child(pcoal)
 		
