@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=7 format=3 uid="uid://tdaqke1quwt8"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="3_21xm2"]
+[ext_resource type="PackedScene" uid="uid://dwiqc7qjwdl2q" path="res://zombi_child.tscn" id="4_xlglu"]
+[ext_resource type="Script" path="res://zombi_child.gd" id="5_87t7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
@@ -25,6 +27,10 @@ position = Vector2(560.867, 6)
 shape = SubResource("RectangleShape2D_33qmm")
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="ZombiChild" parent="." instance=ExtResource("4_xlglu")]
+position = Vector2(8, 9)
+script = ExtResource("5_87t7h")
 
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]

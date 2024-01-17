@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwiqc7qjwdl2q"]
+
+[ext_resource type="Texture2D" uid="uid://5o4fbw050j1l" path="res://assets/sprites/zombChild_0_sprpng.png" id="1_ai5c3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v1gi"]
+size = Vector2(16, 35)
+
+[node name="ZombiChild" type="CharacterBody2D"]
+
+[node name="ZombChild0Sprpng" type="Sprite2D" parent="."]
+position = Vector2(564, 586)
+scale = Vector2(0.900919, 1.13009)
+texture = ExtResource("1_ai5c3")
+region_enabled = true
+region_rect = Rect2(1.54131, 33.1616, 30.309, 31.1876)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(565, 586.5)
+shape = SubResource("RectangleShape2D_6v1gi")
