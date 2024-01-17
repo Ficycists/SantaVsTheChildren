@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccdctqpwfp7df"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/parabola_coal.gd" id="1_c4mlw"]
+[ext_resource type="Texture2D" uid="uid://by2snji7xk1vx" path="res://assets/sprites/coal.png" id="1_r5xj8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nuxwt"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6ght"]
+radius = 9.0
+
+[node name="parabola_coal" type="RigidBody2D"]
+script = ExtResource("1_c4mlw")
+
+[node name="coal_img" type="Sprite2D" parent="."]
+texture = ExtResource("1_r5xj8")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nuxwt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j6ght")

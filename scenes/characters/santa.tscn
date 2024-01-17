@@ -7,7 +7,7 @@
 size = Vector2(20, 29)
 
 [node name="Santa" type="CharacterBody2D"]
-position = Vector2(108.743, 99.0276)
+position = Vector2(115, 101)
 script = ExtResource("1_prmy7")
 metadata/_edit_group_ = true
 
@@ -18,3 +18,10 @@ texture = ExtResource("2_py6e7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.256653, 1.47237)
 shape = SubResource("RectangleShape2D_dw754")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CoalStartPos" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="CoalStartPos"]
+position = Vector2(20, 0)
