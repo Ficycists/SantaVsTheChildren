@@ -1,20 +1,24 @@
 CREDITS
 
 FICYCISTS
+	Andrew "Viola Case" Rosene - Team lead
+	Bryce "Bryce Bryce Kim Kim" Kim - Assistant team lead
+	Medha "Arson" Fotedar
+	Ignacio "Nacho" Quiroz
 
 Initial Concept by
-	Andrew "Viola Case" Rosene
-	Medha "Arson" Fotedar
+	Andrew
+	Medha
 
 Programming team
-	Andrew "Viola Case" Rosene
-	Ignacio "Nacho" Quiroz
-	Bryce "Bryce Bryce Kim Kim" Kim
+	Andrew
+	Ignacio
+	Bryce
 
 Art by
-	Medha Fotedar
-	Andrew "Viola Case" Rosene
+	Medha
+	Andrew
 
 Music by
-	Andrew "Viola Case" Rosene
+	Andrew
 
