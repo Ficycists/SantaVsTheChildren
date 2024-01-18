@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvsa46x4y8tpk"]
 
 [ext_resource type="Script" path="res://scenes/powerups/powerup_jump.gd" id="1_jitcy"]
-[ext_resource type="Texture2D" uid="uid://uehuiwg7uax" path="res://assets/sprites/jump_powerup.png" id="1_kd366"]
+[ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="2_5yw8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x5vb"]
-size = Vector2(316.8, 239.999)
+size = Vector2(242.1, 279.643)
 
 [node name="powerup_jump" type="Area2D"]
 position = Vector2(6.10352e-05, 0.00012207)
@@ -12,14 +12,16 @@ scale = Vector2(0.0694444, 0.0583334)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_jitcy")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-28.8009, 68.5693)
-texture = ExtResource("1_kd366")
+position = Vector2(-0.00088501, -0.00208282)
+scale = Vector2(15, 16.636)
+texture = ExtResource("2_5yw8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-86.4009, -17.1444)
-scale = Vector2(1, 1)
+position = Vector2(-0.000915527, -0.00209045)
+scale = Vector2(1, 0.999999)
 shape = SubResource("RectangleShape2D_5x5vb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
