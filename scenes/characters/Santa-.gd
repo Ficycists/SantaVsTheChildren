@@ -50,11 +50,12 @@ func _process(delta):
 		var coal_pos = $CoalStartPos/leftMarker
 		missile.emit(coal_pos.global_position,facing_right)
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	#print(area.name)
-	if area.name =="ZombiChild_Area2D":
-		queue_free()
-		die.emit()
+	#if area.name =="ZombiChild_Area2D":
+	print('dead')
+	#$".".queue_free()
+	die.emit()
 
 func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 1000

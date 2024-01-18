@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 var direction = Vector2(-1,0)
 const SPEED = 100
-
+func _ready():
+	position.y=38
 func _process(_delta):
 	velocity = direction * SPEED
 	move_and_slide()

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=9 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="3_21xm2"]
-[ext_resource type="PackedScene" uid="uid://dl1dmoijq4vkg" path="res://scenes/characters/zombi_child.tscn" id="4_xlglu"]
 [ext_resource type="PackedScene" uid="uid://bvsa46x4y8tpk" path="res://scenes/powerups/powerup_jump.tscn" id="5_setsb"]
 [ext_resource type="PackedScene" uid="uid://cx2ppr13w7sow" path="res://scenes/powerups/powerup_speed.tscn" id="6_ctakw"]
 
@@ -14,7 +13,7 @@ size = Vector2(1154, 46)
 size = Vector2(2.36364, 633)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ckx"]
-size = Vector2(34.2378, 20)
+size = Vector2(578.126, 20)
 
 [node name="TestScene1" type="Node2D"]
 script = ExtResource("1_aus7c")
@@ -42,13 +41,10 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Area2D"]
-position = Vector2(1.14685, -7)
+position = Vector2(273.091, -7)
 shape = SubResource("RectangleShape2D_61ckx")
 
 [node name="Projectiles" type="Node2D" parent="."]
-
-[node name="ZombiChild" parent="." instance=ExtResource("4_xlglu")]
-position = Vector2(8, 9)
 
 [node name="tempdeathscene" type="Node2D" parent="."]
 

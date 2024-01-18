@@ -4,7 +4,7 @@ var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_c
 var death_scene: PackedScene = preload("res://scenes/temporary_deathscene.tscn")
 var powerup_jump: PackedScene = preload("res://scenes/powerups/powerup_jump.tscn")
 var right_side_zombies: PackedScene = preload("res://scenes/characters/zombi_child.tscn")
-
+var did_santa_die: bool = false
 const coal_speed: int = 300
 func _on_santa_throw(pos,direction):
 	var pcoal = throw_coal_scene.instantiate() as RigidBody2D
@@ -22,7 +22,8 @@ func _ready():
 	$ZOMBIES/Zombie_timer.start()
 
 func _process(_delta):
-	zombie_rate = (level_length / $Santa.position.x) / level_scale 
+	if did_santa_die==false:
+		zombie_rate = (level_length / $Santa.position.x) / level_scale 
 	#print(zombie_rate)
 	
 	pass
@@ -39,11 +40,15 @@ func _on_santa_missile(pos,direction):
 
 func _on_santa_die():
 	var dead = death_scene.instantiate()
+	dead.position.x=$Santa.position.x
 	$tempdeathscene.add_child(dead)
+	did_santa_die=true
+	#$Santa.
 
 func _on_zombie_timer_timeout():
+	#if did_santa_die==false:
 	var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
-	right_zombie.position.x = $Santa.position.x + 1000
+	right_zombie.position.x = $Santa.position.x + 1000 + randi_range(-47,73)
 	$ZOMBIES.add_child(right_zombie)
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
