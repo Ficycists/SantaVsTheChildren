@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvsa46x4y8tpk"]
+
+[ext_resource type="Script" path="res://scenes/powerups/powerup_jump.gd" id="1_jitcy"]
+[ext_resource type="Texture2D" uid="uid://uehuiwg7uax" path="res://assets/sprites/jump_powerup.png" id="1_kd366"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x5vb"]
+size = Vector2(316.8, 239.999)
+
+[node name="powerup_jump" type="Area2D"]
+position = Vector2(6.10352e-05, 0.00012207)
+scale = Vector2(0.0694444, 0.0583334)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_jitcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-28.8009, 68.5693)
+texture = ExtResource("1_kd366")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-86.4009, -17.1444)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5x5vb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
