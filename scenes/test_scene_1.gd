@@ -1,12 +1,12 @@
 extends Node2D
 
 var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_coal.tscn")
-
+const coal_speed: int = 300
 func _on_santa_throw(pos,direction):
 	var pcoal = throw_coal_scene.instantiate() as RigidBody2D
 	pcoal.position = pos
 	pcoal.gravity_scale = 1
-	pcoal.linear_velocity = Vector2(direction*350,-350)
+	pcoal.linear_velocity = Vector2(direction*330,-200)
 	$Projectiles.add_child(pcoal)
 	
 func _ready():

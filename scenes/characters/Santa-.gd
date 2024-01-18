@@ -7,10 +7,11 @@ var facing_right: int = 1
 signal throw(pos,direction)
 signal missile(pos,direction)
 
-const Gravity = 20
-const jumpspeed = 700
+const Gravity = 25
+const jumpspeed = 500
 const floor = Vector2(0,-1)
-const horizspeed = 300
+const horizspeed = 150
+const deaccel = 25
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#pos = Vector2(38,596)
@@ -22,10 +23,10 @@ func _ready():
 func _process(delta):
 
 	if Input.is_action_pressed("left"):
-		velocity.x -= horizspeed*delta
+		velocity.x = - horizspeed*delta*100
 		facing_right = -1
 	elif Input.is_action_pressed("right"):
-		velocity.x += horizspeed*delta
+		velocity.x = horizspeed*delta*100
 		facing_right = 1
 	else:
 		velocity.x = 0

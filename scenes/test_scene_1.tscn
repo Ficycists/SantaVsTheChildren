@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=7 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atwvc"]
+size = Vector2(2.36364, 633)
 
 [node name="TestScene1" type="Node2D"]
 script = ExtResource("1_aus7c")
@@ -25,6 +28,10 @@ texture = ExtResource("1_awjfy")
 [node name="GroundBox" type="CollisionShape2D" parent="Ground"]
 position = Vector2(560.867, 6)
 shape = SubResource("RectangleShape2D_33qmm")
+
+[node name="left wall" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-17.2028, -313)
+shape = SubResource("RectangleShape2D_atwvc")
 
 [node name="Projectiles" type="Node2D" parent="."]
 
