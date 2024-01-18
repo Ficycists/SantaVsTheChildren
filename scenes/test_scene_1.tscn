@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=9 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="3_21xm2"]
-[ext_resource type="PackedScene" uid="uid://dl1dmoijq4vkg" path="res://scenes/characters/zombi_child.tscn" id="4_xlglu"]
+[ext_resource type="PackedScene" uid="uid://bvsa46x4y8tpk" path="res://scenes/powerups/powerup_jump.tscn" id="5_setsb"]
+[ext_resource type="PackedScene" uid="uid://cx2ppr13w7sow" path="res://scenes/powerups/powerup_speed.tscn" id="6_ctakw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atwvc"]
 size = Vector2(2.36364, 633)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ckx"]
+size = Vector2(578.126, 20)
 
 [node name="TestScene1" type="Node2D"]
 script = ExtResource("1_aus7c")
@@ -20,7 +24,6 @@ position = Vector2(47, 591)
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(575, 631)
 scale = Vector2(35.75, 1)
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 texture = ExtResource("1_awjfy")
@@ -33,10 +36,31 @@ shape = SubResource("RectangleShape2D_33qmm")
 position = Vector2(-17.2028, -313)
 shape = SubResource("RectangleShape2D_atwvc")
 
+[node name="Area2D" type="Area2D" parent="Ground"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Area2D"]
+position = Vector2(273.091, -7)
+shape = SubResource("RectangleShape2D_61ckx")
+
 [node name="Projectiles" type="Node2D" parent="."]
 
-[node name="ZombiChild" parent="." instance=ExtResource("4_xlglu")]
-position = Vector2(8, 9)
+[node name="tempdeathscene" type="Node2D" parent="."]
 
+[node name="powerup_jump" parent="." instance=ExtResource("5_setsb")]
+position = Vector2(784, 592)
+
+[node name="powerup_speed" parent="." instance=ExtResource("6_ctakw")]
+position = Vector2(264, 600)
+
+[node name="ZOMBIES" type="Node2D" parent="."]
+
+[node name="Zombie_timer" type="Timer" parent="ZOMBIES"]
+
+[connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]
+[connection signal="powerup_jump_sig" from="powerup_jump" to="Santa" method="_on_powerup_jump_powerup_jump_sig"]
+[connection signal="powerup_speed_sig" from="powerup_speed" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
+[connection signal="timeout" from="ZOMBIES/Zombie_timer" to="." method="_on_zombie_timer_timeout"]

@@ -12,6 +12,8 @@ radius = 8.0
 radius = 9.0
 
 [node name="parabola_coal" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_wtnax")
 script = ExtResource("1_c4mlw")
 
@@ -22,6 +24,8 @@ texture = ExtResource("1_r5xj8")
 shape = SubResource("CircleShape2D_nuxwt")
 
 [node name="Area2Dcoal" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 39
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2Dcoal"]
 shape = SubResource("CircleShape2D_j6ght")
