@@ -10,7 +10,7 @@ signal die
 
 const Gravity = 25
 var jumpspeed: int = 500
-const floor = Vector2(0,-1)
+
 var horizspeed: int = 150
 const deaccel = 25
 const idk_how_long_for_powerups: int = 4
@@ -51,7 +51,10 @@ func _process(delta):
 		missile.emit(coal_pos.global_position,facing_right)
 
 func _on_area_2d_area_entered(area):
-	die.emit()
+	#print(area.name)
+	if area.name =="ZombiChild_Area2D":
+		queue_free()
+		die.emit()
 
 func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 1000

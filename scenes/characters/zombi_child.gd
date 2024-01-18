@@ -3,7 +3,7 @@ extends CharacterBody2D
 var direction = Vector2(-1,0)
 const SPEED = 100
 
-func _process(delta):
+func _process(_delta):
 	velocity = direction * SPEED
 	move_and_slide()
 		
@@ -36,4 +36,5 @@ func _process(delta):
 
 
 func _on_area_2d_area_entered(area):
-	$".".queue_free() # Replace with function body.
+	if area.name=="Area2Dcoal":
+		queue_free() # Replace with function body.

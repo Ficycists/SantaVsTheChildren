@@ -58,8 +58,13 @@ position = Vector2(784, 592)
 [node name="powerup_speed" parent="." instance=ExtResource("6_ctakw")]
 position = Vector2(264, 600)
 
+[node name="ZOMBIES" type="Node2D" parent="."]
+
+[node name="Zombie_timer" type="Timer" parent="ZOMBIES"]
+
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]
 [connection signal="powerup_jump_sig" from="powerup_jump" to="Santa" method="_on_powerup_jump_powerup_jump_sig"]
 [connection signal="powerup_speed_sig" from="powerup_speed" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
+[connection signal="timeout" from="ZOMBIES/Zombie_timer" to="." method="_on_zombie_timer_timeout"]

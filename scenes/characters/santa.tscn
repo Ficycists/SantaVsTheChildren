@@ -10,7 +10,7 @@ size = Vector2(20, 29)
 size = Vector2(27.5, 32.5)
 
 [node name="Santa" type="CharacterBody2D"]
-position = Vector2(111, 105)
+position = Vector2(574, 315)
 collision_layer = 8
 collision_mask = 21
 script = ExtResource("1_prmy7")
@@ -44,6 +44,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.25, 1.75)
 shape = SubResource("RectangleShape2D_1s40i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = 768
+editor_draw_limits = true
 
 [connection signal="timeout" from="jumppwruptimer" to="." method="_on_jumppwruptimer_timeout"]
 [connection signal="timeout" from="speedtimer" to="." method="_on_speedtimer_timeout"]

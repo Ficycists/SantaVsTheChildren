@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#if Input.is_action_pressed("coal"):
 		
 	pass
@@ -20,7 +20,7 @@ func _process(delta):
 	
 
 
-func _on_area_2_dcoal_area_entered(body):
-	$".".queue_free()
+func _on_area_2_dcoal_area_entered(_body):
+	queue_free()
 
 
