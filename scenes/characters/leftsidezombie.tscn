@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dkv6xexl75832" path="res://assets/sprites/zombChild_1_sprpng.png" id="1_tgauh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f31ij"]
-size = Vector2(20, 32)
+size = Vector2(19, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqmpe"]
-size = Vector2(25, 35)
+size = Vector2(19, 31)
 
 [node name="leftsidezombie" type="CharacterBody2D"]
 collision_layer = 4
@@ -22,6 +22,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 33)
 
 [node name="leftsidezombiecoll" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_f31ij")
 
 [node name="leftsidezombiearea" type="Area2D" parent="."]
@@ -29,7 +30,7 @@ collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftsidezombiearea"]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_nqmpe")
 
 [connection signal="area_entered" from="leftsidezombiearea" to="." method="_on_leftsidezombiearea_area_entered"]
