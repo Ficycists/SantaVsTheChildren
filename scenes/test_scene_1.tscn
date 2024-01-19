@@ -19,6 +19,7 @@ size = Vector2(0.620629, 608)
 script = ExtResource("1_aus7c")
 
 [node name="Santa" parent="." instance=ExtResource("3_21xm2")]
+texture_filter = 1
 position = Vector2(47, 591)
 collision_mask = 149
 
@@ -27,6 +28,7 @@ position = Vector2(575, 631)
 scale = Vector2(35.75, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture_filter = 1
 texture = ExtResource("1_awjfy")
 
 [node name="GroundBox" type="CollisionShape2D" parent="Ground"]
@@ -61,6 +63,7 @@ position = Vector2(784, 592)
 position = Vector2(264, 600)
 
 [node name="ZOMBIES" type="Node2D" parent="."]
+texture_filter = 1
 
 [node name="Zombie_timer" type="Timer" parent="ZOMBIES"]
 
