@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl1dmoijq4vkg"]
+
+[ext_resource type="Texture2D" uid="uid://5o4fbw050j1l" path="res://assets/sprites/zombChild_0_sprpng.png" id="1_ai5c3"]
+[ext_resource type="Script" path="res://scenes/characters/zombi_child.gd" id="1_ktyft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v1gi"]
+size = Vector2(16, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_188l5"]
+size = Vector2(20, 36)
+
+[node name="ZombiChild" type="CharacterBody2D"]
+position = Vector2(-1, -1)
+collision_layer = 4
+collision_mask = 131
+script = ExtResource("1_ktyft")
+metadata/_edit_group_ = true
+
+[node name="ZombChild0Sprpng" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.900919, 1.13009)
+texture = ExtResource("1_ai5c3")
+region_enabled = true
+region_rect = Rect2(1.54131, 33.1616, 30.309, 31.1876)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6v1gi")
+
+[node name="ZombiChild_Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 138
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombiChild_Area2D"]
+shape = SubResource("RectangleShape2D_188l5")
+
+[connection signal="area_entered" from="ZombiChild_Area2D" to="." method="_on_area_2d_area_entered"]

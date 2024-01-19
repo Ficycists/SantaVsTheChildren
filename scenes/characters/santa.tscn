@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://6gmh1bfwk852"]
+[gd_scene load_steps=5 format=3 uid="uid://6gmh1bfwk852"]
 
 [ext_resource type="Script" path="res://scenes/characters/Santa-.gd" id="1_prmy7"]
 [ext_resource type="Texture2D" uid="uid://dsl6hcqj6e1bl" path="res://assets/sprites/standingsprite.png" id="2_py6e7"]
@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw754"]
 size = Vector2(20, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s40i"]
+size = Vector2(27.5, 32.5)
+
 [node name="Santa" type="CharacterBody2D"]
-position = Vector2(115, 101)
+collision_layer = 8
+collision_mask = 21
 script = ExtResource("1_prmy7")
 metadata/_edit_group_ = true
 
@@ -19,9 +23,33 @@ texture = ExtResource("2_py6e7")
 position = Vector2(0.256653, 1.47237)
 shape = SubResource("RectangleShape2D_dw754")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="jumppwruptimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="speedtimer" type="Timer" parent="."]
 
 [node name="CoalStartPos" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="CoalStartPos"]
+[node name="rightMarker" type="Marker2D" parent="CoalStartPos"]
 position = Vector2(20, 0)
+
+[node name="leftMarker" type="Marker2D" parent="CoalStartPos"]
+position = Vector2(-20, 0)
+
+[node name="Santa_Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Santa_Area2D"]
+position = Vector2(1.25, 1.75)
+shape = SubResource("RectangleShape2D_1s40i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_bottom = 768
+editor_draw_limits = true
+
+[connection signal="timeout" from="jumppwruptimer" to="." method="_on_jumppwruptimer_timeout"]
+[connection signal="timeout" from="speedtimer" to="." method="_on_speedtimer_timeout"]
+[connection signal="area_entered" from="Santa_Area2D" to="." method="_on_area_2d_area_entered"]
