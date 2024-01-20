@@ -5,8 +5,16 @@ Please mark everything that is complete and up for review with an asterisk [*] a
 For discussion, please indent the line and add a doubleslash comment.
 
 -Gameplay-
-	Jumping works
-	Consistent movement
+	*Jumping works 
+	*Consistent movement 
+	*Dying works 
+	*Shooting works 
+	Moving between levels
+	actual  different levels
+	powerups
+		*apply powerup to player
+		distribute throughout level
+
 	
 -Art-
 	Children
@@ -22,5 +30,7 @@ For discussion, please indent the line and add a doubleslash comment.
 			// Yes, we're doing this.
 	Story Backdrops
 		* Opening menu
+		santa is dead
+		everything in between
 		
 		
