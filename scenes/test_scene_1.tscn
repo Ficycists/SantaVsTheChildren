@@ -55,8 +55,6 @@ shape = SubResource("RectangleShape2D_643j6")
 
 [node name="Projectiles" type="Node2D" parent="."]
 
-[node name="tempdeathscene" type="Node2D" parent="."]
-
 [node name="powerup_jump" parent="." instance=ExtResource("5_setsb")]
 position = Vector2(784, 592)
 

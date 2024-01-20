@@ -3,6 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://dlecpp4a22y52" path="res://assets/images-misc/backdrops/temporary_death_scene.png" id="1_sexas"]
 
 [node name="temporary deathscene" type="Sprite2D"]
-position = Vector2(567.5, 270)
-scale = Vector2(0.981771, 0.780556)
+scale = Vector2(0.272, 0.25)
 texture = ExtResource("1_sexas")

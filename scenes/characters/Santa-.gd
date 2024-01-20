@@ -17,6 +17,8 @@ const idk_how_long_for_powerups: int = 4
 const needed_missile_fragments: int = 7
 var collected_missile_fragments = 0
 
+var dead: bool = false
+
 func _ready():
 	position = Vector2(38,596)
 
@@ -24,17 +26,17 @@ func _process(delta):
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
 	
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") and dead==false:
 		velocity.x = - horizspeed*delta*100
 		#$Santaimg.
 		facing_right = -1
-	elif Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right")and dead == false:
 		velocity.x = horizspeed*delta*100
 		facing_right = 1
 	else:
 		velocity.x = 0
 	
-	if Input.is_action_just_pressed("up"):
+	if Input.is_action_just_pressed("up")and dead==false:
 		if is_on_floor():
 			velocity.y = -jumpspeed
 	velocity.y+=Gravity
@@ -54,12 +56,12 @@ func _process(delta):
 		var coal_pos = $CoalStartPos/leftMarker
 		missile.emit(coal_pos.global_position,facing_right)
 
-func _on_area_2d_area_entered(_area):
+#func _on_area_2d_area_entered(_area):
 	#print(area.name)
 	#if area.name =="ZombiChild_Area2D":
 	#print('dead')
 	#$".".queue_free()
-	die.emit()
+	#die.emit()
 
 func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 1000
@@ -77,7 +79,12 @@ func _on_powerup_speed_powerup_speed_sig():
 func _on_speedtimer_timeout():
 	horizspeed = 150
 
-
 func _on_collectable_fragment_missile_missile_fragment_collected():
 	collected_missile_fragments += 1
 	print(collected_missile_fragments)
+
+func _on_santa_area_2d_body_entered(body):
+	if "ombi" in body.name:
+		die.emit()
+		dead = true
+		print('die')

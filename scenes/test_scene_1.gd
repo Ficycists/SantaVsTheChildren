@@ -52,11 +52,20 @@ func _on_santa_missile(pos,direction):
 
 
 func _on_santa_die():
-	var dead = death_scene.instantiate()
-	dead.position.x=$Santa.position.x
-	$tempdeathscene.add_child(dead)
+	#print('d')
+	var dead_scene = death_scene.instantiate() as Sprite2D
+	
+	add_child(dead_scene)
 	did_santa_die=true
+	#while did_santa_die==true:
+	dead_scene.position.x=$Santa.position.x
+	dead_scene.position.y=$Santa.position.y
+	##reset option
 	#$Santa.
+
+func reset():
+	
+
 
 func _on_zombie_timer_timeout():
 	#if did_santa_die==false:
