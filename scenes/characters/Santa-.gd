@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var can_missile: bool = false
+@export var can_missile: bool = false
 var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_coal.tscn")
 var facing_right: int = 1
 
@@ -15,9 +15,9 @@ var horizspeed: int = 150
 const deaccel = 25
 const idk_how_long_for_powerups: int = 4
 const needed_missile_fragments: int = 7
-var collected_missile_fragments = 0
+@export var collected_missile_fragments = 0
 
-var dead: bool = false
+@export var dead: bool = false
 
 func _ready():
 	position = Vector2(38,596)
@@ -84,7 +84,7 @@ func _on_collectable_fragment_missile_missile_fragment_collected():
 	print(collected_missile_fragments)
 
 func _on_santa_area_2d_body_entered(body):
-	if body.is_in_group("Zombies"):
+	if body.is_in_group("Zombies") and dead==false:
 		die.emit()
 		dead = true
 		#print('die')

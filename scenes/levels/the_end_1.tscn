@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7dutkbfw5mf0"]
+
+[ext_resource type="Script" path="res://scenes/levels/the_end_1.gd" id="1_cwmwo"]
+[ext_resource type="Texture2D" uid="uid://g85ix6uvo2ex" path="res://assets/sprites/i_am_bad_at_art_pls_make_prettier/temporary_done_1.png" id="1_mxyri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_saapw"]
+size = Vector2(111, 64)
+
+[node name="the_end_1" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_cwmwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0972222, 0.0902778)
+texture = ExtResource("1_mxyri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_saapw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

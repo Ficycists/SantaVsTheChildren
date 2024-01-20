@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx6al1qe2vdu4"]
+[gd_scene load_steps=3 format=3 uid="uid://cx6al1qe2vdu4"]
 
 [ext_resource type="Texture2D" uid="uid://dlecpp4a22y52" path="res://assets/images-misc/backdrops/temporary_death_scene.png" id="1_sexas"]
+[ext_resource type="Texture2D" uid="uid://d06l45hakjyro" path="res://assets/images-misc/backdrops/temporary_death_scene_2.png" id="2_545qe"]
 
 [node name="temporary deathscene" type="Sprite2D"]
 scale = Vector2(0.272, 0.25)
 texture = ExtResource("1_sexas")
+
+[node name="TemporaryDeathScene2" type="Sprite2D" parent="."]
+texture = ExtResource("2_545qe")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxs4fakvi71tj"]
 
-[ext_resource type="Texture2D" uid="uid://d3rn0cbppt4ti" path="res://assets/sprites/random_other_sprites/missile_part.png" id="1_fptpo"]
+[ext_resource type="Texture2D" uid="uid://d3rn0cbppt4ti" path="res://assets/sprites/i_am_bad_at_art_pls_make_prettier/missile_part.png" id="1_fptpo"]
 [ext_resource type="Script" path="res://scenes/projectiles/collectable_fragment_missile.gd" id="1_sapbw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cwtb"]

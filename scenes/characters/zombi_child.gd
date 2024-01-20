@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal change_direction
-var direction = -1
+
 var jumpspeed: int = 400
 var jump: bool = false
 const SPEED = 100
@@ -9,7 +9,7 @@ const Gravity: int = 30
 func _ready():
 	position.y=596
 func _process(_delta):
-	velocity.x = direction * SPEED
+	velocity.x = -1 * SPEED
 	
 	if jump==true and is_on_floor():
 		velocity.y = -jumpspeed
