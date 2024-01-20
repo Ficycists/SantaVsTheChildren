@@ -8,12 +8,12 @@ var left_side_zombies: PackedScene = preload("res://scenes/characters/leftsidezo
 var missile_fragment: PackedScene = preload("res://scenes/projectiles/collectable_fragment_missile.tscn")
 
 var did_santa_die: bool = false
-const coal_speed: int = 300
+const coal_speed: int = 215
 func _on_santa_throw(pos,direction):
 	var pcoal = throw_coal_scene.instantiate() as RigidBody2D
 	pcoal.position = pos
 	pcoal.gravity_scale = 1
-	pcoal.linear_velocity = Vector2(direction*(400+abs($Santa.velocity.x)),-200)
+	pcoal.linear_velocity = Vector2(direction*(coal_speed+abs($Santa.velocity.x)),-200)
 	$Projectiles.add_child(pcoal)
 	
 const level_length: int = 10000
@@ -63,7 +63,7 @@ func _on_santa_die():
 	##reset option
 	#$Santa.
 
-func reset():
+#func reset():
 	
 
 

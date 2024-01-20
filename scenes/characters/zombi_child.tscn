@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl1dmoijq4vkg"]
+[gd_scene load_steps=6 format=3 uid="uid://dl1dmoijq4vkg"]
 
 [ext_resource type="Texture2D" uid="uid://5o4fbw050j1l" path="res://assets/sprites/zombChild_0_sprpng.png" id="1_ai5c3"]
 [ext_resource type="Script" path="res://scenes/characters/zombi_child.gd" id="1_ktyft"]
@@ -6,13 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6v1gi"]
 size = Vector2(16, 35)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_188l5"]
-size = Vector2(20, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui5wh"]
+size = Vector2(35, 3.5)
 
-[node name="ZombiChild" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_188l5"]
+size = Vector2(20, 37)
+
+[node name="ZombiChild" type="CharacterBody2D" groups=["Zombies"]]
 position = Vector2(-1, -1)
 collision_layer = 4
-collision_mask = 131
+collision_mask = 147
 script = ExtResource("1_ktyft")
 metadata/_edit_group_ = true
 
@@ -26,11 +29,22 @@ region_rect = Rect2(1.54131, 33.1616, 30.309, 31.1876)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6v1gi")
 
+[node name="Zombi_Horiz_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zombi_Horiz_Area"]
+position = Vector2(-0.5, -1.75)
+shape = SubResource("RectangleShape2D_ui5wh")
+
 [node name="ZombiChild_Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 138
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombiChild_Area2D"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_188l5")
 
+[connection signal="body_entered" from="Zombi_Horiz_Area" to="." method="_on_zombi_horiz_area_body_entered"]
 [connection signal="area_entered" from="ZombiChild_Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="ZombiChild_Area2D" to="." method="_on_zombi_child_area_2d_body_entered"]

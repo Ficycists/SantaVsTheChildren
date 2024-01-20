@@ -84,7 +84,7 @@ func _on_collectable_fragment_missile_missile_fragment_collected():
 	print(collected_missile_fragments)
 
 func _on_santa_area_2d_body_entered(body):
-	if "ombi" in body.name:
+	if body.is_in_group("Zombies"):
 		die.emit()
 		dead = true
-		print('die')
+		#print('die')

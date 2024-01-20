@@ -1,13 +1,24 @@
 extends CharacterBody2D
 
 signal change_direction
-var direction = Vector2(-1,0)
+var direction = -1
+var jumpspeed: int = 400
+var jump: bool = false
 const SPEED = 100
+const Gravity: int = 30
 func _ready():
 	position.y=596
 func _process(_delta):
-	velocity = direction * SPEED
+	velocity.x = direction * SPEED
+	
+	if jump==true and is_on_floor():
+		velocity.y = -jumpspeed
+		jump = false
+	velocity.y+=Gravity
+	
 	move_and_slide()
+
+
 		
 
 #const SPEED = 300.0
@@ -18,6 +29,9 @@ func _process(_delta):
 #
 #
 #func _physics_process(delta):
+#	if 
+#		if is_on_floor():
+#			velocity.y = -jumpspeed
 	## Add the gravity.
 	#if not is_on_floor():
 		#velocity.y += gravity * delta
@@ -41,3 +55,9 @@ func _on_area_2d_area_entered(area):
 	if area.name=="Area2Dcoal":
 		queue_free() # Replace with function body.
 
+func _on_zombi_horiz_area_body_entered(body):
+	#print(body.name)
+	if body.is_in_group("BRICKS"):
+		#print('a')
+		jump = true
+		

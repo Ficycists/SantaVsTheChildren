@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://r58ntc82cc3p"]
+
+[ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_4j6rf"]
+[ext_resource type="Texture2D" uid="uid://c7wn3rdvf1gkg" path="res://assets/sprites/sign.png" id="2_2e6fm"]
+[ext_resource type="Texture2D" uid="uid://bqt71y7d5xwxa" path="res://assets/sprites/greysky_txtr.png" id="3_3vn4t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tddf"]
+resource_name = "Brick"
+texture = ExtResource("1_4j6rf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67pmh"]
+texture = ExtResource("2_2e6fm")
+texture_region_size = Vector2i(32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d04n7"]
+texture = ExtResource("3_3vn4t")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_1d0tw"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 14
+sources/0 = SubResource("TileSetAtlasSource_2tddf")
+sources/1 = SubResource("TileSetAtlasSource_67pmh")
+sources/2 = SubResource("TileSetAtlasSource_d04n7")
+
+[node name="BaseLevelTest" type="TileMap" groups=["BRICKS"]]
+tile_set = SubResource("TileSet_1d0tw")
+format = 2
