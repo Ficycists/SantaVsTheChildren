@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=10 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="3_21xm2"]
 [ext_resource type="PackedScene" uid="uid://bvsa46x4y8tpk" path="res://scenes/powerups/powerup_jump.tscn" id="5_setsb"]
 [ext_resource type="PackedScene" uid="uid://cx2ppr13w7sow" path="res://scenes/powerups/powerup_speed.tscn" id="6_ctakw"]
+[ext_resource type="PackedScene" uid="uid://cxs4fakvi71tj" path="res://scenes/projectiles/collectable_fragment_missile.tscn" id="6_laukx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
@@ -64,9 +65,14 @@ position = Vector2(264, 600)
 
 [node name="Zombie_timer" type="Timer" parent="ZOMBIES"]
 
+[node name="collectable_fragment_missile" parent="." instance=ExtResource("6_laukx")]
+position = Vector2(552, 584)
+metadata/_edit_group_ = true
+
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]
 [connection signal="powerup_jump_sig" from="powerup_jump" to="Santa" method="_on_powerup_jump_powerup_jump_sig"]
 [connection signal="powerup_speed_sig" from="powerup_speed" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
 [connection signal="timeout" from="ZOMBIES/Zombie_timer" to="." method="_on_zombie_timer_timeout"]
+[connection signal="missile_fragment_collected" from="collectable_fragment_missile" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]

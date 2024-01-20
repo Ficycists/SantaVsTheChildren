@@ -5,6 +5,7 @@ var death_scene: PackedScene = preload("res://scenes/temporary_deathscene.tscn")
 var powerup_jump: PackedScene = preload("res://scenes/powerups/powerup_jump.tscn")
 var right_side_zombies: PackedScene = preload("res://scenes/characters/zombi_child.tscn")
 var left_side_zombies: PackedScene = preload("res://scenes/characters/leftsidezombie.tscn")
+var missile_fragment: PackedScene = preload("res://scenes/projectiles/collectable_fragment_missile.tscn")
 
 var did_santa_die: bool = false
 const coal_speed: int = 300
@@ -15,11 +16,21 @@ func _on_santa_throw(pos,direction):
 	pcoal.linear_velocity = Vector2(direction*(400+abs($Santa.velocity.x)),-200)
 	$Projectiles.add_child(pcoal)
 	
-const level_length: int = 100000
-const level_scale: int =  100
+const level_length: int = 10000
+const level_scale: int =  10
 var zombie_rate = 2
 
+func spawn_missile_parts():
+	var n=1
+	var f=7
+	while n<=1.5*f:
+		var missile_part = missile_fragment.instantiate() as Area2D
+		missile_part.position = Vector2(randi_range(100,level_length),576)
+		add_child(missile_part)
+		n+=1
+
 func _ready():
+	#spawn_missile_parts()
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 

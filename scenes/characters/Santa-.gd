@@ -14,12 +14,16 @@ var jumpspeed: int = 500
 var horizspeed: int = 150
 const deaccel = 25
 const idk_how_long_for_powerups: int = 4
+const needed_missile_fragments: int = 7
+var collected_missile_fragments = 0
 
 func _ready():
 	position = Vector2(38,596)
 
 func _process(delta):
-
+	if collected_missile_fragments >= needed_missile_fragments:
+		can_missile = true
+	
 	if Input.is_action_pressed("left"):
 		velocity.x = - horizspeed*delta*100
 		#$Santaimg.
@@ -53,7 +57,7 @@ func _process(delta):
 func _on_area_2d_area_entered(_area):
 	#print(area.name)
 	#if area.name =="ZombiChild_Area2D":
-	print('dead')
+	#print('dead')
 	#$".".queue_free()
 	die.emit()
 
@@ -72,3 +76,8 @@ func _on_powerup_speed_powerup_speed_sig():
 
 func _on_speedtimer_timeout():
 	horizspeed = 150
+
+
+func _on_collectable_fragment_missile_missile_fragment_collected():
+	collected_missile_fragments += 1
+	print(collected_missile_fragments)
