@@ -8,4 +8,6 @@ scale = Vector2(0.272, 0.25)
 texture = ExtResource("1_sexas")
 
 [node name="TemporaryDeathScene2" type="Sprite2D" parent="."]
+position = Vector2(62.5, 7.99999)
+scale = Vector2(1.35848, 1.40556)
 texture = ExtResource("2_545qe")

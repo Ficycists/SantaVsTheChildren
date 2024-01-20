@@ -19,10 +19,19 @@ const needed_missile_fragments: int = 7
 
 @export var dead: bool = false
 
+var throw_speed = .35
+var misisle_speed = .5
+var reloaded: bool = true
+
+
+
 func _ready():
 	position = Vector2(38,596)
+	
 
 func _process(delta):
+	$reload_throw_timer.wait_time = throw_speed
+	$reload_missile_timer.wait_time = misisle_speed
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
 	
@@ -43,18 +52,29 @@ func _process(delta):
 	
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("coal") and can_missile==false and facing_right==1:
+	if Input.is_action_just_pressed("coal") and can_missile==false and reloaded==true and facing_right==1:
+		reloaded=false
+		$reload_throw_timer.start()
 		var coal_pos = $CoalStartPos/rightMarker
 		throw.emit(coal_pos.global_position, facing_right)
-	elif Input.is_action_just_pressed("coal") and can_missile==false and facing_right==-1:
+		
+	elif Input.is_action_just_pressed("coal") and can_missile==false and reloaded ==true and facing_right==-1:
+		reloaded=false
+		$reload_throw_timer.start()
 		var coal_pos = $CoalStartPos/leftMarker
 		throw.emit(coal_pos.global_position, facing_right)
-	elif Input.is_action_just_pressed("coal") and can_missile==true and facing_right==1:
+	elif Input.is_action_just_pressed("coal") and can_missile==true and reloaded==true and facing_right==1:
+		reloaded=false
+		$reload_missile_timer.start()
 		var coal_pos = $CoalStartPos/rightMarker
 		missile.emit(coal_pos.global_position,facing_right)
-	elif Input.is_action_just_pressed("coal") and can_missile==true and facing_right==-1:
+	elif Input.is_action_just_pressed("coal") and can_missile==true and reloaded==true and facing_right==-1:
+		reloaded=false
+		$reload_missile_timer.start()
 		var coal_pos = $CoalStartPos/leftMarker
 		missile.emit(coal_pos.global_position,facing_right)
+	elif Input.is_action_just_pressed("coal") and reloaded==false:
+		print('cant')
 
 #func _on_area_2d_area_entered(_area):
 	#print(area.name)
@@ -64,7 +84,7 @@ func _process(delta):
 	#die.emit()
 
 func _on_powerup_jump_powerup_jump_sig():
-	jumpspeed = 1000
+	jumpspeed = 800
 	$jumppwruptimer.wait_time = idk_how_long_for_powerups
 	$jumppwruptimer.start()
 
@@ -88,3 +108,9 @@ func _on_santa_area_2d_body_entered(body):
 		die.emit()
 		dead = true
 		#print('die')
+
+
+func _on_reload_throw_timer_timeout():
+	reloaded=true # Replace with function body.
+func _on_reload_missile_timer_timeout():
+	reloaded=true # Replace with function body.
