@@ -109,9 +109,9 @@ func _on_zombie_timer_timeout():
 	#if did_santa_die==false:
 	var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
 	var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
-	right_zombie.position.x = $Santa.position.x + 200 + randi_range(-10,10)
+	right_zombie.position.x = $Santa.position.x + 500 + randi_range(-10,10)
 
-	left_zombie.position.x = $Santa.position.x - 200 + randi_range(-10,10)
+	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
 
 	$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
