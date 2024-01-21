@@ -121,4 +121,4 @@ func _on_zombie_timer_timeout():
 
 func _on_the_end_1_level_done():
 	#print('done')
-	$Control.get_tree().change_scene_to_file("res://scenes/test_scene_4.tscn")
+	$Control.get_tree().change_scene_to_file("res://scenes/test_scene_1.tscn")

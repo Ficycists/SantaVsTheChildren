@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ci10h2a77jh57"]
 
-[ext_resource type="Script" path="res://scenes/test_scene_2.gd" id="1_t2uk0"]
+[ext_resource type="Script" path="res://scenes/test_scene_3.gd" id="1_ekoij"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="2_7dum1"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="3_fm0sc"]
 [ext_resource type="PackedScene" uid="uid://r58ntc82cc3p" path="res://scenes/levels/base_level_test.tscn" id="4_pdcdc"]
@@ -20,7 +20,7 @@ size = Vector2(599.72, 18)
 size = Vector2(0.620629, 608)
 
 [node name="TestScene3" type="Node2D"]
-script = ExtResource("1_t2uk0")
+script = ExtResource("1_ekoij")
 
 [node name="Santa" parent="." instance=ExtResource("2_7dum1")]
 texture_filter = 1
