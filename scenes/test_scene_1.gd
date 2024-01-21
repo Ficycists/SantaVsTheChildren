@@ -44,7 +44,7 @@ func _ready():
 func _process(_delta):
 	if did_santa_die==false and cured==false:
 		zombie_rate = (level_length / ($Santa.position.x**1.3)) #/ level_scale 
-		print(zombie_rate,"     ",$Santa.position.x)
+		#print(zombie_rate,"     ",$Santa.position.x)
 	if did_santa_die==true:
 		level_reset(start)
 	if check_dead==true:
@@ -110,11 +110,12 @@ func _on_zombie_timer_timeout():
 	var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
 	var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
 	right_zombie.position.x = $Santa.position.x + 500 + randi_range(-10,10)
-
+	right_zombie.position.y = 500
 	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
-
+	right_zombie.position.y = 500
 	$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
+	print('new-zombie')
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 
