@@ -81,7 +81,7 @@ position = Vector2(568, 456)
 metadata/_edit_group_ = true
 
 [node name="the_end_1" parent="." instance=ExtResource("8_wjwca")]
-position = Vector2(1856, 400)
+position = Vector2(536, 584)
 
 [node name="child_node" type="Node2D" parent="."]
 
@@ -91,6 +91,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_ywni5")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]

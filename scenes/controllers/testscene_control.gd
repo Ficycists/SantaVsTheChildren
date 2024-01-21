@@ -19,4 +19,4 @@ func change_scene() -> void:
 	var tree = get_tree()
 	
 	# Change the scene
-	tree.change_scene_to_file("res://scenes/test_scene_2.tscn")
+	tree.change_scene_to_file("res://scenes/test_scene_2a.tscn")
