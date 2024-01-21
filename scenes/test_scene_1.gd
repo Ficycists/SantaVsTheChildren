@@ -120,5 +120,10 @@ func _on_zombie_timer_timeout():
 
 func _on_the_end_1_level_done():
 	#print('done')
-	change_level = true
-	level_num += 1
+	var tree = get_tree()
+	
+	# Load the new scene
+	var new_scene = preload("res://scenes/test_scene_2.tscn")
+	
+	# Change the scene
+	tree.change_scene(new_scene)
