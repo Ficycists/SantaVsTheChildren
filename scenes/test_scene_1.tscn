@@ -99,4 +99,3 @@ script = ExtResource("9_ywni5")
 [connection signal="powerup_speed_sig" from="powerup_speed" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
 [connection signal="timeout" from="ZOMBIES/Zombie_timer" to="." method="_on_zombie_timer_timeout"]
 [connection signal="missile_fragment_collected" from="collectable_fragment_missile" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
-[connection signal="level_done" from="the_end_1" to="." method="_on_the_end_1_level_done"]
