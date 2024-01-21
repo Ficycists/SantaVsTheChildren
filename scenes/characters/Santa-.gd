@@ -7,6 +7,7 @@ var facing_right: int = 1
 signal throw(pos,direction)
 signal missile(pos,direction)
 signal die
+signal cant_reload
 
 const Gravity = 25
 var jumpspeed: int = 500
@@ -74,7 +75,8 @@ func _process(delta):
 		var coal_pos = $CoalStartPos/leftMarker
 		missile.emit(coal_pos.global_position,facing_right)
 	elif Input.is_action_just_pressed("coal") and reloaded==false:
-		print('cant')
+		cant_reload.emit()
+		#print('cant')
 
 #func _on_area_2d_area_entered(_area):
 	#print(area.name)

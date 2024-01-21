@@ -22,8 +22,8 @@ func _on_santa_throw(pos,direction):
 	pcoal.linear_velocity = Vector2(direction*(coal_speed+abs($Santa.velocity.x)),-200)
 	$Projectiles.add_child(pcoal)
 	
-var level_length: int = 25000
-var level_scale: int =  100
+var level_length: int = 20000
+var level_scale = level_length / 20
 var zombie_rate = 2
 var start = Vector2(38,596)
 
@@ -43,7 +43,8 @@ func _ready():
 
 func _process(_delta):
 	if did_santa_die==false and cured==false:
-		zombie_rate = (level_length / $Santa.position.x) / level_scale 
+		zombie_rate = (level_length / ($Santa.position.x**1.3)) #/ level_scale 
+		print(zombie_rate,"     ",$Santa.position.x)
 	if did_santa_die==true:
 		level_reset(start)
 	if check_dead==true:
