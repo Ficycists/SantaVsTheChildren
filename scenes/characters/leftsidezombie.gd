@@ -7,8 +7,8 @@ const Gravity: int = 25
 func _ready():
 	position.y=596
 	
-func _process(_delta):
-	velocity.x = SPEED
+func _process(delta):
+	velocity.x = SPEED*delta*75
 	
 	if jump==true:# and is_on_floor():
 		velocity.y = -jumpspeed
