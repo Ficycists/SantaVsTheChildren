@@ -18,8 +18,5 @@ func change_scene() -> void:
 	# Get the current SceneTree
 	var tree = get_tree()
 	
-	# Load the new scene
-	var new_scene = preload("res://scenes/test_scene_2.tscn")
-	
 	# Change the scene
-	tree.change_scene(new_scene)
+	tree.change_scene_to_file("res://scenes/test_scene_2.tscn")
