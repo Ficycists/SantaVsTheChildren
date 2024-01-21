@@ -20,9 +20,13 @@ const needed_missile_fragments: int = 7
 
 @export var dead: bool = false
 
+@onready var santaimg = $Santaimg
+
 var throw_speed = .35
 var misisle_speed = .5
 var reloaded: bool = true
+
+var flipped : bool = false
 
 
 
@@ -40,9 +44,13 @@ func _process(delta):
 		velocity.x = - horizspeed*delta*100
 		#$Santaimg.
 		facing_right = -1
+		if !flipped:
+			flipped = true
 	elif Input.is_action_pressed("right")and dead == false:
 		velocity.x = horizspeed*delta*100
 		facing_right = 1
+		if flipped:
+			flipped = false
 	else:
 		velocity.x = 0
 	
@@ -51,6 +59,11 @@ func _process(delta):
 			velocity.y = -jumpspeed
 	velocity.y+=Gravity*50*delta
 	print_debug(velocity.y)
+	
+	if flipped && !santaimg.flip_h:
+		santaimg.flip_h = true;
+	elif !flipped && santaimg.flip_h:
+		santaimg.flip_h = false;
 	
 	move_and_slide()
 	
