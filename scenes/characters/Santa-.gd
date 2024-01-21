@@ -49,7 +49,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("up")and dead==false:
 		if is_on_floor():
 			velocity.y = -jumpspeed
-	velocity.y+=Gravity
+	velocity.y+=Gravity*50*delta
+	print_debug(velocity.y)
 	
 	move_and_slide()
 	
