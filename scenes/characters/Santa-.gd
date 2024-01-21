@@ -23,14 +23,19 @@ const needed_missile_fragments: int = 7
 var throw_speed = .35
 var misisle_speed = .5
 var reloaded: bool = true
+var progress_bar = ProgressBar.new()
+
 
 
 
 func _ready():
 	position = Vector2(38,596)
+	progress_bar.position = Vector2($".".position.x,$".".position.y)
+	add_child(progress_bar)
 	
 
 func _process(delta):
+	progress_bar.value = position.x/20000*100
 	$reload_throw_timer.wait_time = throw_speed
 	$reload_missile_timer.wait_time = misisle_speed
 	if collected_missile_fragments >= needed_missile_fragments:
@@ -50,7 +55,7 @@ func _process(delta):
 		if is_on_floor():
 			velocity.y = -jumpspeed
 	velocity.y+=Gravity*50*delta
-	print_debug(velocity.y)
+	#print_debug(velocity.y)
 	
 	move_and_slide()
 	
