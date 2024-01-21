@@ -80,7 +80,7 @@ position = Vector2(552, 584)
 metadata/_edit_group_ = true
 
 [node name="the_end_1" parent="." instance=ExtResource("8_wjwca")]
-position = Vector2(2024, 80)
+position = Vector2(1896, 568)
 
 [node name="child_node" type="Node2D" parent="."]
 
