@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=13 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cx2ppr13w7sow" path="res://scenes/powerups/powerup_speed.tscn" id="6_ctakw"]
 [ext_resource type="PackedScene" uid="uid://cxs4fakvi71tj" path="res://scenes/projectiles/collectable_fragment_missile.tscn" id="6_laukx"]
 [ext_resource type="PackedScene" uid="uid://b7dutkbfw5mf0" path="res://scenes/levels/the_end_1.tscn" id="8_wjwca"]
+[ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="9_ywni5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
@@ -89,6 +90,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("9_ywni5")
 
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
