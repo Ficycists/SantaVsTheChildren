@@ -58,7 +58,7 @@ func _process(delta):
 		if is_on_floor():
 			velocity.y = -jumpspeed
 	velocity.y+=Gravity*50*delta
-	print_debug(velocity.y)
+	# print_debug(velocity.y)
 	
 	if flipped && !santaimg.flip_h:
 		santaimg.flip_h = true;
