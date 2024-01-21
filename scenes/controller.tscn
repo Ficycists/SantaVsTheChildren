@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cav8sd4ec6i7t"]
+
+[ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="1_gxotc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gxotc")

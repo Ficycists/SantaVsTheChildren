@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://batjfplmxnsqu"]
+
+[ext_resource type="Script" path="res://scenes/logoMainNode.gd" id="1_b36np"]
+[ext_resource type="Texture2D" uid="uid://d3moq1luq2hr4" path="res://assets/FICYCISTS_lowpx_white_noAA.png" id="1_o2mhx"]
+[ext_resource type="Texture2D" uid="uid://bexhjqa00wn3h" path="res://assets/ficycists_text.png" id="2_cvd5l"]
+[ext_resource type="PackedScene" uid="uid://cav8sd4ec6i7t" path="res://scenes/controller.tscn" id="3_vvk80"]
+[ext_resource type="Texture2D" uid="uid://dbvmgc6g4tsir" path="res://assets/present.png" id="4_ttu4w"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_b36np")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+color = Color(0.2, 0.2, 0.2, 1)
+polygon = PackedVector2Array(200, -200, 200, 200, -200, 200, -200, -200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+texture_filter = 1
+texture = ExtResource("1_o2mhx")
+
+[node name="FicycistsText" type="Sprite2D" parent="Camera2D"]
+position = Vector2(0, 40)
+texture = ExtResource("2_cvd5l")
+
+[node name="Present" type="Sprite2D" parent="Camera2D"]
+position = Vector2(0, 70)
+texture = ExtResource("4_ttu4w")
+
+[node name="Control" parent="." instance=ExtResource("3_vvk80")]

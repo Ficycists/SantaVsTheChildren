@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://c2rlwrqrr8ahl"]
+
+[ext_resource type="Texture2D" uid="uid://7uky31646rph" path="res://assets/images-misc/backdrops/backdrop.png" id="1_6bwmw"]
+[ext_resource type="Script" path="res://scenes/intro_BaseNode.gd" id="1_m76s1"]
+[ext_resource type="Texture2D" uid="uid://d3moq1luq2hr4" path="res://assets/FICYCISTS_lowpx_white_noAA.png" id="2_7hwtw"]
+[ext_resource type="Texture2D" uid="uid://dan1uxnfhyocd" path="res://assets/images-misc/backdrops/logo.png" id="2_dmdvu"]
+[ext_resource type="Script" path="res://scenes/logoSprite.gd" id="3_emjb7"]
+[ext_resource type="Texture2D" uid="uid://cnbbauytuth4b" path="res://assets/images-misc/backdrops/press-z.png" id="3_grmbj"]
+[ext_resource type="Texture2D" uid="uid://bexhjqa00wn3h" path="res://assets/ficycists_text.png" id="3_s7ftw"]
+[ext_resource type="Texture2D" uid="uid://dqpq7s4dhrchj" path="res://assets/sprites/blanksprite.png" id="4_gdd36"]
+[ext_resource type="Texture2D" uid="uid://dbvmgc6g4tsir" path="res://assets/present.png" id="4_hd72p"]
+[ext_resource type="AudioStream" uid="uid://coutavs5tclo" path="res://assets/sound/music/scictt.wav" id="6_wrijd"]
+[ext_resource type="Script" path="res://scenes/AudioStreamPlayer2D.gd" id="8_ukmh7"]
+[ext_resource type="PackedScene" uid="uid://cav8sd4ec6i7t" path="res://scenes/controller.tscn" id="9_l3wba"]
+[ext_resource type="PackedScene" uid="uid://u18uk4slux6n" path="res://scenes/quit_control.tscn" id="9_nyuta"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oaglp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gdd36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_grmbj")
+}],
+"loop": true,
+"name": &"animation1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gdd36")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m76s1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6bwmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("2_dmdvu")
+script = ExtResource("3_emjb7")
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="Sprite2D/Sprite2D"]
+position = Vector2(0, 52)
+sprite_frames = SubResource("SpriteFrames_oaglp")
+autoplay = "default"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.8, 4.8)
+
+[node name="MainMenuAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wrijd")
+script = ExtResource("8_ukmh7")
+
+[node name="Control" parent="." instance=ExtResource("9_l3wba")]
+
+[node name="QuitControl" parent="." instance=ExtResource("9_nyuta")]
+
+[node name="Opening" type="Node2D" parent="."]
+position = Vector2(0, -23)
+
+[node name="Polygon2D" type="Polygon2D" parent="Opening"]
+color = Color(0.2, 0.2, 0.2, 1)
+polygon = PackedVector2Array(200, -200, 200, 200, -200, 200, -200, -200)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Opening"]
+texture_filter = 1
+texture = ExtResource("2_7hwtw")
+
+[node name="FicycistsText" type="Sprite2D" parent="Opening"]
+position = Vector2(0, 40)
+texture = ExtResource("3_s7ftw")
+
+[node name="Present" type="Sprite2D" parent="Opening"]
+position = Vector2(0, 70)
+texture = ExtResource("4_hd72p")

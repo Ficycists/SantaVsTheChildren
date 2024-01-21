@@ -5,5 +5,5 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.name == "Santa":
-		control.change_scene()
+		control.change_scene("res://scenes/test_scene_2.tscn")
 		#level_done.emit()
