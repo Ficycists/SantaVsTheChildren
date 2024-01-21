@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://blmvnbf2qsoum"]
+
+[ext_resource type="FontFile" uid="uid://bbjvh6he7yw6b" path="res://assets/gamberes1.ttf" id="1_6frs4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -441.0
+offset_top = -186.0
+offset_right = 504.0
+offset_bottom = 283.0
+theme_override_fonts/normal_font = ExtResource("1_6frs4")
+theme_override_font_sizes/normal_font_size = 100
+text = "Hello this is new scene"
