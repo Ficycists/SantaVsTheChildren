@@ -12,18 +12,24 @@ func _process(delta):
 	
 	if jump==true:# and is_on_floor():
 		velocity.y = -jumpspeed
-		jump = false
+		#jump = false
 	velocity.y+=Gravity
 
 	move_and_slide()
 
 func _on_leftsidezombiearea_area_entered(area):
-	if area.name=="Area2Dcoal":
+	if area.name=="Area2Dcoal" or area.name=="powerup_protect_zone":
 		queue_free() # Replace with function body.
 
 
 func _on_left_zombie_area_body_entered(body):
-	
 	if body.is_in_group("BRICKS"):
 		jump = true
+	
+		
 
+
+
+func _on_left_zombie_area_body_exited(body):
+	if body.is_in_group("BRICKS"):
+		jump = false

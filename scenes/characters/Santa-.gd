@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var can_missile: bool = false
 var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_coal.tscn")
+var powerup_protect_scene: PackedScene = preload("res://scenes/powerups/powerup_protect_zone.tscn")
 var facing_right: int = 1
 
 signal throw(pos,direction)
@@ -50,7 +51,7 @@ func _process(delta):
 		if is_on_floor():
 			velocity.y = -jumpspeed
 	velocity.y+=Gravity*50*delta
-	print_debug(velocity.y)
+	#print_debug(velocity.y)
 	
 	move_and_slide()
 	
@@ -77,7 +78,7 @@ func _process(delta):
 		missile.emit(coal_pos.global_position,facing_right)
 	elif Input.is_action_just_pressed("coal") and reloaded==false:
 		cant_reload.emit()
-		#print('cant')
+		print('cant')
 
 #func _on_area_2d_area_entered(_area):
 	#print(area.name)
@@ -117,3 +118,27 @@ func _on_reload_throw_timer_timeout():
 	reloaded=true # Replace with function body.
 func _on_reload_missile_timer_timeout():
 	reloaded=true # Replace with function body.
+
+
+func _on_powerup_reload_powerup_reload_sig():
+	throw_speed = 0.01
+	misisle_speed = 0.01
+	$reload_pwrup_timer.wait_time = idk_how_long_for_powerups
+	$reload_pwrup_timer.start()
+
+
+func _on_reload_pwrup_timer_timeout():
+	throw_speed = .35
+	misisle_speed = .5
+
+
+func _on_powerup_protect_powerup_protect_sig():
+	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
+	$".".add_child(powerup_protect)
+	$protect_powerup_timer.wait_time = idk_how_long_for_powerups
+	$protect_powerup_timer.start()
+	#"Santa/powerup_protect_zone"
+
+
+func _on_protect_powerup_timer_timeout():
+	$".".remove_child($powerup_protect_zone)

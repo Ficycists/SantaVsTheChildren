@@ -19,7 +19,7 @@ func _process(delta):
 	move_and_slide()
 
 func _on_area_2d_area_entered(area):
-	if area.name=="Area2Dcoal":
+	if area.name=="Area2Dcoal" or area.name=="powerup_protect_zone":
 		queue_free() # Replace with function body.
 
 func _on_zombi_horiz_area_body_entered(body):
