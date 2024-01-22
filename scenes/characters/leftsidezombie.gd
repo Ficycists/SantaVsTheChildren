@@ -5,7 +5,7 @@ var jump: bool = false
 const SPEED = 100
 const Gravity: int = 25
 func _ready():
-	position.y=596
+	position.y=0
 	
 func _process(delta):
 	velocity.x = SPEED*delta*75
@@ -25,11 +25,7 @@ func _on_leftsidezombiearea_area_entered(area):
 func _on_left_zombie_area_body_entered(body):
 	if body.is_in_group("BRICKS"):
 		jump = true
-	
 		
-
-
-
 func _on_left_zombie_area_body_exited(body):
 	if body.is_in_group("BRICKS"):
 		jump = false

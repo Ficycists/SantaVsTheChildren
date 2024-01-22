@@ -12,28 +12,30 @@ signal cant_reload
 
 const Gravity = 25
 var jumpspeed: int = 500
-
 var horizspeed: int = 150
 const deaccel = 25
+
 const idk_how_long_for_powerups: int = 4
 const needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
 
 @export var dead: bool = false
 
-var throw_speed = .35
-var misisle_speed = .5
+var throw_speed = .25
+var misisle_speed = .35
+const orig_throw_speed = .25
+const orig_misisle_speed = .35
 var reloaded: bool = true
 
 
 
 func _ready():
 	position = Vector2(38,596)
-	
 
 func _process(delta):
 	$reload_throw_timer.wait_time = throw_speed
 	$reload_missile_timer.wait_time = misisle_speed
+	#print(position.x)
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
 	
@@ -78,14 +80,21 @@ func _process(delta):
 		missile.emit(coal_pos.global_position,facing_right)
 	elif Input.is_action_just_pressed("coal") and reloaded==false:
 		cant_reload.emit()
-		print('cant')
+		#print('cant')
 
-#func _on_area_2d_area_entered(_area):
-	#print(area.name)
-	#if area.name =="ZombiChild_Area2D":
-	#print('dead')
-	#$".".queue_free()
-	#die.emit()
+func _on_reload_throw_timer_timeout():
+	reloaded=true 
+func _on_reload_missile_timer_timeout():
+	reloaded=true
+
+func _on_collectable_fragment_missile_missile_fragment_collected():
+	collected_missile_fragments += 1
+	print(collected_missile_fragments)
+
+func _on_santa_area_2d_body_entered(body):
+	if body.is_in_group("Zombies") and dead==false:
+		die.emit()
+		dead = true
 
 func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 800
@@ -103,42 +112,21 @@ func _on_powerup_speed_powerup_speed_sig():
 func _on_speedtimer_timeout():
 	horizspeed = 150
 
-func _on_collectable_fragment_missile_missile_fragment_collected():
-	collected_missile_fragments += 1
-	print(collected_missile_fragments)
-
-func _on_santa_area_2d_body_entered(body):
-	if body.is_in_group("Zombies") and dead==false:
-		die.emit()
-		dead = true
-		#print('die')
-
-
-func _on_reload_throw_timer_timeout():
-	reloaded=true # Replace with function body.
-func _on_reload_missile_timer_timeout():
-	reloaded=true # Replace with function body.
-
-
 func _on_powerup_reload_powerup_reload_sig():
 	throw_speed = 0.01
 	misisle_speed = 0.01
 	$reload_pwrup_timer.wait_time = idk_how_long_for_powerups
 	$reload_pwrup_timer.start()
 
-
 func _on_reload_pwrup_timer_timeout():
-	throw_speed = .35
-	misisle_speed = .5
-
+	throw_speed = orig_throw_speed
+	misisle_speed = orig_misisle_speed
 
 func _on_powerup_protect_powerup_protect_sig():
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)
 	$protect_powerup_timer.wait_time = idk_how_long_for_powerups
 	$protect_powerup_timer.start()
-	#"Santa/powerup_protect_zone"
-
 
 func _on_protect_powerup_timer_timeout():
 	$".".remove_child($powerup_protect_zone)

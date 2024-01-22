@@ -7,6 +7,8 @@ var right_side_zombies: PackedScene = preload("res://scenes/characters/zombi_chi
 var left_side_zombies: PackedScene = preload("res://scenes/characters/leftsidezombie.tscn")
 var missile_fragment: PackedScene = preload("res://scenes/projectiles/collectable_fragment_missile.tscn")
 
+#var pjump: PackedScene = preload("res://scenes/powerups/powerup_jump.tscn")
+
 var did_santa_die: bool = false
 var level_num: int = 1
 var change_level: bool = false
@@ -40,13 +42,21 @@ func _ready():
 	#spawn_missile_parts()
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
+	#var p_jump = pjump.instantiate() as Area2D
+	#p_jump.add_to_group("Powerups_Jump")
+	#p_jump.position.x = 100
+	#$".".add_child(p_jump)
+	#for i in get_tree().get_nodes_in_group("Powerups_Jump"):
+		#i.powerup_jump_sig.connect(_on_powerup_jump_powerup_jump_sig)
+
 
 func _process(_delta):
 	if did_santa_die==false and cured==false:
-		zombie_rate = (level_length / ($Santa.position.x**1.3)) #/ level_scale 
+		zombie_rate = (level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.7182818))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)
 	if did_santa_die==true:
-		level_reset(start)
+		$Control.reset_level()
+		#level_reset(start)
 	if check_dead==true:
 		var dead_scene = death_scene.instantiate() as Sprite2D
 		$child_node.add_child(dead_scene)
@@ -110,9 +120,9 @@ func _on_zombie_timer_timeout():
 	var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
 	var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
 	right_zombie.position.x = $Santa.position.x + 500 + randi_range(-10,10)
-	right_zombie.position.y = $Santa.position.y
+	#right_zombie.position.y = 0
 	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
-	right_zombie.position.y = $Santa.position.y
+	#right_zombie.position.y = 0
 	$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	#print('new-zombie')

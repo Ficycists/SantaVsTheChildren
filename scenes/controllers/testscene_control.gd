@@ -20,3 +20,6 @@ func change_scene() -> void:
 	
 	# Change the scene
 	tree.change_scene_to_file("res://scenes/test_scene_2.tscn")
+func reset_level() -> void:
+	var tree = get_tree()
+	tree.change_scene_to_file("res://scenes/test_scene_1.tscn")
