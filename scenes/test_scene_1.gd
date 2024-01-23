@@ -142,9 +142,9 @@ func _on_zombie_timer_timeout():
 	var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
 	var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
 	right_zombie.position.x = $Santa.position.x + 500 + randi_range(-10,10)
-	#right_zombie.position.y = 0
+	right_zombie.position.y = $Santa.position.y-200
 	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
-	#right_zombie.position.y = 0
+	right_zombie.position.y = $Santa.position.y-200
 	$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
@@ -155,3 +155,14 @@ func _on_zombie_timer_timeout():
 func _on_the_end_1_level_done():
 	#print('done')
 	$Control.change_scene()
+
+
+func _on_idk_what_this_is_anymore_body_entered(body):
+	if body.name=="Santa":
+		var n = 1
+		
+		var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
+		right_zombie.position = Vector2(16064,384)
+		while n < 30:
+			$ZOMBIES/new_zombies.add_child(right_zombie)
+			n+=1

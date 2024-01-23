@@ -16,7 +16,11 @@ var horizspeed: int = 150
 const deaccel = 25
 var d = false
 
-const idk_how_long_for_powerups: int = 4
+const jump_pwr_time: int = 4
+const speed_pwr_time: int = 3
+const reload_pwr_time: int = 5
+const prot_pwr_time: int = 5
+
 const needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
 
@@ -100,7 +104,15 @@ func _process(delta):
 		missile.emit(coal_pos.global_position,facing_right)
 	elif Input.is_action_just_pressed("coal") and reloaded==false:
 		cant_reload.emit()
-		#print('cant')
+	
+	%jump_label.text = str(round($jumppwruptimer.time_left))
+	#%jump_label.position = $UI/HBoxContainer/jump_power_indicator.position
+	%speed_label.text = str(round($speedtimer.time_left))
+	#%speed_label.position = $UI/HBoxContainer/speed_power_indicator.position
+	%reload_label.text = str(round($reload_pwrup_timer.time_left))
+	#%reload_label.position = $UI/HBoxContainer/reload_power_indicator.position
+	%prot_label.text = str(round($protect_powerup_timer.time_left))
+	#%prot_label.position = $UI/HBoxContainer/protect_power_indicator.position
 
 func _on_reload_throw_timer_timeout():
 	reloaded=true 
@@ -109,7 +121,7 @@ func _on_reload_missile_timer_timeout():
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
 	collected_missile_fragments += 1
-	print(collected_missile_fragments)
+	#print(collected_missile_fragments)
 
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
@@ -118,45 +130,50 @@ func _on_santa_area_2d_body_entered(body):
 
 func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 800
-	$jumppwruptimer.wait_time = idk_how_long_for_powerups
+	$jumppwruptimer.wait_time = jump_pwr_time
 	$jumppwruptimer.start()
 	$UI/HBoxContainer/jump_power_indicator.visible=true
-
+	%jump_label.visible=true
 func _on_jumppwruptimer_timeout():
 	jumpspeed = 500
 	$UI/HBoxContainer/jump_power_indicator.visible=false
-
+	%jump_label.visible=false
 func _on_powerup_speed_powerup_speed_sig():
 	horizspeed = 250
-	$speedtimer.wait_time = idk_how_long_for_powerups
+	$speedtimer.wait_time = speed_pwr_time
 	$speedtimer.start()
 	$UI/HBoxContainer/speed_power_indicator.visible=true
+	%speed_label.visible=true
 
 func _on_speedtimer_timeout():
 	horizspeed = 150
 	$UI/HBoxContainer/speed_power_indicator.visible=false
+	%speed_label.visible=false
 
 func _on_powerup_reload_powerup_reload_sig():
 	throw_speed = 0.01
 	misisle_speed = 0.01
-	$reload_pwrup_timer.wait_time = idk_how_long_for_powerups
+	$reload_pwrup_timer.wait_time = reload_pwr_time
 	$reload_pwrup_timer.start()
 	$UI/HBoxContainer/reload_power_indicator.visible=true
+	%reload_label.visible=true
 func _on_reload_pwrup_timer_timeout():
 	throw_speed = orig_throw_speed
 	misisle_speed = orig_misisle_speed
 	$UI/HBoxContainer/reload_power_indicator.visible=false
+	%reload_label.visible=false
 func _on_powerup_protect_powerup_protect_sig():
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)
 	$UI/HBoxContainer/protect_power_indicator.visible=true
-	$protect_powerup_timer.wait_time = 40000# idk_how_long_for_powerups
+	%prot_label.visible=true
+	$protect_powerup_timer.wait_time = prot_pwr_time
 	$protect_powerup_timer.start()
 
 func _on_protect_powerup_timer_timeout():
 	$".".remove_child($powerup_protect_zone)
 	$UI/HBoxContainer/protect_power_indicator.visible=false
-
+	%prot_label.visible=false
 func _on_timer_timeout():
 	d=false
 	Gravity =25

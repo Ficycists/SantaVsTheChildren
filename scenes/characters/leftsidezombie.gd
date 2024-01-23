@@ -5,8 +5,8 @@ var jump: bool = false
 const SPEED = 100
 const Gravity: int = 25
 func _ready():
-	position.y=200
-	
+	#position.y=200
+	pass
 func _process(delta):
 	velocity.x = SPEED*delta*75
 	
