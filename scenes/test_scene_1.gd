@@ -60,6 +60,7 @@ func _ready():
 
 func _process(_delta):
 	var tree = get_tree()
+	$Notground1.position = $Santa.position
 	if did_santa_die==false and cured==false:
 		zombie_rate = (level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.7182818))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)
@@ -69,9 +70,10 @@ func _process(_delta):
 	if check_dead==true:
 		var dead_scene = death_scene.instantiate() as Sprite2D
 		$child_node.add_child(dead_scene)
+		dead_scene.position=$Santa.position
 		
 	#did_santa_die=true
-		dead_scene.position=$Santa.position
+		
 
 		if Input.is_key_pressed(KEY_Y):
 			for i in $child_node.get_children():

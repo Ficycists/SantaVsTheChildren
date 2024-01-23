@@ -44,6 +44,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_a1d3p")
 step = 10.0
 show_percentage = false
 
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 2
+offset_left = 116.0
+offset_top = 72.0
+offset_right = 192.0
+offset_bottom = 112.0
+color = Color(0.403922, 0.403922, 0.403922, 0.52549)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 layout_mode = 0
 offset_left = 43.0
@@ -59,10 +67,10 @@ texture = ExtResource("2_xxrij")
 [node name="jump_label" type="Label" parent="UI/HBoxContainer/jump_power_indicator"]
 unique_name_in_owner = true
 visible = false
-offset_left = -6.0
-offset_top = -14.0
-offset_right = -5.0
-offset_bottom = 9.0
+offset_left = -5.0
+offset_top = -30.0
+offset_right = -4.0
+offset_bottom = -7.0
 
 [node name="speed_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
 visible = false
@@ -73,26 +81,26 @@ texture = ExtResource("3_w125v")
 unique_name_in_owner = true
 visible = false
 offset_left = -6.0
-offset_top = -14.0
+offset_top = -30.0
 offset_right = -5.0
-offset_bottom = 9.0
+offset_bottom = -7.0
 
 [node name="reload_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
 visible = false
-position = Vector2(108, 12)
+position = Vector2(107, 12)
 texture = ExtResource("2_xxrij")
 
 [node name="reload_label" type="Label" parent="UI/HBoxContainer/reload_power_indicator"]
 unique_name_in_owner = true
 visible = false
 offset_left = -5.0
-offset_top = -14.0
+offset_top = -30.0
 offset_right = -4.0
-offset_bottom = 9.0
+offset_bottom = -7.0
 
 [node name="protect_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
 visible = false
-position = Vector2(87, 12)
+position = Vector2(86, 12)
 scale = Vector2(0.0957882, 0.084439)
 texture = ExtResource("4_kk42q")
 region_enabled = true
@@ -102,10 +110,10 @@ region_rect = Rect2(210, 104.5, 224, 224)
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-offset_left = 127.0
-offset_top = 86.0
-offset_right = 128.0
-offset_bottom = 109.0
+offset_left = 125.0
+offset_top = 69.0
+offset_right = 126.0
+offset_bottom = 92.0
 
 [node name="Santaimg" type="Sprite2D" parent="."]
 texture = ExtResource("2_py6e7")
