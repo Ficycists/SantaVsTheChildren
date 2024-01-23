@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cxs4fakvi71tj" path="res://scenes/projectiles/collectable_fragment_missile.tscn" id="6_laukx"]
 [ext_resource type="PackedScene" uid="uid://b7dutkbfw5mf0" path="res://scenes/levels/the_end_1.tscn" id="8_wjwca"]
 [ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="9_ywni5"]
-[ext_resource type="PackedScene" uid="uid://jvku2jd15jl5" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
-[ext_resource type="PackedScene" uid="uid://drryop3blfyv6" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
-[ext_resource type="PackedScene" uid="uid://d0uolubkrt7e7" path="res://scenes/controllers/ui.tscn" id="12_hjkoy"]
+[ext_resource type="PackedScene" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
+[ext_resource type="PackedScene" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
+[ext_resource type="PackedScene" path="res://scenes/controllers/ui.tscn" id="12_hjkoy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)

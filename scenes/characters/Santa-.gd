@@ -10,10 +10,11 @@ signal missile(pos,direction)
 signal die
 signal cant_reload
 
-const Gravity = 25
+var Gravity = 25
 var jumpspeed: int = 500
 var horizspeed: int = 150
 const deaccel = 25
+var d = false
 
 const idk_how_long_for_powerups: int = 4
 const needed_missile_fragments: int = 7
@@ -47,6 +48,7 @@ func _process(delta):
 	#$TextureProgressBar.position.x = $".".position.x#-50
 	$reload_throw_timer.wait_time = throw_speed
 	$reload_missile_timer.wait_time = misisle_speed
+	$Timer.wait_time=3
 	#print(position.x)
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
@@ -60,13 +62,19 @@ func _process(delta):
 		facing_right = 1
 	else:
 		velocity.x = 0
-	
+
 	if Input.is_action_just_pressed("up")and dead==false:
 		if is_on_floor():
 			velocity.y = -jumpspeed
-	velocity.y+=Gravity*50*delta
 	#print_debug(velocity.y)
 	
+	if Input.is_action_just_pressed("Down") and dead == false:
+		if !is_on_floor() and d==false:
+			d = true
+			$Timer.start()
+			Gravity = 60
+			
+	velocity.y+=Gravity*50*delta
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("coal") and can_missile==false and reloaded==true and facing_right==1:
@@ -142,3 +150,8 @@ func _on_powerup_protect_powerup_protect_sig():
 
 func _on_protect_powerup_timer_timeout():
 	$".".remove_child($powerup_protect_zone)
+
+
+func _on_timer_timeout():
+	d=false
+	$Timer.start() # Replace with function body.
