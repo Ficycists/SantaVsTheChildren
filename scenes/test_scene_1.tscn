@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=16 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_awjfy"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="9_ywni5"]
 [ext_resource type="PackedScene" uid="uid://jvku2jd15jl5" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
 [ext_resource type="PackedScene" uid="uid://drryop3blfyv6" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
+[ext_resource type="PackedScene" uid="uid://d0uolubkrt7e7" path="res://scenes/controllers/ui.tscn" id="12_hjkoy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33qmm"]
 size = Vector2(1154, 46)
@@ -26,8 +27,21 @@ script = ExtResource("1_aus7c")
 
 [node name="Santa" parent="." instance=ExtResource("3_21xm2")]
 texture_filter = 1
-position = Vector2(47, 591)
+position = Vector2(200, 592)
 collision_mask = 149
+
+[node name="Control" type="Control" parent="Santa"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Santa/Control"]
+layout_mode = 0
+offset_left = -192.0
+offset_top = -104.0
+offset_right = -152.0
+offset_bottom = -81.0
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(575, 631)
@@ -83,7 +97,7 @@ position = Vector2(568, 456)
 metadata/_edit_group_ = true
 
 [node name="the_end_1" parent="." instance=ExtResource("8_wjwca")]
-position = Vector2(1856, 400)
+position = Vector2(1802, -160)
 
 [node name="child_node" type="Node2D" parent="."]
 
@@ -99,6 +113,8 @@ position = Vector2(504, 584)
 
 [node name="powerup_protect" parent="." instance=ExtResource("11_u5380")]
 position = Vector2(328, 592)
+
+[node name="Control2" parent="." instance=ExtResource("12_hjkoy")]
 
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]

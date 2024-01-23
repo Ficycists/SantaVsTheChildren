@@ -16,6 +16,9 @@ var check_dead: bool = false
 var cured: bool = false
 const cured_zombie_rate: int = 2
 
+var Zombie_Positions_Arr: Array = []
+var dist_to_left_zomb = 500
+
 func _on_santa_throw(pos,direction):
 	const coal_speed: int = 215
 	var pcoal = throw_coal_scene.instantiate() as RigidBody2D
@@ -48,7 +51,8 @@ func _ready():
 	#$".".add_child(p_jump)
 	#for i in get_tree().get_nodes_in_group("Powerups_Jump"):
 		#i.powerup_jump_sig.connect(_on_powerup_jump_powerup_jump_sig)
-
+	#var test_array: Array = [1,4.3,2.4]
+	#print(test_array.max())
 
 func _process(_delta):
 	if did_santa_die==false and cured==false:
@@ -71,9 +75,16 @@ func _process(_delta):
 				i.queue_free()
 			check_dead=false
 			did_santa_die=true
-			
-	
-		
+	Zombie_Positions_Arr=[]		
+	for zomb in get_tree().get_nodes_in_group("Left Zombies"):
+		Zombie_Positions_Arr.append(zomb.position.x)
+		#print(zomb.position.x)
+	if Zombie_Positions_Arr!=[]:
+	#print(Zombie_Positions_Arr.max())
+	#print($Santa.position.x)
+		dist_to_left_zomb = floor(($Santa.position.x - Zombie_Positions_Arr.max())/30)
+	#print(dist_to_left_zomb)
+	$Santa/Control/Label.text = str(dist_to_left_zomb)
 	if change_level==true:
 		start = Vector2(38,level_num*576)
 		level_reset(start)
@@ -125,6 +136,7 @@ func _on_zombie_timer_timeout():
 	#right_zombie.position.y = 0
 	$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
+	left_zombie.add_to_group("Left Zombies")
 	#print('new-zombie')
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()

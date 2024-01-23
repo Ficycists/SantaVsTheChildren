@@ -27,12 +27,24 @@ const orig_throw_speed = .25
 const orig_misisle_speed = .35
 var reloaded: bool = true
 
+#var texture_progress = TextureProgressBar.new()
 
 
 func _ready():
 	position = Vector2(38,596)
+	#self.add_child(texture_progress)
+	#$%TextureProgressBar.texture_progress = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_prog.png")
+	#texture_progress.texture_bg = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_bg.png")
+	#texture_progress.texture_fg = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_fg.png")
+	#$%TextureProgressBar.fill_mode = TextureProgressBar.FILL_LEFT_TO_RIGHT
+	#$%TextureProgressBar.min_value = 0
+	#$%TextureProgressBar.max_value = 100
+	
 
 func _process(delta):
+	$%ProgressBar.value = floor($".".position.x / 20000 * 10)*10
+	#$TextureProgressBar.position.y = $".".position.y#-80
+	#$TextureProgressBar.position.x = $".".position.x#-50
 	$reload_throw_timer.wait_time = throw_speed
 	$reload_missile_timer.wait_time = misisle_speed
 	#print(position.x)
@@ -125,7 +137,7 @@ func _on_reload_pwrup_timer_timeout():
 func _on_powerup_protect_powerup_protect_sig():
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)
-	$protect_powerup_timer.wait_time = idk_how_long_for_powerups
+	$protect_powerup_timer.wait_time = 40000# idk_how_long_for_powerups
 	$protect_powerup_timer.start()
 
 func _on_protect_powerup_timer_timeout():

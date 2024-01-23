@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0uolubkrt7e7"]
+
+[node name="Control" type="CanvasLayer"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = -1
+anchor_right = 0.118
+anchor_bottom = 0.012
+offset_right = 24.064
+offset_bottom = 0.224

@@ -3,19 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://cr74lgaf5gf3y" path="res://assets/sprites/powerups/protect_powerup.png" id="1_n0uja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwsof"]
-radius = 100.0
+radius = 66.0
 
 [node name="powerup_protect_zone" type="Area2D"]
 collision_layer = 32768
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0)
 shape = SubResource("CircleShape2D_pwsof")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.74999, 8.75)
-scale = Vector2(1.08373, 1.01489)
+position = Vector2(-0.500005, 5.5)
+scale = Vector2(0.751196, 0.676596)
 texture = ExtResource("1_n0uja")
 region_enabled = true
 region_rect = Rect2(213, 104.5, 209, 235)
