@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drryop3blfyv6"]
 
-[ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="1_id0bm"]
 [ext_resource type="Script" path="res://scenes/powerups/powerup_protect.gd" id="1_y4gei"]
+[ext_resource type="Texture2D" uid="uid://cr74lgaf5gf3y" path="res://assets/sprites/powerups/protect_powerup.png" id="2_jygni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rawl"]
 
@@ -11,8 +11,12 @@ collision_mask = 8
 script = ExtResource("1_y4gei")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.220973, -0.795496)
 rotation = 2.23402
-texture = ExtResource("1_id0bm")
+scale = Vector2(0.11243, 0.102622)
+texture = ExtResource("2_jygni")
+region_enabled = true
+region_rect = Rect2(201, 98.5, 229, 248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1rawl")

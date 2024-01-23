@@ -48,7 +48,7 @@ func _process(delta):
 	#$TextureProgressBar.position.x = $".".position.x#-50
 	$reload_throw_timer.wait_time = throw_speed
 	$reload_missile_timer.wait_time = misisle_speed
-	$Timer.wait_time=3
+	$Timer.wait_time=.5
 	#print(position.x)
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
@@ -72,7 +72,7 @@ func _process(delta):
 		if !is_on_floor() and d==false:
 			d = true
 			$Timer.start()
-			Gravity = 60
+			Gravity = 100
 			
 	velocity.y+=Gravity*50*delta
 	move_and_slide()
@@ -120,38 +120,44 @@ func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 800
 	$jumppwruptimer.wait_time = idk_how_long_for_powerups
 	$jumppwruptimer.start()
+	$UI/HBoxContainer/jump_power_indicator.visible=true
 
 func _on_jumppwruptimer_timeout():
 	jumpspeed = 500
+	$UI/HBoxContainer/jump_power_indicator.visible=false
 
 func _on_powerup_speed_powerup_speed_sig():
 	horizspeed = 250
 	$speedtimer.wait_time = idk_how_long_for_powerups
 	$speedtimer.start()
+	$UI/HBoxContainer/speed_power_indicator.visible=true
 
 func _on_speedtimer_timeout():
 	horizspeed = 150
+	$UI/HBoxContainer/speed_power_indicator.visible=false
 
 func _on_powerup_reload_powerup_reload_sig():
 	throw_speed = 0.01
 	misisle_speed = 0.01
 	$reload_pwrup_timer.wait_time = idk_how_long_for_powerups
 	$reload_pwrup_timer.start()
-
+	$UI/HBoxContainer/reload_power_indicator.visible=true
 func _on_reload_pwrup_timer_timeout():
 	throw_speed = orig_throw_speed
 	misisle_speed = orig_misisle_speed
-
+	$UI/HBoxContainer/reload_power_indicator.visible=false
 func _on_powerup_protect_powerup_protect_sig():
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)
+	$UI/HBoxContainer/protect_power_indicator.visible=true
 	$protect_powerup_timer.wait_time = 40000# idk_how_long_for_powerups
 	$protect_powerup_timer.start()
 
 func _on_protect_powerup_timer_timeout():
 	$".".remove_child($powerup_protect_zone)
-
+	$UI/HBoxContainer/protect_power_indicator.visible=false
 
 func _on_timer_timeout():
 	d=false
+	Gravity =25
 	$Timer.start() # Replace with function body.

@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://6gmh1bfwk852"]
+[gd_scene load_steps=11 format=3 uid="uid://6gmh1bfwk852"]
 
 [ext_resource type="Script" path="res://scenes/characters/Santa-.gd" id="1_prmy7"]
 [ext_resource type="Texture2D" uid="uid://dsl6hcqj6e1bl" path="res://assets/sprites/standingsprite.png" id="2_py6e7"]
+[ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="2_xxrij"]
+[ext_resource type="Texture2D" uid="uid://b3xovjrkjujjy" path="res://assets/sprites/powerups/speed.png" id="3_w125v"]
+[ext_resource type="Texture2D" uid="uid://cr74lgaf5gf3y" path="res://assets/sprites/powerups/protect_powerup.png" id="4_kk42q"]
 
 [sub_resource type="Theme" id="Theme_xfmwu"]
 
@@ -40,6 +43,37 @@ theme_override_styles/background = SubResource("StyleBoxFlat_f1k2f")
 theme_override_styles/fill = SubResource("StyleBoxFlat_a1d3p")
 step = 10.0
 show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 87.0
+offset_right = 191.0
+offset_bottom = 106.0
+
+[node name="jump_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
+visible = false
+position = Vector2(140, 12)
+texture = ExtResource("2_xxrij")
+
+[node name="speed_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
+visible = false
+position = Vector2(125, 12)
+texture = ExtResource("3_w125v")
+
+[node name="reload_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
+visible = false
+position = Vector2(108, 12)
+rotation = 1.5708
+texture = ExtResource("2_xxrij")
+
+[node name="protect_power_indicator" type="Sprite2D" parent="UI/HBoxContainer"]
+visible = false
+position = Vector2(87, 12)
+scale = Vector2(0.0957882, 0.084439)
+texture = ExtResource("4_kk42q")
+region_enabled = true
+region_rect = Rect2(210, 104.5, 224, 224)
 
 [node name="Santaimg" type="Sprite2D" parent="."]
 texture = ExtResource("2_py6e7")
@@ -87,8 +121,11 @@ wait_time = 0.337
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_left = 130.0
+offset_top = 58.0
+offset_right = 170.0
+offset_bottom = 98.0
 
 [node name="Timer" type="Timer" parent="."]
 

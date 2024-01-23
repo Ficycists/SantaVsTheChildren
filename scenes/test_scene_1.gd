@@ -53,8 +53,13 @@ func _ready():
 		#i.powerup_jump_sig.connect(_on_powerup_jump_powerup_jump_sig)
 	#var test_array: Array = [1,4.3,2.4]
 	#print(test_array.max())
+	#var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
+	#left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
+	#$ZOMBIES/new_zombies.add_child(left_zombie)
+	#left_zombie.add_to_group("Left Zombies")
 
 func _process(_delta):
+	var tree = get_tree()
 	if did_santa_die==false and cured==false:
 		zombie_rate = (level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.7182818))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)
@@ -73,18 +78,24 @@ func _process(_delta):
 				i.queue_free()
 			for i in $ZOMBIES/new_zombies.get_children():
 				i.queue_free()
+			#$Control.reset_level()
 			check_dead=false
 			did_santa_die=true
-	Zombie_Positions_Arr=[]		
-	for zomb in get_tree().get_nodes_in_group("Left Zombies"):
-		Zombie_Positions_Arr.append(zomb.position.x)
-		#print(zomb.position.x)
-	if Zombie_Positions_Arr!=[]:
-	#print(Zombie_Positions_Arr.max())
-	#print($Santa.position.x)
-		dist_to_left_zomb = floor(($Santa.position.x - Zombie_Positions_Arr.max())/30)
-	#print(dist_to_left_zomb)
-	$Santa/Control/Label.text = str(dist_to_left_zomb)
+	Zombie_Positions_Arr=[-500]	
+	#if get.tree().has_group("Left Zombies"):	
+	for zomb in tree.get_nodes_in_group("Left Zombies"):
+		##if Zombie_Positions_Arr!=[]:
+		if $Santa.position.x > zomb.position.x:
+		##if $Santa.position.x >Zombie_Positions_Arr.max():
+			Zombie_Positions_Arr.append(zomb.position.x)
+		##print(zomb.position.x)
+	##if Zombie_Positions_Arr!=[]:#and$Santa.position.x>Zombie_Positions_Arr.max():
+	##print(Zombie_Positions_Arr.max())
+	##print($Santa.position.x)
+	##if $Santa.position.x >Zombie_Positions_Arr.max():
+	dist_to_left_zomb = floor(($Santa.position.x-Zombie_Positions_Arr.max())/30)
+	##print(dist_to_left_zomb)
+	$Santa/Control/Label.text = str(dist_to_left_zomb)+"m"
 	if change_level==true:
 		start = Vector2(38,level_num*576)
 		level_reset(start)
