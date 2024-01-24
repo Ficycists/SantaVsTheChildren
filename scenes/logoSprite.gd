@@ -24,6 +24,6 @@ func _process(delta):
 			if position.y <= 0:
 				isNotCentered = false
 				sprite_2d_2.animation = "animation1"
-	print_debug(position.y)
+	#print_debug(position.y)
 	
 	

@@ -28,3 +28,7 @@ func reset_level() -> void:
 	var tree = get_tree()
 	tree.change_scene_to_file(tree.current_scene.scene_file_path)
 	
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed && event.keycode == KEY_ESCAPE:
+			get_tree().quit()
