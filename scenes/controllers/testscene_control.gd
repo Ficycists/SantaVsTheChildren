@@ -23,3 +23,8 @@ func change_scene(scenePath) -> void:
 
 func quitGame() -> void:
 	get_tree().quit()
+	
+func reset_level() -> void:
+	var tree = get_tree()
+	tree.change_scene_to_file(tree.current_scene.scene_file_path)
+	

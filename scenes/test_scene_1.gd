@@ -80,7 +80,7 @@ func _process(_delta):
 				i.queue_free()
 			for i in $ZOMBIES/new_zombies.get_children():
 				i.queue_free()
-			#$Control.reset_level()
+			$Control.reset_level()
 			check_dead=false
 			did_santa_die=true
 	Zombie_Positions_Arr=[-500]	
