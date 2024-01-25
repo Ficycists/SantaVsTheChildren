@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var can_missile: bool = false
 var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_coal.tscn")
 var powerup_protect_scene: PackedScene = preload("res://scenes/powerups/powerup_protect_zone.tscn")
+var polar_bear_dead: PackedScene = preload("res://scenes/polar_bear_death.tscn")
 var facing_right: int = 1
 
 @onready var santaimg = $Santaimg
@@ -18,7 +19,7 @@ var Gravity = 25
 var jumpspeed: int = 500
 var horizspeed: int = 150
 var orig_horiz_speed: int = 150
-var lives = 3
+@export var lives: int = 3
 const deaccel = 25
 var d = false
 
@@ -212,8 +213,10 @@ func _on_timer_timeout():
 
 func _on_santa_area_2d_area_entered(area):
 	if "polar bear" in area.name:
-		die.emit()
-		dead=true
+		var polar_bear_death = polar_bear_dead.instantiate() as Sprite2D
+		$".".add_child(polar_bear_death)
+		$"POLAR BEAR".start()
+		
 
 
 func _on_powerup_jump_2_powerup_jump_sig():
@@ -224,3 +227,8 @@ func _on_deer_missile_fragment_collected():
 	deer +=1
 	orig_horiz_speed=150+5*deer
 	#print(deer) # Replace with function body.
+
+
+func _on_polar_bear_timeout():
+	die.emit()
+	dead=true

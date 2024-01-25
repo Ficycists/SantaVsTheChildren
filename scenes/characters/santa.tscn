@@ -230,6 +230,9 @@ sprite_frames = SubResource("SpriteFrames_v7jro")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="POLAR BEAR" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="jumppwruptimer" to="." method="_on_jumppwruptimer_timeout"]
 [connection signal="timeout" from="speedtimer" to="." method="_on_speedtimer_timeout"]
 [connection signal="area_entered" from="Santa_Area2D" to="." method="_on_santa_area_2d_area_entered"]
@@ -239,3 +242,4 @@ autoplay = "idle"
 [connection signal="timeout" from="reload_pwrup_timer" to="." method="_on_reload_pwrup_timer_timeout"]
 [connection signal="timeout" from="protect_powerup_timer" to="." method="_on_protect_powerup_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="POLAR BEAR" to="." method="_on_polar_bear_timeout"]
