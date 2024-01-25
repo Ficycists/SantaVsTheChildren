@@ -44,6 +44,8 @@ var reloaded: bool = true
 func _ready():
 	position = Vector2(38,596)
 	
+	santaimg.animation = "idle"
+	
 	#self.add_child(texture_progress)
 	#$%TextureProgressBar.texture_progress = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_prog.png")
 	#texture_progress.texture_bg = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_bg.png")
@@ -94,6 +96,14 @@ func _process(delta):
 			Gravity = 100
 			
 	velocity.y+=Gravity*50*delta
+	
+	if int(velocity.x) != 0 and is_on_floor():
+		santaimg.animation = "run"
+	elif !is_on_floor():
+		santaimg.animation = "jump"
+	else:
+		santaimg.animation = "idle"
+	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("coal") and can_missile==false and reloaded==true and facing_right==1:
