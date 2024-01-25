@@ -16,7 +16,7 @@ func hideJam():
 	main_menu_audio_player.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if jamSplashVisible && jam_logo_timer.is_stopped():
 		hideJam()
 	if !hideLogo:

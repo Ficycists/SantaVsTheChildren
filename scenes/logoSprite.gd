@@ -15,7 +15,7 @@ func _ready():
 	print_debug("ready")
 	position.y = 125
 	
-func _process(delta):
+func _process(_delta):
 	if(startMove):
 		if(isNotCentered):
 			if foo:
