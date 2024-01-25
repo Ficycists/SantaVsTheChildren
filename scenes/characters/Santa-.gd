@@ -26,7 +26,7 @@ var d = false
 const jump_pwr_time: int = 4
 var speed_pwr_time: int = 4
 const reload_pwr_time: int = 5
-var prot_pwr_time: int = 523423432
+var prot_pwr_time: int = 5
 
 @export var needed_missile_fragments: int = 1
 @export var collected_missile_fragments = 0
@@ -191,7 +191,7 @@ func _on_reload_pwrup_timer_timeout():
 	%reload_label.visible=false
 func _on_powerup_protect_powerup_protect_sig():
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
-	$".".add_child(powerup_protect)
+	$".".add_child(powerup_protect)	
 	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=true
 	%prot_label.visible=true
 	$protect_powerup_timer.wait_time = prot_pwr_time

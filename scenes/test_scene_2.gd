@@ -98,7 +98,7 @@ func _process(_delta):
 func _on_santa_missile(pos,direction):
 	var pcoal = throw_coal_scene.instantiate() as RigidBody2D
 	pcoal.position = pos
-	pcoal.gravity_scale = 0.07
+	pcoal.gravity_scale = 0.05
 	pcoal.linear_velocity = Vector2(direction*450,0)
 	$Projectiles.add_child(pcoal)
 
@@ -133,19 +133,25 @@ func _on_zombie_timer_timeout():
 	right_zombie.position.y = $Santa.position.y-200
 	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
 	right_zombie.position.y = $Santa.position.y-200
-	$ZOMBIES/new_zombies.add_child(right_zombie)
+	#if !right_zombie.is_on_wall():
+		#$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
+	if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
+		$ZOMBIES/new_zombies.add_child(right_zombie)
+	#$ZOMBIES/new_zombies.add_child(right_zombie)
+	#$ZOMBIES/new_zombies.add_child(left_zombie)
+	#left_zombie.add_to_group("Left Zombies")
 	#print('new-zombie')
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 
 func _on_the_end_1_level_done():
 	var tree = get_tree()
-	if $Santa.collected_missile_fragments == $Santa.needed_missile_fragments:
+	if $Santa.collected_missile_fragments >= $Santa.needed_missile_fragments:
 		$the_end_1/ColorRect.visible=false
 		var scenePath: String = str(tree.current_scene.scene_file_path)
-		var newscenePath = "res://scenes/story_scene_"+str(int(scenePath[25]))+".tscn"
+		var newscenePath = "res://scenes/story_scene_"+str(int(scenePath[24]))+".tscn"
 		$Control.change_scene(newscenePath)
 	else:
 		$the_end_1/ColorRect.visible=true
