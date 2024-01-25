@@ -104,6 +104,11 @@ offset_right = 205.0
 offset_bottom = -85.0
 metadata/_edit_use_anchors_ = true
 
+[node name="RichTextLabel" type="Label" parent="Santa/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="left wall" type="StaticBody2D" parent="."]
 position = Vector2(-14.875, 318)
 scale = Vector2(35.75, 1)

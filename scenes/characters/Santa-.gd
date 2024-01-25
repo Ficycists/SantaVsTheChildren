@@ -8,7 +8,7 @@ var facing_right: int = 1
 @onready var santaimg = $Santaimg
 var flipped : bool = false
 
-
+#@export var Camera_position: Vector2 = $Camera2D.position
 signal throw(pos,direction)
 signal missile(pos,direction)
 signal die
@@ -23,9 +23,9 @@ const deaccel = 25
 var d = false
 
 const jump_pwr_time: int = 4
-var speed_pwr_time: int = 4
+var speed_pwr_time: int = 4342324
 const reload_pwr_time: int = 5
-var prot_pwr_time: int = 5
+var prot_pwr_time: int = 523423432
 
 const needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
@@ -162,22 +162,22 @@ func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 800
 	$jumppwruptimer.wait_time = jump_pwr_time
 	$jumppwruptimer.start()
-	$UI/HBoxContainer/jump_power_indicator.visible=true
+	$Camera2D/UI/HBoxContainer/jump_power_indicator.visible=true
 	%jump_label.visible=true
 func _on_jumppwruptimer_timeout():
 	jumpspeed = 500
-	$UI/HBoxContainer/jump_power_indicator.visible=false
+	$Camera2D/UI/HBoxContainer/jump_power_indicator.visible=false
 	%jump_label.visible=false
 func _on_powerup_speed_powerup_speed_sig():
 	horizspeed = 250
 	$speedtimer.wait_time = speed_pwr_time
 	$speedtimer.start()
-	$UI/HBoxContainer/speed_power_indicator.visible=true
+	$Camera2D/UI/HBoxContainer/speed_power_indicator.visible=true
 	%speed_label.visible=true
 
 func _on_speedtimer_timeout():
 	horizspeed = orig_horiz_speed
-	$UI/HBoxContainer/speed_power_indicator.visible=false
+	$Camera2D/UI/HBoxContainer/speed_power_indicator.visible=false
 	%speed_label.visible=false
 
 func _on_powerup_reload_powerup_reload_sig():
@@ -185,24 +185,24 @@ func _on_powerup_reload_powerup_reload_sig():
 	misisle_speed = 0.01
 	$reload_pwrup_timer.wait_time = reload_pwr_time
 	$reload_pwrup_timer.start()
-	$UI/HBoxContainer/reload_power_indicator.visible=true
+	$Camera2D/UI/HBoxContainer/reload_power_indicator.visible=true
 	%reload_label.visible=true
 func _on_reload_pwrup_timer_timeout():
 	throw_speed = orig_throw_speed
 	misisle_speed = orig_misisle_speed
-	$UI/HBoxContainer/reload_power_indicator.visible=false
+	$Camera2D/UI/HBoxContainer/reload_power_indicator.visible=false
 	%reload_label.visible=false
 func _on_powerup_protect_powerup_protect_sig():
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)
-	$UI/HBoxContainer/protect_power_indicator.visible=true
+	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=true
 	%prot_label.visible=true
 	$protect_powerup_timer.wait_time = prot_pwr_time
 	$protect_powerup_timer.start()
 
 func _on_protect_powerup_timer_timeout():
 	$".".remove_child($powerup_protect_zone)
-	$UI/HBoxContainer/protect_power_indicator.visible=false
+	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=false
 	%prot_label.visible=false
 func _on_timer_timeout():
 	d=false

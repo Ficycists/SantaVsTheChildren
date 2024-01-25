@@ -8,7 +8,7 @@ var left_side_zombies: PackedScene = preload("res://scenes/characters/leftsidezo
 var missile_fragment: PackedScene = preload("res://scenes/projectiles/collectable_fragment_missile.tscn")
 var POLARBEAR: PackedScene = preload("res://scenes/characters/polar_bear.tscn")
 #var pjump: PackedScene = preload("res://scenes/powerups/powerup_jump.tscn")
-
+var dead_position: Vector2 = Vector2(3,3)
 var did_santa_die: bool = false
 var level_num: int = 1
 var change_level: bool = false
@@ -61,8 +61,9 @@ func _process(_delta):
 		#level_reset(start)
 	if check_dead==true:
 		var dead_scene = death_scene.instantiate() as Sprite2D
+		dead_position = $Santa.position
 		$child_node.add_child(dead_scene)
-		dead_scene.position=$Santa.position
+		dead_scene.position=dead_position
 		
 	#did_santa_die=true
 
@@ -111,6 +112,8 @@ func _on_santa_missile(pos,direction):
 
 func _on_santa_die():
 	#get_viewport().canvas_transform = Transform2D.IDENTITY
+	dead_position = $Santa.position
+	
 	check_dead=true
 
 func level_reset(start):
