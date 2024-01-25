@@ -90,6 +90,7 @@ func _process(_delta):
 	dist_to_left_zomb = floor(($Santa.position.x-Zombie_Positions_Arr.max())/30)
 	##print(dist_to_left_zomb)
 	$Santa/Control/Label.text = str(dist_to_left_zomb)+"m"
+
 	if change_level==true:
 		start = Vector2(38,level_num*576)
 		level_reset(start)
@@ -143,6 +144,8 @@ func _on_zombie_timer_timeout():
 		$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
+	if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
+		$ZOMBIES/new_zombies.add_child(right_zombie)
 	#print('new-zombie')
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()

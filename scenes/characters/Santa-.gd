@@ -18,6 +18,7 @@ var Gravity = 25
 var jumpspeed: int = 500
 var horizspeed: int = 150
 var orig_horiz_speed: int = 150
+var lives = 3
 const deaccel = 25
 var d = false
 
@@ -148,10 +149,14 @@ func _on_collectable_fragment_missile_missile_fragment_collected():
 	collected_missile_fragments += 1
 	#print(collected_missile_fragments)
 
+var counter_attacks = 0
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
-		die.emit()
-		dead = true
+		if lives <= 0:
+			die.emit()
+			dead = true
+		lives -= 1
+		$Control/RichTextLabel.text = str(lives) + " lives"
 
 func _on_powerup_jump_powerup_jump_sig():
 	jumpspeed = 800
