@@ -90,6 +90,7 @@ func _process(_delta):
 	dist_to_left_zomb = floor(($Santa.position.x-Zombie_Positions_Arr.max())/30)
 	##print(dist_to_left_zomb)
 	$Santa/Control/Label.text = str(dist_to_left_zomb)+"m"
+
 	if change_level==true:
 		start = Vector2(38,level_num*576)
 		level_reset(start)
