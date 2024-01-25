@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxs4fakvi71tj"]
 
-[ext_resource type="Texture2D" uid="uid://d3rn0cbppt4ti" path="res://assets/sprites/i_am_bad_at_art_pls_make_prettier/missile_part.png" id="1_fptpo"]
 [ext_resource type="Script" path="res://scenes/projectiles/collectable_fragment_missile.gd" id="1_sapbw"]
+[ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/deer.png" id="2_q1stg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cwtb"]
-size = Vector2(44, 33)
+size = Vector2(56, 46)
 
 [node name="collectable_fragment_missile" type="Area2D"]
 collision_layer = 0
@@ -12,13 +12,13 @@ collision_mask = 8
 script = ExtResource("1_sapbw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0798677, 0.070331)
-texture = ExtResource("1_fptpo")
-region_enabled = true
+position = Vector2(6.25, -5.25)
+scale = Vector2(1.37879, 1.26923)
+texture = ExtResource("2_q1stg")
 region_rect = Rect2(256.492, 73.3153, 529.858, 423.564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(6, -2)
 shape = SubResource("RectangleShape2D_3cwtb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

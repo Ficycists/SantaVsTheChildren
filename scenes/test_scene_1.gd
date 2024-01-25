@@ -73,7 +73,7 @@ func _process(_delta):
 		dead_scene.position=$Santa.position
 		
 	#did_santa_die=true
-		
+
 
 		if Input.is_key_pressed(KEY_Y):
 			for i in $child_node.get_children():
@@ -104,7 +104,7 @@ func _process(_delta):
 		change_level=false
 		
 	#print(zombie_rate)
-	
+	$Santa/Control/Label2.text = ": "+str($Santa.deer)
 	pass
 
 

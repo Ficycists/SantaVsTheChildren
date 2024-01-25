@@ -27,6 +27,7 @@ const prot_pwr_time: int = 5
 
 const needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
+@export var deer = 0
 
 @export var dead: bool = false
 
@@ -131,8 +132,8 @@ func _on_reload_missile_timer_timeout():
 	reloaded=true
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
-	collected_missile_fragments += 1
-	#print(collected_missile_fragments)
+	deer += 1
+	print(deer)
 
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
