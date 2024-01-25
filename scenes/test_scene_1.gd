@@ -135,9 +135,11 @@ func _on_zombie_timer_timeout():
 	#if did_santa_die==false:
 	var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
 	var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
-	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
 	right_zombie.position.x = $Santa.position.x + 500 + randi_range(-10,10)
 	right_zombie.position.y = $Santa.position.y-200
+	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
+	right_zombie.position.y = $Santa.position.y-200
+	$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
 	if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
@@ -150,7 +152,7 @@ func _on_the_end_1_level_done():
 	#print('done')
 	var tree = get_tree()
 	var scenePath: String = str(tree.current_scene.scene_file_path)
-	var newscenePath = "res://scenes/story_scene_"+str(int(scenePath[24])+1)+".tscn"
+	var newscenePath = "res://scenes/story_scene_"+str(int(scenePath[24]))+".tscn"
 	$Control.change_scene(newscenePath)
 
 

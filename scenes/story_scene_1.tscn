@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://cphkilyiq0lq1"]
+[gd_scene load_steps=3 format=3 uid="uid://cphkilyiq0lq1"]
+
+[ext_resource type="Script" path="res://scenes/story_scene_1.gd" id="1_wt326"]
+[ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="2_i8rpw"]
 
 [node name="story_scene_1" type="Node2D"]
+script = ExtResource("1_wt326")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2109.0
+offset_top = -1394.0
+offset_right = 2283.0
+offset_bottom = 1451.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 287.0
+offset_top = 80.0
+offset_right = 786.0
+offset_bottom = 397.0
+text = "Then santa went to texas, where he found parts of a javelin missile launcher lying around. If he were to collect all of them, he might be able to use a missile launcher instead of throwing the coal.\\
+	I don't know what else to write here andrew please help."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 449.0
+offset_top = 255.0
+offset_right = 780.0
+offset_bottom = 394.0
+text = "Press Z to continue"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_i8rpw")
