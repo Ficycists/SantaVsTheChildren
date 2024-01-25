@@ -190,3 +190,9 @@ func _on_timer_timeout():
 	d=false
 	Gravity =25
 	$Timer.start() # Replace with function body.
+
+
+func _on_santa_area_2d_area_entered(area):
+	if area.name=="polar bear":
+		die.emit()
+		dead=true

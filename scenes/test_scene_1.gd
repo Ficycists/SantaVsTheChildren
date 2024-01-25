@@ -6,7 +6,7 @@ var powerup_jump: PackedScene = preload("res://scenes/powerups/powerup_jump.tscn
 var right_side_zombies: PackedScene = preload("res://scenes/characters/zombi_child.tscn")
 var left_side_zombies: PackedScene = preload("res://scenes/characters/leftsidezombie.tscn")
 var missile_fragment: PackedScene = preload("res://scenes/projectiles/collectable_fragment_missile.tscn")
-
+var POLARBEAR: PackedScene = preload("res://scenes/characters/polar_bear.tscn")
 #var pjump: PackedScene = preload("res://scenes/powerups/powerup_jump.tscn")
 
 var did_santa_die: bool = false
@@ -168,3 +168,10 @@ func _on_idk_what_this_is_anymore_body_entered(body):
 		while n < 30:
 			$ZOMBIES/new_zombies.add_child(right_zombie)
 			n+=1
+
+
+func _on___body_entered(body):
+	if body.name=="Santa":
+		var polarbear = POLARBEAR.instantiate()
+		polarbear.position = Vector2(20712,592)
+		$".".add_child(polarbear) # Replace with function body.
