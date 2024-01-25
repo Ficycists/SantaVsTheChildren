@@ -6,7 +6,22 @@ var jumpspeed: int = 400
 var jump: bool = false
 const SPEED = 100
 const Gravity: int = 30
+@onready var animSprite = $AnimatedSprite2D
+
+const ZOMBI_CHILD_0 = preload("res://scenes/characters/zombi_child_0.tres")
+const ZOMBI_CHILD_1 = preload("res://scenes/characters/zombi_child_1.tres")
+const ZOMBI_CHILD_2 = preload("res://scenes/characters/zombi_child_2.tres")
+
 func _ready():
+	var foo : int = randi_range(0,2)
+	match foo:
+		0:
+			animSprite.sprite_frames = ZOMBI_CHILD_0
+		1:
+			animSprite.sprite_frames = ZOMBI_CHILD_1
+		2:
+			animSprite.sprite_frames = ZOMBI_CHILD_2
+	animSprite.play()
 	#position.y=300
 	pass
 func _process(delta):

@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://6gmh1bfwk852"]
+[gd_scene load_steps=19 format=3 uid="uid://6gmh1bfwk852"]
 
 [ext_resource type="Script" path="res://scenes/characters/Santa-.gd" id="1_prmy7"]
-[ext_resource type="Texture2D" uid="uid://dsl6hcqj6e1bl" path="res://assets/sprites/standingsprite.png" id="2_py6e7"]
 [ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="2_xxrij"]
 [ext_resource type="Texture2D" uid="uid://b3xovjrkjujjy" path="res://assets/sprites/powerups/speed.png" id="3_w125v"]
 [ext_resource type="Texture2D" uid="uid://cr74lgaf5gf3y" path="res://assets/sprites/powerups/protect_powerup.png" id="4_kk42q"]
+[ext_resource type="Texture2D" uid="uid://busher666hi20" path="res://assets/sprites/idlesprite.png" id="5_d0446"]
+[ext_resource type="Texture2D" uid="uid://c4hmtt473u1ps" path="res://assets/sprites/jumpsprite.png" id="6_osbn7"]
+[ext_resource type="Texture2D" uid="uid://bj3lix53gwel4" path="res://assets/sprites/walkingsprite.png" id="7_k4ybo"]
 
 [sub_resource type="Theme" id="Theme_xfmwu"]
 
@@ -19,6 +21,59 @@ size = Vector2(20, 30.0276)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1s40i"]
 size = Vector2(27.5, 32.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tb62"]
+atlas = ExtResource("5_d0446")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_775hj"]
+atlas = ExtResource("5_d0446")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg3h8"]
+atlas = ExtResource("6_osbn7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ltpq"]
+atlas = ExtResource("7_k4ybo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef3hw"]
+atlas = ExtResource("7_k4ybo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7jro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tb62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_775hj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg3h8")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ltpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef3hw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 4.0
+}]
 
 [node name="Santa" type="CharacterBody2D"]
 collision_layer = 8
@@ -115,9 +170,6 @@ offset_top = 69.0
 offset_right = 126.0
 offset_bottom = 92.0
 
-[node name="Santaimg" type="Sprite2D" parent="."]
-texture = ExtResource("2_py6e7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.256653, 1.98619)
 shape = SubResource("RectangleShape2D_dw754")
@@ -169,6 +221,11 @@ offset_right = 170.0
 offset_bottom = 98.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Santaimg" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v7jro")
+animation = &"idle"
+autoplay = "idle"
 
 [connection signal="timeout" from="jumppwruptimer" to="." method="_on_jumppwruptimer_timeout"]
 [connection signal="timeout" from="speedtimer" to="." method="_on_speedtimer_timeout"]
