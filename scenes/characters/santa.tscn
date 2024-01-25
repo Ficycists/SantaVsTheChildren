@@ -22,7 +22,7 @@ size = Vector2(27.5, 32.25)
 
 [node name="Santa" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 2069
+collision_mask = 264213
 script = ExtResource("1_prmy7")
 
 [node name="UI" type="Control" parent="."]
@@ -146,7 +146,7 @@ shape = SubResource("RectangleShape2D_1s40i")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 limit_left = -200
-limit_bottom = 768
+limit_bottom = 1000000
 editor_draw_limits = true
 
 [node name="reload_throw_timer" type="Timer" parent="."]

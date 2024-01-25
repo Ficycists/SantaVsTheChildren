@@ -45,6 +45,7 @@ func _ready():
 	#spawn_missile_parts()
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
+	$Notground1.position.y = 592
 	#var p_jump = pjump.instantiate() as Area2D
 	#p_jump.add_to_group("Powerups_Jump")
 	#p_jump.position.x = 100
@@ -60,7 +61,8 @@ func _ready():
 
 func _process(_delta):
 	var tree = get_tree()
-	$Notground1.position = $Santa.position
+	$Notground1.position.x = $Santa.position.x
+	
 	if did_santa_die==false and cured==false:
 		zombie_rate = (PI/10)+(level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.718))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)
@@ -175,3 +177,5 @@ func _on___body_entered(body):
 		var polarbear = POLARBEAR.instantiate()
 		polarbear.position = Vector2(20712,592)
 		$".".add_child(polarbear) # Replace with function body.
+
+

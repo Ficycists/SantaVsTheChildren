@@ -21,9 +21,9 @@ const deaccel = 25
 var d = false
 
 const jump_pwr_time: int = 4
-const speed_pwr_time: int = 3
+const speed_pwr_time: int = 30000
 const reload_pwr_time: int = 5
-const prot_pwr_time: int = 5
+const prot_pwr_time: int = 58888888
 
 const needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
@@ -132,8 +132,8 @@ func _on_reload_missile_timer_timeout():
 	reloaded=true
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
-	deer += 1
-	print(deer)
+	collected_missile_fragments += 1
+	print(collected_missile_fragments)
 
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
@@ -193,6 +193,15 @@ func _on_timer_timeout():
 
 
 func _on_santa_area_2d_area_entered(area):
-	if area.name=="polar bear":
+	if "polar bear" in area.name:
 		die.emit()
 		dead=true
+
+
+func _on_powerup_jump_2_powerup_jump_sig():
+	pass # Replace with function body.
+
+
+func _on_deer_missile_fragment_collected():
+	deer +=1
+	print(deer) # Replace with function body.
