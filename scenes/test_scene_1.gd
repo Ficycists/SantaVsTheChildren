@@ -139,7 +139,8 @@ func _on_zombie_timer_timeout():
 	right_zombie.position.y = $Santa.position.y-200
 	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
 	right_zombie.position.y = $Santa.position.y-200
-	$ZOMBIES/new_zombies.add_child(right_zombie)
+	if !right_zombie.is_on_wall():
+		$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
 	#print('new-zombie')

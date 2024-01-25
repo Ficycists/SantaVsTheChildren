@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5c4neguuujnv"]
+[gd_scene load_steps=21 format=3 uid="uid://b5c4neguuujnv"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_2.gd" id="1_kn0fm"]
 [ext_resource type="Texture2D" uid="uid://byx1tbyb376ml" path="res://assets/sprites/terrain/LEVEL2/notgroundtx.png" id="2_xjtx1"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="4_lb844"]
 [ext_resource type="Texture2D" uid="uid://dkv6xexl75832" path="res://assets/sprites/zombChild_1_sprpng.png" id="5_1qugm"]
 [ext_resource type="Texture2D" uid="uid://dnler3oqt813a" path="res://assets/sprites/left_arrow.png" id="6_xndbe"]
-[ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/terrain/LEVEL1/deer.png" id="7_2ppvb"]
+[ext_resource type="Texture2D" uid="uid://dwc1eygbn3xbm" path="res://assets/sprites/javelin.png" id="7_ytl7q"]
 [ext_resource type="PackedScene" uid="uid://bvsa46x4y8tpk" path="res://scenes/powerups/powerup_jump.tscn" id="8_piv3r"]
 [ext_resource type="PackedScene" uid="uid://cx2ppr13w7sow" path="res://scenes/powerups/powerup_speed.tscn" id="9_r671u"]
 [ext_resource type="PackedScene" uid="uid://cxs4fakvi71tj" path="res://scenes/projectiles/collectable_fragment_missile.tscn" id="10_rotx6"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://drryop3blfyv6" path="res://scenes/powerups/powerup_protect.tscn" id="14_w2lhs"]
 [ext_resource type="PackedScene" uid="uid://cwjjflt4qxsk4" path="res://scenes/characters/polar_bear.tscn" id="15_463eb"]
 [ext_resource type="Script" path="res://scenes/_).gd" id="16_oua6j"]
+[ext_resource type="PackedScene" uid="uid://d2aagbr064wv8" path="res://scenes/projectiles/javelin_missile_part.tscn" id="17_4l64k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_643j6"]
 size = Vector2(0.620629, 608)
@@ -91,9 +92,9 @@ color = Color(0.611765, 0.611765, 0.611765, 0.517647)
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Santa/Control"]
-position = Vector2(149.875, -98.875)
-scale = Vector2(0.613636, 0.557692)
-texture = ExtResource("7_2ppvb")
+position = Vector2(150, -96)
+scale = Vector2(1.56463, 1.39603)
+texture = ExtResource("7_ytl7q")
 
 [node name="Label2" type="Label" parent="Santa/Control"]
 layout_mode = 0
@@ -127,10 +128,6 @@ texture_filter = 1
 [node name="Zombie_timer" type="Timer" parent="ZOMBIES"]
 
 [node name="new_zombies" type="Node2D" parent="ZOMBIES"]
-
-[node name="deer2" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(752, 584)
-metadata/_edit_group_ = true
 
 [node name="the_end_1" parent="." instance=ExtResource("11_g8tad")]
 position = Vector2(20824, 560)
@@ -173,10 +170,6 @@ collision_mask = 8
 position = Vector2(35, -93)
 shape = SubResource("RectangleShape2D_ljasm")
 
-[node name="deer" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(2088, 432)
-metadata/_edit_group_ = true
-
 [node name="polar bear2" parent="." instance=ExtResource("15_463eb")]
 position = Vector2(18712, 896)
 
@@ -190,30 +183,13 @@ script = ExtResource("16_oua6j")
 position = Vector2(592, 116)
 shape = SubResource("RectangleShape2D_j7ofj")
 
-[node name="deer3" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(6280, 361)
-metadata/_edit_group_ = true
-
-[node name="deer4" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(9832, 104)
-metadata/_edit_group_ = true
-
-[node name="deer5" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(9648, 104)
-metadata/_edit_group_ = true
-
 [node name="powerup_speed3" parent="." instance=ExtResource("9_r671u")]
 position = Vector2(376, 592)
 
-[node name="deer6" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(12296, 304)
-metadata/_edit_group_ = true
-
-[node name="deer7" parent="." instance=ExtResource("10_rotx6")]
-position = Vector2(15856, 272)
-metadata/_edit_group_ = true
-
 [node name="child_node" type="Node2D" parent="."]
+
+[node name="JavelinMissilePart" parent="." instance=ExtResource("17_4l64k")]
+position = Vector2(436, 597)
 
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
@@ -221,7 +197,6 @@ metadata/_edit_group_ = true
 [connection signal="powerup_jump_sig" from="powerup_jump" to="Santa" method="_on_powerup_jump_powerup_jump_sig"]
 [connection signal="powerup_speed_sig" from="powerup_speed" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
 [connection signal="timeout" from="ZOMBIES/Zombie_timer" to="." method="_on_zombie_timer_timeout"]
-[connection signal="missile_fragment_collected" from="deer2" to="Santa" method="_on_deer_missile_fragment_collected"]
 [connection signal="level_done" from="the_end_1" to="." method="_on_the_end_1_level_done"]
 [connection signal="powerup_reload_sig" from="powerup_reload" to="Santa" method="_on_powerup_reload_powerup_reload_sig"]
 [connection signal="powerup_protect_sig" from="powerup_protect" to="Santa" method="_on_powerup_protect_powerup_protect_sig"]
@@ -230,11 +205,6 @@ metadata/_edit_group_ = true
 [connection signal="powerup_protect_sig" from="powerup_protect3" to="Santa" method="_on_powerup_protect_powerup_protect_sig"]
 [connection signal="powerup_jump_sig" from="powerup_jump2" to="Santa" method="_on_powerup_jump_powerup_jump_sig"]
 [connection signal="body_entered" from="idk_what_this_is_anymore" to="." method="_on_idk_what_this_is_anymore_body_entered"]
-[connection signal="missile_fragment_collected" from="deer" to="Santa" method="_on_deer_missile_fragment_collected"]
 [connection signal="body_entered" from="_)" to="." method="_on___body_entered"]
-[connection signal="missile_fragment_collected" from="deer3" to="Santa" method="_on_deer_missile_fragment_collected"]
-[connection signal="missile_fragment_collected" from="deer4" to="Santa" method="_on_deer_missile_fragment_collected"]
-[connection signal="missile_fragment_collected" from="deer5" to="Santa" method="_on_deer_missile_fragment_collected"]
 [connection signal="powerup_speed_sig" from="powerup_speed3" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
-[connection signal="missile_fragment_collected" from="deer6" to="Santa" method="_on_deer_missile_fragment_collected"]
-[connection signal="missile_fragment_collected" from="deer7" to="Santa" method="_on_deer_missile_fragment_collected"]
+[connection signal="missile_frag_collected" from="JavelinMissilePart" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
