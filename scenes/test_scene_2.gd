@@ -90,7 +90,7 @@ func _process(_delta):
 		start = Vector2(38,level_num*576)
 		level_reset(start)
 
-	$Santa/Control/Label2.text = ": "+str($Santa.collected_missile_fragments)
+	$Santa/Control/Label2.text = ": "+str($Santa.collected_missile_fragments)+"/"+str($Santa.needed_missile_fragments)
 	$Santa/Control/RichTextLabel.text = str($Santa.lives) + " lives"
 	pass
 
@@ -98,7 +98,7 @@ func _process(_delta):
 func _on_santa_missile(pos,direction):
 	var pcoal = throw_coal_scene.instantiate() as RigidBody2D
 	pcoal.position = pos
-	pcoal.gravity_scale = 0
+	pcoal.gravity_scale = 0.07
 	pcoal.linear_velocity = Vector2(direction*450,0)
 	$Projectiles.add_child(pcoal)
 
@@ -152,20 +152,25 @@ func _on_the_end_1_level_done():
 
 
 func _on_idk_what_this_is_anymore_body_entered(body):
-	if body.name=="Santa":
-		var n = 1
+	pass
+	#if body.name=="Santa":
+		#var n = 1
 		
-		var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
-		right_zombie.position = Vector2(16064,384)
-		while n < 30:
+		#var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
+		#right_zombie.position = Vector2(16064,384)
+		#while n < 30:
 			#$ZOMBIES/new_zombies.add_child(right_zombie)
-			n+=1
+			#n+=1
 
-
+var polar_bear_trigger: int = 0
 func _on___body_entered(body):
 	if body.name=="Santa":
 		var polarbear = POLARBEAR.instantiate()
-		polarbear.position = Vector2(20712,592)
+		if polar_bear_trigger==0:
+			polarbear.position = Vector2(14074,400)
+			polar_bear_trigger +=1
+		else:
+			polarbear.position = Vector2(3,3)
 		$ZOMBIES.add_child(polarbear) # Replace with function body.
 
 

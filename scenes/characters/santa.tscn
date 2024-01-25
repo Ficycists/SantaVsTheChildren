@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6gmh1bfwk852"]
+[gd_scene load_steps=20 format=3 uid="uid://6gmh1bfwk852"]
 
 [ext_resource type="Script" path="res://scenes/characters/Santa-.gd" id="1_prmy7"]
 [ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="2_xxrij"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://busher666hi20" path="res://assets/sprites/idlesprite.png" id="5_d0446"]
 [ext_resource type="Texture2D" uid="uid://c4hmtt473u1ps" path="res://assets/sprites/jumpsprite.png" id="6_osbn7"]
 [ext_resource type="Texture2D" uid="uid://bj3lix53gwel4" path="res://assets/sprites/walkingsprite.png" id="7_k4ybo"]
+[ext_resource type="Texture2D" uid="uid://dwc1eygbn3xbm" path="res://assets/sprites/javelin.png" id="8_2kbk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw754"]
 size = Vector2(20, 30.0276)
@@ -228,6 +229,12 @@ offset_bottom = 98.0
 sprite_frames = SubResource("SpriteFrames_v7jro")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="missile" type="Sprite2D" parent="Santaimg"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(15, 2)
+texture = ExtResource("8_2kbk5")
 
 [node name="POLAR BEAR" type="Timer" parent="."]
 wait_time = 3.0

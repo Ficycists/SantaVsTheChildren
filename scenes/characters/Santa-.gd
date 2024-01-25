@@ -24,7 +24,7 @@ const deaccel = 25
 var d = false
 
 const jump_pwr_time: int = 4
-var speed_pwr_time: int = 4342324
+var speed_pwr_time: int = 4
 const reload_pwr_time: int = 5
 var prot_pwr_time: int = 523423432
 
@@ -45,18 +45,9 @@ var reloaded: bool = true
 
 func _ready():
 	position = Vector2(38,596)
-	
+	%missile.visible=false
 	santaimg.animation = "idle"
 	
-	#self.add_child(texture_progress)
-	#$%TextureProgressBar.texture_progress = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_prog.png")
-	#texture_progress.texture_bg = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_bg.png")
-	#texture_progress.texture_fg = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_fg.png")
-	#$%TextureProgressBar.fill_mode = TextureProgressBar.FILL_LEFT_TO_RIGHT
-	#$%TextureProgressBar.min_value = 0
-	#$%TextureProgressBar.max_value = 100
-	
-
 func _process(delta):
 	$%ProgressBar.value = floor($".".position.x / 20000 * 10)*10
 	#$TextureProgressBar.position.y = $".".position.y#-80
@@ -67,6 +58,7 @@ func _process(delta):
 	#print(position.x)
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
+		%missile.visible=true
 	
 	if Input.is_action_pressed("left") and dead==false:
 		velocity.x = - horizspeed*delta*100
@@ -84,8 +76,12 @@ func _process(delta):
 		velocity.x = 0
 	if flipped && !santaimg.flip_h:
 		santaimg.flip_h = true;
+		%missile.flip_h =true
+		%missile.position=$CoalStartPos/leftMarker.position
 	elif !flipped && santaimg.flip_h:
 		santaimg.flip_h = false;
+		%missile.flip_h=false
+		%missile.position=$CoalStartPos/rightMarker.position
 	if Input.is_action_just_pressed("up")and dead==false:
 		if is_on_floor():
 			velocity.y = -jumpspeed
