@@ -59,7 +59,8 @@ func _process(delta):
 	if collected_missile_fragments >= needed_missile_fragments:
 		can_missile = true
 		%missile.visible=true
-	
+	if can_missile == true:
+		%missile.visible=true
 	if Input.is_action_pressed("left") and dead==false:
 		velocity.x = - horizspeed*delta*100
 		#$Santaimg.
