@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/terrain/LEVEL1/deer.png" id="7_obnm4"]
 [ext_resource type="PackedScene" uid="uid://b7dutkbfw5mf0" path="res://scenes/levels/the_end_1.tscn" id="8_wjwca"]
 [ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="9_ywni5"]
-[ext_resource type="PackedScene" uid="uid://jvku2jd15jl5" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
-[ext_resource type="PackedScene" uid="uid://drryop3blfyv6" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
+[ext_resource type="PackedScene" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
+[ext_resource type="PackedScene" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
 [ext_resource type="Script" path="res://scenes/_).gd" id="16_5kbsr"]
-[ext_resource type="PackedScene" uid="uid://cwjjflt4qxsk4" path="res://scenes/characters/polar_bear.tscn" id="16_e8dhh"]
+[ext_resource type="PackedScene" path="res://scenes/characters/polar_bear.tscn" id="16_e8dhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_643j6"]
 size = Vector2(0.620629, 608)
