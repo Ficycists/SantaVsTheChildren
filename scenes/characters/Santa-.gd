@@ -5,6 +5,10 @@ var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_c
 var powerup_protect_scene: PackedScene = preload("res://scenes/powerups/powerup_protect_zone.tscn")
 var facing_right: int = 1
 
+@onready var santaimg = $Santaimg
+var flipped : bool = false
+
+
 signal throw(pos,direction)
 signal missile(pos,direction)
 signal die
@@ -61,12 +65,19 @@ func _process(delta):
 		velocity.x = - horizspeed*delta*100
 		#$Santaimg.
 		facing_right = -1
+		if !flipped:
+			flipped = true
 	elif Input.is_action_pressed("right")and dead == false:
 		velocity.x = horizspeed*delta*100
 		facing_right = 1
+		if flipped:
+			flipped = false
 	else:
 		velocity.x = 0
-
+	if flipped && !santaimg.flip_h:
+		santaimg.flip_h = true;
+	elif !flipped && santaimg.flip_h:
+		santaimg.flip_h = false;
 	if Input.is_action_just_pressed("up")and dead==false:
 		if is_on_floor():
 			velocity.y = -jumpspeed

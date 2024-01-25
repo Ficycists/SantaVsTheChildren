@@ -62,7 +62,7 @@ func _process(_delta):
 	var tree = get_tree()
 	$Notground1.position = $Santa.position
 	if did_santa_die==false and cured==false:
-		zombie_rate = (level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.7182818))) #/ level_scale 
+		zombie_rate = (PI/10)+(level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.718))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)
 	if did_santa_die==true:
 		$Control.reset_level()
