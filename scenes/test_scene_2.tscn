@@ -196,6 +196,16 @@ position = Vector2(376, 592)
 [node name="JavelinMissilePart" parent="." instance=ExtResource("17_4l64k")]
 position = Vector2(436, 597)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="End_Label" type="Label" parent="ColorRect"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Santa hasn't collected all missile parts yet. Fix that."
+
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]

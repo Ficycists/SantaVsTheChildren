@@ -140,11 +140,14 @@ func _on_zombie_timer_timeout():
 	$ZOMBIES/Zombie_timer.start()
 
 func _on_the_end_1_level_done():
-	#print('done')
 	var tree = get_tree()
-	var scenePath: String = str(tree.current_scene.scene_file_path)
-	var newscenePath = "res://scenes/test_scene_"+str(int(scenePath[24])+1)+".tscn"
-	$Control.change_scene(newscenePath)
+	if $Santa.collected_missile_fragments == $Santa.needed_missile_fragments:
+		$ColorRect.visible=false
+		var scenePath: String = str(tree.current_scene.scene_file_path)
+		var newscenePath = "res://scenes/test_scene_"+str(int(scenePath[24])+1)+".tscn"
+		$Control.change_scene(newscenePath)
+	else:
+		$ColorRect.visible=true
 
 
 func _on_idk_what_this_is_anymore_body_entered(body):
