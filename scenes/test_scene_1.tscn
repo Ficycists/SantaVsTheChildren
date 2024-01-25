@@ -167,8 +167,6 @@ collision_mask = 8
 position = Vector2(35, -93)
 shape = SubResource("RectangleShape2D_ljasm")
 
-[node name="child_node" type="Node2D" parent="."]
-
 [node name="deer" parent="." instance=ExtResource("6_laukx")]
 position = Vector2(2088, 432)
 metadata/_edit_group_ = true
@@ -209,6 +207,8 @@ metadata/_edit_group_ = true
 position = Vector2(15856, 272)
 metadata/_edit_group_ = true
 
+[node name="child_node" type="Node2D" parent="."]
+
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]
@@ -216,6 +216,7 @@ metadata/_edit_group_ = true
 [connection signal="powerup_speed_sig" from="powerup_speed" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]
 [connection signal="timeout" from="ZOMBIES/Zombie_timer" to="." method="_on_zombie_timer_timeout"]
 [connection signal="missile_fragment_collected" from="deer2" to="Santa" method="_on_deer_missile_fragment_collected"]
+[connection signal="level_done" from="the_end_1" to="." method="_on_the_end_1_level_done"]
 [connection signal="powerup_reload_sig" from="powerup_reload" to="Santa" method="_on_powerup_reload_powerup_reload_sig"]
 [connection signal="powerup_protect_sig" from="powerup_protect" to="Santa" method="_on_powerup_protect_powerup_protect_sig"]
 [connection signal="powerup_speed_sig" from="powerup_speed2" to="Santa" method="_on_powerup_speed_powerup_speed_sig"]

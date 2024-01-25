@@ -17,6 +17,7 @@ signal cant_reload
 var Gravity = 25
 var jumpspeed: int = 500
 var horizspeed: int = 150
+var orig_horiz_speed: int = 150
 const deaccel = 25
 var d = false
 
@@ -42,6 +43,7 @@ var reloaded: bool = true
 
 func _ready():
 	position = Vector2(38,596)
+	
 	#self.add_child(texture_progress)
 	#$%TextureProgressBar.texture_progress = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_prog.png")
 	#texture_progress.texture_bg = load("res://assets/sprites/i_am_bad_at_art_pls_make_prettier/progress_bg.png")
@@ -68,6 +70,7 @@ func _process(delta):
 		facing_right = -1
 		if !flipped:
 			flipped = true
+		
 	elif Input.is_action_pressed("right")and dead == false:
 		velocity.x = horizspeed*delta*100
 		facing_right = 1
@@ -133,7 +136,7 @@ func _on_reload_missile_timer_timeout():
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
 	collected_missile_fragments += 1
-	print(collected_missile_fragments)
+	#print(collected_missile_fragments)
 
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
@@ -158,7 +161,7 @@ func _on_powerup_speed_powerup_speed_sig():
 	%speed_label.visible=true
 
 func _on_speedtimer_timeout():
-	horizspeed = 150
+	horizspeed = orig_horiz_speed
 	$UI/HBoxContainer/speed_power_indicator.visible=false
 	%speed_label.visible=false
 
@@ -204,4 +207,5 @@ func _on_powerup_jump_2_powerup_jump_sig():
 
 func _on_deer_missile_fragment_collected():
 	deer +=1
-	print(deer) # Replace with function body.
+	orig_horiz_speed=150+5*deer
+	#print(deer) # Replace with function body.

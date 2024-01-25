@@ -17,7 +17,8 @@ func _process(_sdelta):
 func change_scene(scenePath) -> void:
 	# Get the current SceneTree
 	var tree = get_tree()
-	
+	#scenePath = str(tree.current_scene.scene_file_path)
+	#"res://scenes/test_scene_1.tscn"
 	# Change the scene
 	tree.change_scene_to_file(scenePath)
 

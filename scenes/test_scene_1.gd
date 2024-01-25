@@ -46,18 +46,8 @@ func _ready():
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 	$Notground1.position.y = 592
-	#var p_jump = pjump.instantiate() as Area2D
-	#p_jump.add_to_group("Powerups_Jump")
-	#p_jump.position.x = 100
-	#$".".add_child(p_jump)
-	#for i in get_tree().get_nodes_in_group("Powerups_Jump"):
-		#i.powerup_jump_sig.connect(_on_powerup_jump_powerup_jump_sig)
-	#var test_array: Array = [1,4.3,2.4]
-	#print(test_array.max())
-	#var left_zombie = left_side_zombies.instantiate() as CharacterBody2D
-	#left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
-	#$ZOMBIES/new_zombies.add_child(left_zombie)
-	#left_zombie.add_to_group("Left Zombies")
+	
+	
 
 func _process(_delta):
 	var tree = get_tree()
@@ -158,7 +148,10 @@ func _on_zombie_timer_timeout():
 
 func _on_the_end_1_level_done():
 	#print('done')
-	$Control.change_scene()
+	var tree = get_tree()
+	var scenePath: String = str(tree.current_scene.scene_file_path)
+	var newscenePath = "res://scenes/test_scene_"+str(int(scenePath[24])+1)+".tscn"
+	$Control.change_scene(newscenePath)
 
 
 func _on_idk_what_this_is_anymore_body_entered(body):
@@ -168,7 +161,7 @@ func _on_idk_what_this_is_anymore_body_entered(body):
 		var right_zombie = right_side_zombies.instantiate() as CharacterBody2D
 		right_zombie.position = Vector2(16064,384)
 		while n < 30:
-			$ZOMBIES/new_zombies.add_child(right_zombie)
+			#$ZOMBIES/new_zombies.add_child(right_zombie)
 			n+=1
 
 
@@ -176,6 +169,6 @@ func _on___body_entered(body):
 	if body.name=="Santa":
 		var polarbear = POLARBEAR.instantiate()
 		polarbear.position = Vector2(20712,592)
-		$".".add_child(polarbear) # Replace with function body.
+		$ZOMBIES.add_child(polarbear) # Replace with function body.
 
 
