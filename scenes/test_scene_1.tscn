@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
-[ext_resource type="Texture2D" uid="uid://binnsrm4vg6re" path="res://assets/sprites/terrain/notground1.png" id="2_gufc6"]
+[ext_resource type="Texture2D" uid="uid://binnsrm4vg6re" path="res://assets/sprites/terrain/LEVEL1/notground1.png" id="2_gufc6"]
 [ext_resource type="PackedScene" uid="uid://6gmh1bfwk852" path="res://scenes/characters/santa.tscn" id="3_21xm2"]
 [ext_resource type="Texture2D" uid="uid://dkv6xexl75832" path="res://assets/sprites/zombChild_1_sprpng.png" id="4_wsg22"]
 [ext_resource type="PackedScene" uid="uid://r58ntc82cc3p" path="res://scenes/levels/base_level_test.tscn" id="4_yahny"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnler3oqt813a" path="res://assets/sprites/left_arrow.png" id="5_w0adq"]
 [ext_resource type="PackedScene" uid="uid://cx2ppr13w7sow" path="res://scenes/powerups/powerup_speed.tscn" id="6_ctakw"]
 [ext_resource type="PackedScene" uid="uid://cxs4fakvi71tj" path="res://scenes/projectiles/collectable_fragment_missile.tscn" id="6_laukx"]
-[ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/deer.png" id="7_obnm4"]
+[ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/terrain/LEVEL1/deer.png" id="7_obnm4"]
 [ext_resource type="PackedScene" uid="uid://b7dutkbfw5mf0" path="res://scenes/levels/the_end_1.tscn" id="8_wjwca"]
 [ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="9_ywni5"]
 [ext_resource type="PackedScene" uid="uid://jvku2jd15jl5" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
@@ -49,6 +49,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Santa/Control"]
 layout_mode = 0
@@ -57,6 +58,7 @@ offset_top = -104.0
 offset_right = -112.0
 offset_bottom = -80.0
 color = Color(0.411765, 0.411765, 0.411765, 0.584314)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Santa/Control"]
 layout_mode = 0
@@ -64,6 +66,7 @@ offset_left = -192.0
 offset_top = -104.0
 offset_right = -152.0
 offset_bottom = -81.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Santa/Control"]
 position = Vector2(-129, -92.25)
@@ -85,6 +88,7 @@ offset_top = -112.0
 offset_right = 192.0
 offset_bottom = -84.0
 color = Color(0.611765, 0.611765, 0.611765, 0.517647)
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Santa/Control"]
 position = Vector2(149.875, -98.875)
@@ -97,6 +101,7 @@ offset_left = 165.0
 offset_top = -108.0
 offset_right = 205.0
 offset_bottom = -85.0
+metadata/_edit_use_anchors_ = true
 
 [node name="left wall" type="StaticBody2D" parent="."]
 position = Vector2(-14.875, 318)
@@ -136,6 +141,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_ywni5")
+metadata/_edit_use_anchors_ = true
 
 [node name="powerup_reload" parent="." instance=ExtResource("10_wrccg")]
 position = Vector2(13400, 216)

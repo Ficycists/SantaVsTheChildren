@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dueu36rpctb75" path="res://assets/sprites/brick.png" id="1_4j6rf"]
 [ext_resource type="Texture2D" uid="uid://c7wn3rdvf1gkg" path="res://assets/sprites/sign.png" id="2_2e6fm"]
 [ext_resource type="Texture2D" uid="uid://bqt71y7d5xwxa" path="res://assets/sprites/greysky_txtr.png" id="3_3vn4t"]
-[ext_resource type="Texture2D" uid="uid://ccelfmsn3wyy5" path="res://assets/sprites/terrain/ground.png" id="4_rfhla"]
+[ext_resource type="Texture2D" uid="uid://ccelfmsn3wyy5" path="res://assets/sprites/terrain/LEVEL1/ground.png" id="4_rfhla"]
 [ext_resource type="Texture2D" uid="uid://cl1kf1a38y7g0" path="res://assets/sprites/terrain/brick_minimal.png" id="5_7d6cx"]
-[ext_resource type="Texture2D" uid="uid://cp02co0jvcy45" path="res://assets/sprites/terrain/ground2.png" id="6_tcjc7"]
+[ext_resource type="Texture2D" uid="uid://cp02co0jvcy45" path="res://assets/sprites/terrain/LEVEL1/ground2.png" id="6_tcjc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tddf"]
 resource_name = "Brick"

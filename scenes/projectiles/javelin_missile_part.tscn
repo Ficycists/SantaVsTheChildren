@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2aagbr064wv8"]
+
+[ext_resource type="Texture2D" uid="uid://dwc1eygbn3xbm" path="res://assets/sprites/javelin.png" id="1_ji1wk"]
+
+[node name="JavelinMissilePart" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ji1wk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

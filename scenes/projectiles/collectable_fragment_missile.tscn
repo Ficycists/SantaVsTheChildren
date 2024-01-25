@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxs4fakvi71tj"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/collectable_fragment_missile.gd" id="1_sapbw"]
-[ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/deer.png" id="2_q1stg"]
+[ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/terrain/LEVEL1/deer.png" id="2_7ki0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cwtb"]
 size = Vector2(56, 46)
@@ -14,7 +14,7 @@ script = ExtResource("1_sapbw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6.25, -5.25)
 scale = Vector2(1.37879, 1.26923)
-texture = ExtResource("2_q1stg")
+texture = ExtResource("2_7ki0e")
 region_rect = Rect2(256.492, 73.3153, 529.858, 423.564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -78,24 +78,18 @@ func _process(_delta):
 	Zombie_Positions_Arr=[-500]	
 	#if get.tree().has_group("Left Zombies"):	
 	for zomb in tree.get_nodes_in_group("Left Zombies"):
-		##if Zombie_Positions_Arr!=[]:
+
 		if $Santa.position.x > zomb.position.x:
-		##if $Santa.position.x >Zombie_Positions_Arr.max():
+
 			Zombie_Positions_Arr.append(zomb.position.x)
-		##print(zomb.position.x)
-	##if Zombie_Positions_Arr!=[]:#and$Santa.position.x>Zombie_Positions_Arr.max():
-	##print(Zombie_Positions_Arr.max())
-	##print($Santa.position.x)
-	##if $Santa.position.x >Zombie_Positions_Arr.max():
+
 	dist_to_left_zomb = floor(($Santa.position.x-Zombie_Positions_Arr.max())/30)
-	##print(dist_to_left_zomb)
+
 	$Santa/Control/Label.text = str(dist_to_left_zomb)+"m"
 	if change_level==true:
 		start = Vector2(38,level_num*576)
 		level_reset(start)
-		change_level=false
-		
-	#print(zombie_rate)
+
 	$Santa/Control/Label2.text = ": "+str($Santa.deer)
 	pass
 
@@ -106,17 +100,16 @@ func _on_santa_missile(pos,direction):
 	pcoal.gravity_scale = 0
 	pcoal.linear_velocity = Vector2(direction*450,0)
 	$Projectiles.add_child(pcoal)
-	pass # Replace with function body.
+
 
 func _on_santa_die():
-	#get_viewport().canvas_transform = Transform2D.IDENTITY
 	check_dead=true
 
 func level_reset(start):
 	
+	#if level_num==3:
+		#spawn_missile_parts()
 	if level_num==3:
-		spawn_missile_parts()
-	if level_num==5:
 		cured=true
 		zombie_rate = cured_zombie_rate
 	
@@ -150,7 +143,7 @@ func _on_the_end_1_level_done():
 	#print('done')
 	var tree = get_tree()
 	var scenePath: String = str(tree.current_scene.scene_file_path)
-	var newscenePath = "res://scenes/story_scene_"+str(int(scenePath[24])+1)+".tscn"
+	var newscenePath = "res://scenes/test_scene_"+str(int(scenePath[24])+1)+".tscn"
 	$Control.change_scene(newscenePath)
 
 

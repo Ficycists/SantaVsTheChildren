@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwjjflt4qxsk4"]
 
 [ext_resource type="Script" path="res://scenes/characters/polar bear.gd" id="1_luaem"]
-[ext_resource type="Texture2D" uid="uid://02q1y7bc752w" path="res://assets/sprites/polarbear.png" id="2_2r4yg"]
+[ext_resource type="Texture2D" uid="uid://02q1y7bc752w" path="res://assets/sprites/terrain/LEVEL1/polarbear.png" id="2_2r4yg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk1m1"]
 size = Vector2(96, 64)

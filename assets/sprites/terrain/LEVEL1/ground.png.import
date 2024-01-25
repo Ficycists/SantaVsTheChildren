@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://02q1y7bc752w"
-path="res://.godot/imported/polarbear.png-96f12e8291a9bd2ad893ff6b081f3c4c.ctex"
+uid="uid://ccelfmsn3wyy5"
+path="res://.godot/imported/ground.png-75ecd3056a0a1b016286b69c82899cb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/polarbear.png"
-dest_files=["res://.godot/imported/polarbear.png-96f12e8291a9bd2ad893ff6b081f3c4c.ctex"]
+source_file="res://assets/sprites/terrain/LEVEL1/ground.png"
+dest_files=["res://.godot/imported/ground.png-75ecd3056a0a1b016286b69c82899cb9.ctex"]
 
 [params]
 
