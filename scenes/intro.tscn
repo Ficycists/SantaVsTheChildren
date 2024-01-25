@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dbvmgc6g4tsir" path="res://assets/present.png" id="4_hd72p"]
 [ext_resource type="AudioStream" uid="uid://coutavs5tclo" path="res://assets/sound/music/scictt.wav" id="6_wrijd"]
 [ext_resource type="Script" path="res://scenes/AudioStreamPlayer2D.gd" id="8_ukmh7"]
-[ext_resource type="PackedScene" path="res://scenes/controller.tscn" id="9_l3wba"]
-[ext_resource type="PackedScene" path="res://scenes/quit_control.tscn" id="9_nyuta"]
+[ext_resource type="PackedScene" uid="uid://cav8sd4ec6i7t" path="res://scenes/controller.tscn" id="9_l3wba"]
+[ext_resource type="PackedScene" uid="uid://u18uk4slux6n" path="res://scenes/quit_control.tscn" id="9_nyuta"]
 [ext_resource type="Texture2D" uid="uid://ngocexeejdoy" path="res://assets/images-misc/JamSplash.png" id="14_v2lvx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oaglp"]
