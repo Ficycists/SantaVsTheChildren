@@ -5,8 +5,9 @@ Please mark everything that is complete and up for review with an asterisk [*] a
 For discussion, please indent the line and add a doubleslash comment.
 
 -Gameplay-
-	Jumping works
-	Consistent movement
+	* Jumping works
+	* Consistent movement
+	Make game winnable
 	
 -Art-
 	Children
