@@ -90,7 +90,7 @@ func _process(_delta):
 		start = Vector2(38,level_num*576)
 		level_reset(start)
 
-	$Santa/Control/Label2.text = ": "+str($Santa.deer)
+	$Santa/Control/Label2.text = ": "+str($Santa.collected_missile_fragments)
 	pass
 
 

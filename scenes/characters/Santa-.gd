@@ -22,9 +22,9 @@ const deaccel = 25
 var d = false
 
 const jump_pwr_time: int = 4
-const speed_pwr_time: int = 30000
+var speed_pwr_time: int = 4
 const reload_pwr_time: int = 5
-const prot_pwr_time: int = 58888888
+var prot_pwr_time: int = 5
 
 const needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
