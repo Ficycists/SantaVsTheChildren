@@ -15,14 +15,14 @@ bg_color = Color(0.223529, 0.678431, 0.658824, 1)
 bg_color = Color(0.780392, 0.552941, 0.105882, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw754"]
-size = Vector2(20, 29)
+size = Vector2(20, 30.0276)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1s40i"]
-size = Vector2(27.5, 32.5)
+size = Vector2(27.5, 32.25)
 
 [node name="Santa" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 21
+collision_mask = 2069
 script = ExtResource("1_prmy7")
 
 [node name="UI" type="Control" parent="."]
@@ -119,7 +119,7 @@ offset_bottom = 92.0
 texture = ExtResource("2_py6e7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.256653, 1.47237)
+position = Vector2(0.256653, 1.98619)
 shape = SubResource("RectangleShape2D_dw754")
 
 [node name="jumppwruptimer" type="Timer" parent="."]
@@ -140,6 +140,7 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Santa_Area2D"]
+position = Vector2(0, -0.125)
 shape = SubResource("RectangleShape2D_1s40i")
 
 [node name="Camera2D" type="Camera2D" parent="."]

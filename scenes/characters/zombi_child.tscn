@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1dmoijq4vkg"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1dmoijq4vkg"]
 
 [ext_resource type="Texture2D" uid="uid://5o4fbw050j1l" path="res://assets/sprites/zombChild_0_sprpng.png" id="1_ai5c3"]
 [ext_resource type="Script" path="res://scenes/characters/zombi_child.gd" id="1_ktyft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6v1gi"]
-size = Vector2(14, 31)
+size = Vector2(14, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui5wh"]
 size = Vector2(35, 3.5)
@@ -12,9 +12,12 @@ size = Vector2(35, 3.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_188l5"]
 size = Vector2(16, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaaep"]
+size = Vector2(14, 2.5)
+
 [node name="ZombiChild" type="CharacterBody2D" groups=["Zombies"]]
 collision_layer = 4
-collision_mask = 32915
+collision_mask = 34963
 script = ExtResource("1_ktyft")
 
 [node name="ZombChild0Sprpng" type="Sprite2D" parent="."]
@@ -25,7 +28,7 @@ region_enabled = true
 region_rect = Rect2(1.54131, 33.1616, 30.309, 31.1876)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_6v1gi")
 
 [node name="Zombi_Horiz_Area" type="Area2D" parent="."]
@@ -42,6 +45,14 @@ collision_mask = 32906
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombiChild_Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_188l5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -16.75)
+shape = SubResource("RectangleShape2D_aaaep")
 
 [connection signal="body_entered" from="Zombi_Horiz_Area" to="." method="_on_zombi_horiz_area_body_entered"]
 [connection signal="area_entered" from="ZombiChild_Area2D" to="." method="_on_area_2d_area_entered"]

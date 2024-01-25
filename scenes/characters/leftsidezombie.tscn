@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjh4okf2tkuf0"]
+[gd_scene load_steps=7 format=3 uid="uid://bjh4okf2tkuf0"]
 
 [ext_resource type="Script" path="res://scenes/characters/leftsidezombie.gd" id="1_qefyw"]
 [ext_resource type="Texture2D" uid="uid://dkv6xexl75832" path="res://assets/sprites/zombChild_1_sprpng.png" id="1_tgauh"]
@@ -11,6 +11,9 @@ size = Vector2(39, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqmpe"]
 size = Vector2(22, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mfr2"]
+size = Vector2(20, 1)
 
 [node name="leftsidezombie" type="CharacterBody2D" groups=["Zombies"]]
 collision_layer = 4
@@ -44,6 +47,12 @@ collision_mask = 32778
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftZombieArea"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_nqmpe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_3mfr2")
 
 [connection signal="body_entered" from="left_zombie_area" to="." method="_on_left_zombie_area_body_entered"]
 [connection signal="body_exited" from="left_zombie_area" to="." method="_on_left_zombie_area_body_exited"]
