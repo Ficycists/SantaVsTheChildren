@@ -234,6 +234,8 @@ func _on_deer_missile_fragment_collected():
 	deer +=1
 	if lives < 3:
 		lives += 1
+		$Camera2D/UI/ColorRect3.visible=true
+		$Camera2D/UI/deadtimer.start()
 	$Control/RichTextLabel.text = str(lives) + " lives"
 	orig_horiz_speed=150*(1+(deer/10))
 	#print(deer) # Replace with function body.

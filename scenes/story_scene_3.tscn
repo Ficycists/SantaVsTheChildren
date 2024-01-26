@@ -19,15 +19,13 @@ offset_left = 250.0
 offset_top = 80.0
 offset_right = 796.0
 offset_bottom = 397.0
-text = "In order ot make any use of these zombie cure samples, Santa needs to get them to his elves at the North Pole. Unfortunately, the large number of polar bears Santa has encountered so far appears to have decimated his reindeers' navigation abilities, and Santa has ended up at the South Pole....
+text = "
 
-While he's here, Santa might as well start collecting presents to distribute once the kids get cured.
 
-	andrew helppp i tired.
 
-Compared to the North Pole, doesn't Antarctica have way more cliff type things?
+CREDITS:
 
-Press Z to continue.."
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
