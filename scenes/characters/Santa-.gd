@@ -26,7 +26,7 @@ var d = false
 const jump_pwr_time: int = 4
 var speed_pwr_time: int = 4
 const reload_pwr_time: int = 5
-var prot_pwr_time: int = 5
+var prot_pwr_time: int = 5777777777
 
 @export var needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
@@ -222,7 +222,7 @@ func _on_powerup_jump_2_powerup_jump_sig():
 
 func _on_deer_missile_fragment_collected():
 	deer +=1
-	orig_horiz_speed=150+5*deer
+	orig_horiz_speed=150*(1+(deer/10))
 	#print(deer) # Replace with function body.
 
 

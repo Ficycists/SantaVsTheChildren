@@ -53,7 +53,10 @@ func _ready():
 
 func _process(_delta):
 	var tree = get_tree()
-	$Notground1.position.x = $Santa.position.x
+	if $Santa.position.x <9000:
+		$Notground2.visible=false
+		$Notground1.visible=true
+		$Notground1.position.x = $Santa.position.x
 	if $Santa.position.x >= 9000:
 		$Notground2.visible=true
 		$Notground1.visible=false
