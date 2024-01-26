@@ -61,6 +61,8 @@ func _process(_delta):
 		$Notground2.visible=true
 		$Notground1.visible=false
 		$Notground2.position.x = $Santa.position.x
+		for child in $ZOMBIES/new_zombies.get_children():
+			$ZOMBIES/new_zombies.remove_child(child)
 	if did_santa_die==false and cured==false:
 		zombie_rate = (PI/10)+(level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.718))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)

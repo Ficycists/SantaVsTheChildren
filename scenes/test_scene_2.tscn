@@ -168,7 +168,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(13400, 216)
 
 [node name="powerup_protect" parent="." instance=ExtResource("14_w2lhs")]
-position = Vector2(4788, 665)
+position = Vector2(5356, 538)
 
 [node name="powerup_speed2" parent="." instance=ExtResource("9_r671u")]
 position = Vector2(4787, 282)
@@ -266,6 +266,9 @@ position = Vector2(18704, 920)
 
 [node name="child_node" type="Node2D" parent="."]
 
+[node name="powerup_protect4" parent="." instance=ExtResource("14_w2lhs")]
+position = Vector2(6911, 533)
+
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]
@@ -292,3 +295,4 @@ position = Vector2(18704, 920)
 [connection signal="missile_frag_collected" from="JavelinMissilePart9" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
 [connection signal="missile_frag_collected" from="JavelinMissilePart10" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
 [connection signal="missile_frag_collected" from="JavelinMissilePart11" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
+[connection signal="powerup_protect_sig" from="powerup_protect4" to="Santa" method="_on_powerup_protect_powerup_protect_sig"]

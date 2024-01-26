@@ -46,6 +46,7 @@ func _ready():
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 	$Notground1.position.y = 592
+	$Santa.lives = 5
 	
 	
 

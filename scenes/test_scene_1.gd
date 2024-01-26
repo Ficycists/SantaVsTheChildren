@@ -32,14 +32,14 @@ var level_scale = level_length / 20
 var zombie_rate = 2
 var start = Vector2(38,596)
 
-func spawn_missile_parts():
-	var n=1
-	var f=7
-	while n<=1.5*f:
-		var missile_part = missile_fragment.instantiate() as Area2D
-		missile_part.position = Vector2(randi_range(100,level_length),576)
-		add_child(missile_part)
-		n+=1
+#func spawn_missile_parts():
+	#var n=1
+	#var f=7
+	#while n<=1.5*f:
+		#var missile_part = missile_fragment.instantiate() as Area2D
+		#missile_part.position = Vector2(randi_range(100,level_length),576)
+		#add_child(missile_part)
+		#n+=1
 
 func _ready():
 	#spawn_missile_parts()
@@ -47,27 +47,19 @@ func _ready():
 	$ZOMBIES/Zombie_timer.start()
 	$Notground1.position.y = 592
 	
-	
-
 func _process(_delta):
 	var tree = get_tree()
 	$Notground1.position.x = $Santa.position.x
 	
 	if did_santa_die==false and cured==false:
-		zombie_rate = (PI/10)+(level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.718))) #/ level_scale 
-		#print(zombie_rate,"     ",$Santa.position.x)
+		zombie_rate = (PI/8)+(level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.718))) #/ level_scale 
 	if did_santa_die==true:
 		$Control.reset_level()
-		#level_reset(start)
 	if check_dead==true:
 		var dead_scene = death_scene.instantiate() as Sprite2D
 		dead_position = $Santa.position
 		$child_node.add_child(dead_scene)
 		dead_scene.position=dead_position
-		
-	#did_santa_die=true
-
-
 		if Input.is_key_pressed(KEY_Y):
 			for i in $child_node.get_children():
 				i.queue_free()
@@ -77,17 +69,9 @@ func _process(_delta):
 			check_dead=false
 			did_santa_die=true
 	Zombie_Positions_Arr=[-500]	
-	#if get.tree().has_group("Left Zombies"):	
 	for zomb in tree.get_nodes_in_group("Left Zombies"):
-		##if Zombie_Positions_Arr!=[]:
 		if $Santa.position.x > zomb.position.x:
-		##if $Santa.position.x >Zombie_Positions_Arr.max():
 			Zombie_Positions_Arr.append(zomb.position.x)
-		##print(zomb.position.x)
-	##if Zombie_Positions_Arr!=[]:#and$Santa.position.x>Zombie_Positions_Arr.max():
-	##print(Zombie_Positions_Arr.max())
-	##print($Santa.position.x)
-	##if $Santa.position.x >Zombie_Positions_Arr.max():
 	dist_to_left_zomb = floor(($Santa.position.x-Zombie_Positions_Arr.max())/30)
 	##print(dist_to_left_zomb)
 	$Santa/Control/Label.text = str(dist_to_left_zomb)+"m"
@@ -99,7 +83,13 @@ func _process(_delta):
 		
 	#print(zombie_rate)
 	$Santa/Control/Label2.text = ": "+str($Santa.deer)
-	pass
+	while $ZOMBIES/new_zombies.get_child_count()>=50:
+		for child in $ZOMBIES/new_zombies.get_children():
+			$ZOMBIES/new_zombies.remove_child(child)
+	#for child in $ZOMBIES/new_zombies.get_children():
+		#if child.velocity==Vector2(0,0):
+			#$ZOMBIES/new_zombies.remove_child(child)
+	#pass
 
 
 func _on_santa_missile(pos,direction):
@@ -118,12 +108,12 @@ func _on_santa_die():
 
 func level_reset(start):
 	
-	if level_num==3:
-		spawn_missile_parts()
-	if level_num==5:
-		cured=true
-		zombie_rate = cured_zombie_rate
-	
+	#if level_num==3:
+		#spawn_missile_parts()
+	#if level_num==5:
+		#cured=true
+		#zombie_rate = cured_zombie_rate
+	#
 	did_santa_die=false
 	$Santa.dead=false
 	#$Santa.set_collision_layer_value(4,true)

@@ -25,8 +25,8 @@ var d = false
 
 const jump_pwr_time: int = 7
 var speed_pwr_time: int = 6
-const reload_pwr_time: int = 6
-var prot_pwr_time: int = 7
+const reload_pwr_time: int = 8
+var prot_pwr_time: int = 9
 
 @export var needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0

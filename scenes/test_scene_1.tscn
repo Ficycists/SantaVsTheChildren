@@ -162,7 +162,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(13400, 216)
 
 [node name="powerup_protect" parent="." instance=ExtResource("11_u5380")]
-position = Vector2(4776, 288)
+position = Vector2(17229, 351)
 
 [node name="powerup_speed2" parent="." instance=ExtResource("6_ctakw")]
 position = Vector2(13088, 144)
@@ -207,7 +207,7 @@ position = Vector2(6280, 361)
 metadata/_edit_group_ = true
 
 [node name="deer4" parent="." instance=ExtResource("6_laukx")]
-position = Vector2(9832, 104)
+position = Vector2(4997, 235)
 metadata/_edit_group_ = true
 
 [node name="deer5" parent="." instance=ExtResource("6_laukx")]
