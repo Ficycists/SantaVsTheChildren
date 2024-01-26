@@ -162,7 +162,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(13400, 216)
 
 [node name="powerup_protect" parent="." instance=ExtResource("11_u5380")]
-position = Vector2(17229, 351)
+position = Vector2(17305, 368)
 
 [node name="powerup_speed2" parent="." instance=ExtResource("6_ctakw")]
 position = Vector2(13088, 144)

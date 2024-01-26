@@ -145,6 +145,9 @@ func _on_reload_missile_timer_timeout():
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
 	collected_missile_fragments += 1
+	if lives < 5:
+		lives += 1
+	$Control/RichTextLabel.text = str(lives) + " lives"
 	#print(collected_missile_fragments)
 
 var counter_attacks = 0
