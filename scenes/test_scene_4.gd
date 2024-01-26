@@ -83,13 +83,13 @@ func _process(_delta):
 		
 	#print(zombie_rate)
 	$Santa/Control/Label2.text = ": "+str($Santa.deer)
-	while $ZOMBIES/new_zombies.get_child_count()>=50:
-		for child in $ZOMBIES/new_zombies.get_children():
-			$ZOMBIES/new_zombies.remove_child(child)
+	
 	#for child in $ZOMBIES/new_zombies.get_children():
 		#if child.velocity==Vector2(0,0):
 			#$ZOMBIES/new_zombies.remove_child(child)
-	#pass
+	for child in $ZOMBIES/new_zombies.get_children():
+		if child.position.x < $Santa.position.x - 1000:
+			$ZOMBIES/new_zombies.remove_child(child)
 
 
 func _on_santa_missile(pos,direction):

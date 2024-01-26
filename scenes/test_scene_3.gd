@@ -102,7 +102,9 @@ func _process(_delta):
 
 	$Santa/Control/Label2.text = ": "+str($Santa.collected_missile_fragments)+"/"+str($Santa.needed_missile_fragments)
 	$Santa/Control/RichTextLabel.text = str($Santa.lives) + " lives"
-	pass
+	for child in $ZOMBIES/new_zombies.get_children():
+		if child.position.x < $Santa.position.x - 1000:
+			$ZOMBIES/new_zombies.remove_child(child)
 
 
 func _on_santa_missile(pos,direction):

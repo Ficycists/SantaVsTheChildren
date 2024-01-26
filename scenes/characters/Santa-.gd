@@ -47,8 +47,11 @@ func _ready():
 	position = Vector2(38,596)
 	%missile.visible=false
 	santaimg.animation = "idle"
+	$Camera2D/UI/ColorRect2.visible=false
+	$Camera2D/UI/ColorRect3.visible=false
 	
 func _process(delta):
+	
 	$%ProgressBar.value = floor($".".position.x / 20000 * 10)*10
 	#$TextureProgressBar.position.y = $".".position.y#-80
 	#$TextureProgressBar.position.x = $".".position.x#-50
@@ -147,6 +150,8 @@ func _on_collectable_fragment_missile_missile_fragment_collected():
 	collected_missile_fragments += 1
 	if lives < 5:
 		lives += 1
+		$Camera2D/UI/ColorRect3.visible=true
+		$Camera2D/UI/deadtimer.start()
 	$Control/RichTextLabel.text = str(lives) + " lives"
 	#print(collected_missile_fragments)
 
@@ -157,6 +162,8 @@ func _on_santa_area_2d_body_entered(body):
 			die.emit()
 			dead = true
 		lives -= 1
+		$Camera2D/UI/ColorRect2.visible=true
+		$Camera2D/UI/deadtimer.start()
 		$Control/RichTextLabel.text = str(lives) + " lives"
 
 func _on_powerup_jump_powerup_jump_sig():
@@ -235,3 +242,8 @@ func _on_deer_missile_fragment_collected():
 func _on_polar_bear_timeout():
 	die.emit()
 	dead=true
+
+
+func _on_deadtimer_timeout():
+	$Camera2D/UI/ColorRect2.visible=false
+	$Camera2D/UI/ColorRect3.visible=false
