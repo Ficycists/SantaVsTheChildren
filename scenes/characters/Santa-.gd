@@ -28,7 +28,7 @@ var speed_pwr_time: int = 4
 const reload_pwr_time: int = 5
 var prot_pwr_time: int = 5
 
-@export var needed_missile_fragments: int = 1
+@export var needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
 @export var deer = 0
 

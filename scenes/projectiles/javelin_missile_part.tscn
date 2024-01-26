@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwc1eygbn3xbm" path="res://assets/sprites/javelin.png" id="1_ji1wk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugl1p"]
-radius = 12.0
+radius = 14.3178
 
 [node name="JavelinMissilePart" type="Area2D"]
 collision_layer = 0

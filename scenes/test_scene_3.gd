@@ -46,13 +46,18 @@ func _ready():
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 	$Notground1.position.y = 592
+	$Notground2.position.y = 592
 	$Santa.can_missile = true
-	
+	$Notground2.visible=false
+	$Notground1.visible=true
 
 func _process(_delta):
 	var tree = get_tree()
 	$Notground1.position.x = $Santa.position.x
-	
+	if $Santa.position.x >= 9000:
+		$Notground2.visible=true
+		$Notground1.visible=false
+		$Notground2.position.x = $Santa.position.x
 	if did_santa_die==false and cured==false:
 		zombie_rate = (PI/10)+(level_length / ($Santa.position.x + (0.1 * level_length)**(PI/2.718))) #/ level_scale 
 		#print(zombie_rate,"     ",$Santa.position.x)
