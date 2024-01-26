@@ -4,7 +4,7 @@ signal change_direction
 
 var jumpspeed: int = 400
 var jump: bool = false
-const SPEED = 100
+const SPEED = 95
 const Gravity: int = 30
 @onready var animSprite = $AnimatedSprite2D
 

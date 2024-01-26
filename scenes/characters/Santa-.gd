@@ -23,10 +23,10 @@ var orig_horiz_speed: int = 150
 const deaccel = 25
 var d = false
 
-const jump_pwr_time: int = 4
-var speed_pwr_time: int = 4
-const reload_pwr_time: int = 5
-var prot_pwr_time: int = 5
+const jump_pwr_time: int = 7
+var speed_pwr_time: int = 6
+const reload_pwr_time: int = 6
+var prot_pwr_time: int = 7
 
 @export var needed_missile_fragments: int = 7
 @export var collected_missile_fragments = 0
@@ -222,6 +222,9 @@ func _on_powerup_jump_2_powerup_jump_sig():
 
 func _on_deer_missile_fragment_collected():
 	deer +=1
+	if lives < 3:
+		lives += 1
+	$Control/RichTextLabel.text = str(lives) + " lives"
 	orig_horiz_speed=150*(1+(deer/10))
 	#print(deer) # Replace with function body.
 
