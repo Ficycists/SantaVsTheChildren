@@ -12,6 +12,7 @@ offset_top = -1394.0
 offset_right = 2283.0
 offset_bottom = 1451.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 250.0
@@ -27,6 +28,7 @@ It is also getting tiring to slaughter zombie children. Hopefully the CDC in Geo
 Press Z to continue.."
 horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -34,3 +36,4 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_uto2n")
+metadata/_edit_use_anchors_ = true

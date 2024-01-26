@@ -28,4 +28,4 @@ func _process(_delta):
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_Z:
-			$Control.change_scene("res://scenes/test_scene_1.tscn")
+			$Control.change_scene("res://scenes/story_scene_0.tscn")

@@ -12,6 +12,7 @@ offset_top = -1394.0
 offset_right = 2283.0
 offset_bottom = 1451.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 287.0
@@ -21,6 +22,7 @@ offset_bottom = 397.0
 text = "Then Santa went to Texas, where he found parts of a javelin missile launcher lying around. Collect all parts to be able to pass the level. And mind the potholes.
 	I don't know what else to write here andrew please help."
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 449.0
@@ -28,6 +30,7 @@ offset_top = 255.0
 offset_right = 780.0
 offset_bottom = 394.0
 text = "Press Z to continue"
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -35,3 +38,4 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_i8rpw")
+metadata/_edit_use_anchors_ = true

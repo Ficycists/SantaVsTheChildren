@@ -117,6 +117,7 @@ offset_top = -86.0
 offset_right = 190.0
 offset_bottom = -55.0
 text = "3 lives"
+metadata/_edit_use_anchors_ = true
 
 [node name="left wall" type="StaticBody2D" parent="."]
 position = Vector2(-14.875, 318)
