@@ -140,7 +140,7 @@ shape = SubResource("RectangleShape2D_643j6")
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="powerup_jump" parent="." instance=ExtResource("8_narfs")]
-position = Vector2(6912, 532)
+position = Vector2(5679, -780)
 
 [node name="powerup_speed" parent="." instance=ExtResource("9_fs4lo")]
 position = Vector2(8697, 112)
@@ -177,13 +177,13 @@ script = ExtResource("11_l5g0m")
 metadata/_edit_use_anchors_ = true
 
 [node name="powerup_reload" parent="." instance=ExtResource("12_85nqu")]
-position = Vector2(13400, 216)
+position = Vector2(15529, 227)
 
 [node name="powerup_protect" parent="." instance=ExtResource("13_cjlyn")]
-position = Vector2(4788, 665)
+position = Vector2(14963, 1218)
 
 [node name="powerup_speed2" parent="." instance=ExtResource("9_fs4lo")]
-position = Vector2(4787, 282)
+position = Vector2(5002, -657)
 
 [node name="powerup_protect2" parent="." instance=ExtResource("13_cjlyn")]
 position = Vector2(328, 592)
@@ -207,10 +207,10 @@ position = Vector2(-96, -957)
 shape = SubResource("RectangleShape2D_ljasm")
 
 [node name="polar bear2" parent="." instance=ExtResource("15_6hto5")]
-position = Vector2(4521, 876)
+position = Vector2(20977, 383)
 
 [node name="_)" type="Area2D" parent="."]
-position = Vector2(20000, 500)
+position = Vector2(19869, -59)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("16_sj6e8")
