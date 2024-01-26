@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var jumpspeed: int = 500
 var jump: bool = false
-const SPEED = 100
+const SPEED = 90
 const Gravity: int = 25
 const ZOMBI_CHILD_0 = preload("res://scenes/characters/zombi_child_0.tres")
 const ZOMBI_CHILD_1 = preload("res://scenes/characters/zombi_child_1.tres")

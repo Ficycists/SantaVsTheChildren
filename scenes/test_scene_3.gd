@@ -187,6 +187,6 @@ func _on___body_entered(body):
 			polar_bear_trigger +=1
 		else:
 			polarbear.position = Vector2(3,3)
-		$ZOMBIES.add_child(polarbear) # Replace with function body.
+		$child_node.add_child(polarbear) # Replace with function body.
 
 
