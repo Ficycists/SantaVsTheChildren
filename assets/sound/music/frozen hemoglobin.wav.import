@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ygd68mkgrssx"
+path="res://.godot/imported/frozen hemoglobin.wav-b2e8e2bc4c51001fe279ee53ec4b8fc2.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/frozen hemoglobin.wav"
+dest_files=["res://.godot/imported/frozen hemoglobin.wav-b2e8e2bc4c51001fe279ee53ec4b8fc2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

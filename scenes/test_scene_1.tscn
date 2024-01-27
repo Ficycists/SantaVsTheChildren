@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bitsdejcooa5k"]
+[gd_scene load_steps=21 format=3 uid="uid://bitsdejcooa5k"]
 
 [ext_resource type="Script" path="res://scenes/test_scene_1.gd" id="1_aus7c"]
 [ext_resource type="Texture2D" uid="uid://binnsrm4vg6re" path="res://assets/sprites/terrain/LEVEL1/notground1.png" id="2_gufc6"]
@@ -12,10 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://crdr44kpvm44d" path="res://assets/sprites/terrain/LEVEL1/deer.png" id="7_obnm4"]
 [ext_resource type="PackedScene" uid="uid://b7dutkbfw5mf0" path="res://scenes/levels/the_end_1.tscn" id="8_wjwca"]
 [ext_resource type="Script" path="res://scenes/controllers/testscene_control.gd" id="9_ywni5"]
-[ext_resource type="PackedScene" uid="uid://jvku2jd15jl5" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
-[ext_resource type="PackedScene" uid="uid://drryop3blfyv6" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
+[ext_resource type="PackedScene" path="res://scenes/powerups/powerup_reload.tscn" id="10_wrccg"]
+[ext_resource type="PackedScene" path="res://scenes/powerups/powerup_protect.tscn" id="11_u5380"]
 [ext_resource type="Script" path="res://scenes/_).gd" id="16_5kbsr"]
-[ext_resource type="PackedScene" uid="uid://cwjjflt4qxsk4" path="res://scenes/characters/polar_bear.tscn" id="16_e8dhh"]
+[ext_resource type="PackedScene" uid="uid://d0c8uynvdx7w2" path="res://scenes/characters/polar_bear.tscn" id="16_e8dhh"]
+[ext_resource type="AudioStream" uid="uid://c83wthtevy6mq" path="res://assets/sound/music/aaaa.wav" id="17_adlqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_643j6"]
 size = Vector2(0.620629, 608)
@@ -118,6 +119,12 @@ offset_right = 190.0
 offset_bottom = -55.0
 text = "3 lives"
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Santa"]
+position = Vector2(-200, -592)
+stream = ExtResource("17_adlqk")
+volume_db = -2.285
+autoplay = true
 
 [node name="left wall" type="StaticBody2D" parent="."]
 position = Vector2(-14.875, 318)

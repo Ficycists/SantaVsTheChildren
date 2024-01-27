@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwjjflt4qxsk4"]
+[gd_scene load_steps=4 format=3 uid="uid://d0c8uynvdx7w2"]
 
 [ext_resource type="Script" path="res://scenes/characters/polar bear.gd" id="1_luaem"]
 [ext_resource type="Texture2D" uid="uid://02q1y7bc752w" path="res://assets/sprites/terrain/LEVEL1/polarbear.png" id="2_2r4yg"]

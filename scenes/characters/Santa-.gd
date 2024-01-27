@@ -113,6 +113,7 @@ func _process(delta):
 		$reload_throw_timer.start()
 		var coal_pos = $CoalStartPos/rightMarker
 		throw.emit(coal_pos.global_position, facing_right)
+		$AudioStreamPlayer2D_COALSFX.play()
 		
 	elif Input.is_action_just_pressed("coal") and can_missile==false and reloaded ==true and facing_right==-1:
 		reloaded=false
@@ -158,6 +159,7 @@ func _on_collectable_fragment_missile_missile_fragment_collected():
 var counter_attacks = 0
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
+		$AudioStreamPlayer2D_HURTSFX.play()
 		if lives <= 0:
 			die.emit()
 			dead = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6gmh1bfwk852"]
+[gd_scene load_steps=22 format=3 uid="uid://6gmh1bfwk852"]
 
 [ext_resource type="Script" path="res://scenes/characters/Santa-.gd" id="1_prmy7"]
 [ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="2_xxrij"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c4hmtt473u1ps" path="res://assets/sprites/jumpsprite.png" id="6_osbn7"]
 [ext_resource type="Texture2D" uid="uid://bj3lix53gwel4" path="res://assets/sprites/walkingsprite.png" id="7_k4ybo"]
 [ext_resource type="Texture2D" uid="uid://dwc1eygbn3xbm" path="res://assets/sprites/javelin.png" id="8_2kbk5"]
+[ext_resource type="AudioStream" uid="uid://c3p477yyxa1e2" path="res://assets/sound/sfx/sfx_damage_hit3.wav" id="9_7bqce"]
+[ext_resource type="AudioStream" uid="uid://befjxseoy6kb0" path="res://assets/sound/sfx/coal.wav" id="10_1hstj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw754"]
 size = Vector2(20, 30.0276)
@@ -260,6 +262,12 @@ texture = ExtResource("8_2kbk5")
 
 [node name="POLAR BEAR" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="AudioStreamPlayer2D_HURTSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_7bqce")
+
+[node name="AudioStreamPlayer2D_COALSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_1hstj")
 
 [connection signal="timeout" from="jumppwruptimer" to="." method="_on_jumppwruptimer_timeout"]
 [connection signal="timeout" from="speedtimer" to="." method="_on_speedtimer_timeout"]
