@@ -30,7 +30,7 @@ func _process(delta):
 	if jump==true and is_on_floor():
 		velocity.y = -jumpspeed
 		jump = false
-	velocity.y+=Gravity
+	velocity.y += ( Gravity * 60 * delta )
 	
 	move_and_slide()
 
