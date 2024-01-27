@@ -206,14 +206,6 @@ offset_top = 60.0
 offset_right = 126.0
 offset_bottom = 83.0
 
-[node name="ColorRect3" type="ColorRect" parent="Camera2D/UI"]
-layout_mode = 0
-offset_left = -203.0
-offset_top = -117.0
-offset_right = 201.0
-offset_bottom = 113.0
-color = Color(0.207843, 1, 0, 0.360784)
-
 [node name="ColorRect2" type="ColorRect" parent="Camera2D/UI"]
 layout_mode = 1
 anchors_preset = -1
@@ -227,6 +219,14 @@ color = Color(0.85098, 0, 0.203922, 0.207843)
 
 [node name="deadtimer" type="Timer" parent="Camera2D/UI"]
 wait_time = 0.1
+
+[node name="ColorRect3" type="ColorRect" parent="Camera2D/UI"]
+layout_mode = 0
+offset_left = -203.0
+offset_top = -117.0
+offset_right = 201.0
+offset_bottom = 113.0
+color = Color(0.207843, 1, 0, 0.360784)
 
 [node name="reload_throw_timer" type="Timer" parent="."]
 

@@ -5,6 +5,8 @@ var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_c
 var powerup_protect_scene: PackedScene = preload("res://scenes/powerups/powerup_protect_zone.tscn")
 var polar_bear_dead: PackedScene = preload("res://scenes/polar_bear_death.tscn")
 var facing_right: int = 1
+@onready var audio_stream_player_2d_hurtsfx = $AudioStreamPlayer2D_HURTSFX
+@onready var audio_stream_player_2d_coalsfx = $AudioStreamPlayer2D_COALSFX
 
 @onready var santaimg = $Santaimg
 var flipped : bool = false
@@ -113,7 +115,7 @@ func _process(delta):
 		$reload_throw_timer.start()
 		var coal_pos = $CoalStartPos/rightMarker
 		throw.emit(coal_pos.global_position, facing_right)
-		$AudioStreamPlayer2D_COALSFX.play()
+		audio_stream_player_2d_coalsfx.play()
 		
 	elif Input.is_action_just_pressed("coal") and can_missile==false and reloaded ==true and facing_right==-1:
 		reloaded=false
@@ -159,7 +161,7 @@ func _on_collectable_fragment_missile_missile_fragment_collected():
 var counter_attacks = 0
 func _on_santa_area_2d_body_entered(body):
 	if body.is_in_group("Zombies") and dead==false:
-		$AudioStreamPlayer2D_HURTSFX.play()
+		audio_stream_player_2d_hurtsfx.play()
 		if lives <= 0:
 			die.emit()
 			dead = true
