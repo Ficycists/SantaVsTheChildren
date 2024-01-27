@@ -5,8 +5,10 @@ var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_c
 var powerup_protect_scene: PackedScene = preload("res://scenes/powerups/powerup_protect_zone.tscn")
 var polar_bear_dead: PackedScene = preload("res://scenes/polar_bear_death.tscn")
 var facing_right: int = 1
+
 @onready var audio_stream_player_2d_hurtsfx = $AudioStreamPlayer2D_HURTSFX
 @onready var audio_stream_player_2d_coalsfx = $AudioStreamPlayer2D_COALSFX
+@onready var audio_stream_player_2d_pickupsfx = $AudioStreamPlayer2D_PICKUPSFX
 
 @onready var santaimg = $Santaimg
 var flipped : bool = false
@@ -122,16 +124,19 @@ func _process(delta):
 		$reload_throw_timer.start()
 		var coal_pos = $CoalStartPos/leftMarker
 		throw.emit(coal_pos.global_position, facing_right)
+		audio_stream_player_2d_coalsfx.play()
 	elif Input.is_action_just_pressed("coal") and can_missile==true and reloaded==true and facing_right==1:
 		reloaded=false
 		$reload_missile_timer.start()
 		var coal_pos = $CoalStartPos/rightMarker
 		missile.emit(coal_pos.global_position,facing_right)
+		audio_stream_player_2d_coalsfx.play()
 	elif Input.is_action_just_pressed("coal") and can_missile==true and reloaded==true and facing_right==-1:
 		reloaded=false
 		$reload_missile_timer.start()
 		var coal_pos = $CoalStartPos/leftMarker
 		missile.emit(coal_pos.global_position,facing_right)
+		audio_stream_player_2d_coalsfx.play()
 	elif Input.is_action_just_pressed("coal") and reloaded==false:
 		cant_reload.emit()
 	
@@ -150,6 +155,7 @@ func _on_reload_missile_timer_timeout():
 	reloaded=true
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
+	audio_stream_player_2d_pickupsfx.play()
 	collected_missile_fragments += 1
 	if lives < 5:
 		lives += 1
@@ -171,6 +177,7 @@ func _on_santa_area_2d_body_entered(body):
 		$Control/RichTextLabel.text = str(lives) + " lives"
 
 func _on_powerup_jump_powerup_jump_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	jumpspeed = 800
 	$jumppwruptimer.wait_time = jump_pwr_time
 	$jumppwruptimer.start()
@@ -181,6 +188,7 @@ func _on_jumppwruptimer_timeout():
 	$Camera2D/UI/HBoxContainer/jump_power_indicator.visible=false
 	%jump_label.visible=false
 func _on_powerup_speed_powerup_speed_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	horizspeed = 250
 	$speedtimer.wait_time = speed_pwr_time
 	$speedtimer.start()
@@ -193,6 +201,7 @@ func _on_speedtimer_timeout():
 	%speed_label.visible=false
 
 func _on_powerup_reload_powerup_reload_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	throw_speed = 0.01
 	misisle_speed = 0.01
 	$reload_pwrup_timer.wait_time = reload_pwr_time
@@ -205,6 +214,7 @@ func _on_reload_pwrup_timer_timeout():
 	$Camera2D/UI/HBoxContainer/reload_power_indicator.visible=false
 	%reload_label.visible=false
 func _on_powerup_protect_powerup_protect_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)	
 	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=true
@@ -235,6 +245,7 @@ func _on_powerup_jump_2_powerup_jump_sig():
 
 
 func _on_deer_missile_fragment_collected():
+	audio_stream_player_2d_pickupsfx.play()
 	deer +=1
 	if lives < 3:
 		lives += 1
