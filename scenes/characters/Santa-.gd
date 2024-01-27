@@ -124,16 +124,19 @@ func _process(delta):
 		$reload_throw_timer.start()
 		var coal_pos = $CoalStartPos/leftMarker
 		throw.emit(coal_pos.global_position, facing_right)
+		audio_stream_player_2d_coalsfx.play()
 	elif Input.is_action_just_pressed("coal") and can_missile==true and reloaded==true and facing_right==1:
 		reloaded=false
 		$reload_missile_timer.start()
 		var coal_pos = $CoalStartPos/rightMarker
 		missile.emit(coal_pos.global_position,facing_right)
+		audio_stream_player_2d_coalsfx.play()
 	elif Input.is_action_just_pressed("coal") and can_missile==true and reloaded==true and facing_right==-1:
 		reloaded=false
 		$reload_missile_timer.start()
 		var coal_pos = $CoalStartPos/leftMarker
 		missile.emit(coal_pos.global_position,facing_right)
+		audio_stream_player_2d_coalsfx.play()
 	elif Input.is_action_just_pressed("coal") and reloaded==false:
 		cant_reload.emit()
 	
