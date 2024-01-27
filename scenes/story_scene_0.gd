@@ -52,6 +52,9 @@ func _input(event):
 							color_rect = $ColorRect3
 							count += 1
 						4:
+							color_rect = $ColorRect4
+							count += 1
+						5:
 							nextScene()
 					color_rect.active = true
 					next_active = false

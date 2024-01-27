@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6gmh1bfwk852"]
+[gd_scene load_steps=23 format=3 uid="uid://6gmh1bfwk852"]
 
 [ext_resource type="Script" path="res://scenes/characters/Santa-.gd" id="1_prmy7"]
 [ext_resource type="Texture2D" uid="uid://bjecd1xlbmhmr" path="res://assets/sprites/powerups/jump.png" id="2_xxrij"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dwc1eygbn3xbm" path="res://assets/sprites/javelin.png" id="8_2kbk5"]
 [ext_resource type="AudioStream" uid="uid://c3p477yyxa1e2" path="res://assets/sound/sfx/sfx_damage_hit3.wav" id="9_7bqce"]
 [ext_resource type="AudioStream" uid="uid://befjxseoy6kb0" path="res://assets/sound/sfx/coal.wav" id="10_1hstj"]
+[ext_resource type="AudioStream" uid="uid://bq7xt2ypjy2af" path="res://assets/sound/sfx/pickup.wav" id="11_1mrfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw754"]
 size = Vector2(20, 30.0276)
@@ -271,7 +272,7 @@ stream = ExtResource("10_1hstj")
 volume_db = -8.914
 
 [node name="AudioStreamPlayer2D_PICKUPSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_1hstj")
+stream = ExtResource("11_1mrfq")
 
 [connection signal="timeout" from="jumppwruptimer" to="." method="_on_jumppwruptimer_timeout"]
 [connection signal="timeout" from="speedtimer" to="." method="_on_speedtimer_timeout"]
