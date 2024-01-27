@@ -5,8 +5,10 @@ var throw_coal_scene: PackedScene = preload("res://scenes/projectiles/parabola_c
 var powerup_protect_scene: PackedScene = preload("res://scenes/powerups/powerup_protect_zone.tscn")
 var polar_bear_dead: PackedScene = preload("res://scenes/polar_bear_death.tscn")
 var facing_right: int = 1
+
 @onready var audio_stream_player_2d_hurtsfx = $AudioStreamPlayer2D_HURTSFX
 @onready var audio_stream_player_2d_coalsfx = $AudioStreamPlayer2D_COALSFX
+@onready var audio_stream_player_2d_pickupsfx = $AudioStreamPlayer2D_PICKUPSFX
 
 @onready var santaimg = $Santaimg
 var flipped : bool = false
@@ -150,6 +152,7 @@ func _on_reload_missile_timer_timeout():
 	reloaded=true
 
 func _on_collectable_fragment_missile_missile_fragment_collected():
+	audio_stream_player_2d_pickupsfx.play()
 	collected_missile_fragments += 1
 	if lives < 5:
 		lives += 1
@@ -235,6 +238,7 @@ func _on_powerup_jump_2_powerup_jump_sig():
 
 
 func _on_deer_missile_fragment_collected():
+	audio_stream_player_2d_pickupsfx.play()
 	deer +=1
 	if lives < 3:
 		lives += 1
