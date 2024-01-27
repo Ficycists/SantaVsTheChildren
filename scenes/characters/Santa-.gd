@@ -177,6 +177,7 @@ func _on_santa_area_2d_body_entered(body):
 		$Control/RichTextLabel.text = str(lives) + " lives"
 
 func _on_powerup_jump_powerup_jump_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	jumpspeed = 800
 	$jumppwruptimer.wait_time = jump_pwr_time
 	$jumppwruptimer.start()
@@ -187,6 +188,7 @@ func _on_jumppwruptimer_timeout():
 	$Camera2D/UI/HBoxContainer/jump_power_indicator.visible=false
 	%jump_label.visible=false
 func _on_powerup_speed_powerup_speed_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	horizspeed = 250
 	$speedtimer.wait_time = speed_pwr_time
 	$speedtimer.start()
@@ -199,6 +201,7 @@ func _on_speedtimer_timeout():
 	%speed_label.visible=false
 
 func _on_powerup_reload_powerup_reload_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	throw_speed = 0.01
 	misisle_speed = 0.01
 	$reload_pwrup_timer.wait_time = reload_pwr_time
@@ -211,6 +214,7 @@ func _on_reload_pwrup_timer_timeout():
 	$Camera2D/UI/HBoxContainer/reload_power_indicator.visible=false
 	%reload_label.visible=false
 func _on_powerup_protect_powerup_protect_sig():
+	audio_stream_player_2d_pickupsfx.play()
 	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 	$".".add_child(powerup_protect)	
 	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=true
