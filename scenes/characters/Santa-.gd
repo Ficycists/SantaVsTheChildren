@@ -22,7 +22,7 @@ signal cant_reload
 var Gravity = 25
 var jumpspeed: int = 500
 var horizspeed: int = 150
-var orig_horiz_speed: int = 150
+var orig_horiz_speed: float = 150
 @export var lives: int = 3
 const deaccel = 25
 var d = false
@@ -213,9 +213,10 @@ func _on_reload_pwrup_timer_timeout():
 	misisle_speed = orig_misisle_speed
 	$Camera2D/UI/HBoxContainer/reload_power_indicator.visible=false
 	%reload_label.visible=false
+var powerup_protect = powerup_protect_scene.instantiate() as Area2D
 func _on_powerup_protect_powerup_protect_sig():
 	audio_stream_player_2d_pickupsfx.play()
-	var powerup_protect = powerup_protect_scene.instantiate() as Area2D
+	
 	$".".add_child(powerup_protect)	
 	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=true
 	%prot_label.visible=true
@@ -223,7 +224,7 @@ func _on_powerup_protect_powerup_protect_sig():
 	$protect_powerup_timer.start()
 
 func _on_protect_powerup_timer_timeout():
-	$".".remove_child($powerup_protect_zone)
+	$".".remove_child(powerup_protect)
 	$Camera2D/UI/HBoxContainer/protect_power_indicator.visible=false
 	%prot_label.visible=false
 func _on_timer_timeout():

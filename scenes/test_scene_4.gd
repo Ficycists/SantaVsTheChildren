@@ -31,6 +31,7 @@ var level_length: int = 20000
 var level_scale = level_length / 20
 var zombie_rate = 2
 var start = Vector2(38,596)
+var tile_coords = []
 
 #func spawn_missile_parts():
 	#var n=1
@@ -43,12 +44,18 @@ var start = Vector2(38,596)
 
 func _ready():
 	#spawn_missile_parts()
+	#print($BaseLevelTest.get_index())
+	#for m in $BaseLevelTest.get_used_cells(0):
+#		print(m)
+		#print($BaseLevelTest.local_to_map(m))
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 	$Notground1.position.y = 592
+	tile_coords = $BaseLevelTest.get_used_cells(0)
 	
 func _process(_delta):
 	var tree = get_tree()
+	
 	$Notground1.position.x = $Santa.position.x
 	
 	if did_santa_die==false and cured==false:
@@ -133,11 +140,15 @@ func _on_zombie_timer_timeout():
 	right_zombie.position.y = $Santa.position.y-200
 	left_zombie.position.x = $Santa.position.x - 500 + randi_range(-10,10)
 	right_zombie.position.y = $Santa.position.y-200
-	if !right_zombie.is_on_wall():
-		$ZOMBIES/new_zombies.add_child(right_zombie)
+	#if !right_zombie.is_on_wall():
+#		$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
-	if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
+	#var rz_x = right_zombie.position.x-$Santa.position.x
+	#var rz_y = right_zombie.position.y
+	#print(Vector2i(right_zombie.position-$Santa.position))
+	if Vector2i(right_zombie.position-$Santa.position) not in tile_coords:
+	#if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
 		$ZOMBIES/new_zombies.add_child(right_zombie)
 	#print('new-zombie')
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate

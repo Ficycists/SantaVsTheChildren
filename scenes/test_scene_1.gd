@@ -40,12 +40,13 @@ var start = Vector2(38,596)
 		#missile_part.position = Vector2(randi_range(100,level_length),576)
 		#add_child(missile_part)
 		#n+=1
-
+var tile_coords = []
 func _ready():
 	#spawn_missile_parts()
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate
 	$ZOMBIES/Zombie_timer.start()
 	$Notground1.position.y = 592
+	tile_coords = $BaseLevelTest.get_used_cells(0)
 	
 func _process(_delta):
 	var tree = get_tree()
@@ -140,7 +141,8 @@ func _on_zombie_timer_timeout():
 #		$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
-	if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
+	if Vector2i(right_zombie.position-$Santa.position) not in tile_coords:
+	#if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
 		$ZOMBIES/new_zombies.add_child(right_zombie)
 	#print('new-zombie')
 	$ZOMBIES/Zombie_timer.wait_time=zombie_rate

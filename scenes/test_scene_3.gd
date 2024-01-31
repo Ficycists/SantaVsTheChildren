@@ -18,6 +18,7 @@ const cured_zombie_rate: int = 2
 
 var Zombie_Positions_Arr: Array = []
 var dist_to_left_zomb = 500
+var tile_coords = []
 
 func _on_santa_throw(pos,direction):
 	const coal_speed: int = 215
@@ -26,20 +27,21 @@ func _on_santa_throw(pos,direction):
 	pcoal.gravity_scale = 1
 	pcoal.linear_velocity = Vector2(direction*(coal_speed+abs($Santa.velocity.x)),-200)
 	$Projectiles.add_child(pcoal)
+
 	
 var level_length: int = 20000
 var level_scale = level_length / 20
 var zombie_rate = 2
 var start = Vector2(38,596)
 
-func spawn_missile_parts():
-	var n=1
-	var f=7
-	while n<=1.5*f:
-		var missile_part = missile_fragment.instantiate() as Area2D
-		missile_part.position = Vector2(randi_range(100,level_length),576)
-		add_child(missile_part)
-		n+=1
+#func spawn_missile_parts():
+	#var n=1
+	#var f=7
+	#while n<=1.5*f:
+		#var missile_part = missile_fragment.instantiate() as Area2D
+		#missile_part.position = Vector2(randi_range(100,level_length),576)
+		#add_child(missile_part)
+		#n+=1
 
 func _ready():
 	#spawn_missile_parts()
@@ -50,6 +52,7 @@ func _ready():
 	$Santa.can_missile = true
 	$Notground2.visible=false
 	$Notground1.visible=true
+	tile_coords = $BaseLevelTest.get_used_cells(0)
 
 func _process(_delta):
 	var tree = get_tree()
@@ -149,7 +152,8 @@ func _on_zombie_timer_timeout():
 		#$ZOMBIES/new_zombies.add_child(right_zombie)
 	$ZOMBIES/new_zombies.add_child(left_zombie)
 	left_zombie.add_to_group("Left Zombies")
-	if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
+	if Vector2i(right_zombie.position-$Santa.position) not in tile_coords:
+	#if !right_zombie.is_on_wall_only() and !right_zombie.is_on_ceiling_only():	
 		$ZOMBIES/new_zombies.add_child(right_zombie)
 	#$ZOMBIES/new_zombies.add_child(right_zombie)
 	#$ZOMBIES/new_zombies.add_child(left_zombie)

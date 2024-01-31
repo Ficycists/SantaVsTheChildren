@@ -272,6 +272,9 @@ position = Vector2(6911, 533)
 [node name="powerup_reload2" parent="." instance=ExtResource("13_1asqi")]
 position = Vector2(8830, 494)
 
+[node name="JavelinMissilePart12" parent="." instance=ExtResource("17_4l64k")]
+position = Vector2(20659, 538)
+
 [connection signal="die" from="Santa" to="." method="_on_santa_die"]
 [connection signal="missile" from="Santa" to="." method="_on_santa_missile"]
 [connection signal="throw" from="Santa" to="." method="_on_santa_throw"]
@@ -300,3 +303,4 @@ position = Vector2(8830, 494)
 [connection signal="missile_frag_collected" from="JavelinMissilePart11" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
 [connection signal="powerup_protect_sig" from="powerup_protect4" to="Santa" method="_on_powerup_protect_powerup_protect_sig"]
 [connection signal="powerup_reload_sig" from="powerup_reload2" to="Santa" method="_on_powerup_reload_powerup_reload_sig"]
+[connection signal="missile_frag_collected" from="JavelinMissilePart12" to="Santa" method="_on_collectable_fragment_missile_missile_fragment_collected"]
