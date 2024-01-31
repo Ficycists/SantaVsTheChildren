@@ -20,8 +20,8 @@ signal die
 signal cant_reload
 
 var Gravity = 25
-var jumpspeed: int = 500
-var horizspeed: int = 150
+var jumpspeed: float = 500
+var horizspeed: float = 150
 var orig_horiz_speed: float = 150
 @export var lives: int = 3
 const deaccel = 25
