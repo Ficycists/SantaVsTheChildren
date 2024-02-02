@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ds7dqd567bxhy" path="res://assets/sprites/terrain/LEBEL 4/output-onlinepngtools (1).png" id="2_bphqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cwtb"]
-size = Vector2(56, 46)
+size = Vector2(29, 30)
 
 [node name="present" type="Area2D"]
 collision_layer = 0
@@ -12,13 +12,12 @@ collision_mask = 8
 script = ExtResource("1_41gvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6.25, -5.25)
-scale = Vector2(1.37879, 1.26923)
+scale = Vector2(0.806007, 0.716698)
 texture = ExtResource("2_bphqh")
 region_rect = Rect2(256.492, 73.3153, 529.858, 423.564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -2)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_3cwtb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

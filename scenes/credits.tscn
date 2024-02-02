@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4t221mor0ufw" path="res://assets/brycesmile - Copy.png" id="3_7d5f2"]
 [ext_resource type="Texture2D" uid="uid://m5etwlc4wjxv" path="res://assets/judgement - Copy.png" id="4_4xrlt"]
 [ext_resource type="Texture2D" uid="uid://c8m6gfwn62bys" path="res://assets/nachoapproves - Copy.png" id="5_sfwmx"]
-[ext_resource type="PackedScene" uid="uid://cav8sd4ec6i7t" path="res://scenes/controller.tscn" id="10_ml5y0"]
+[ext_resource type="PackedScene" path="res://scenes/controller.tscn" id="10_ml5y0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1wr8d"]
 font = ExtResource("2_kp6mc")
