@@ -4,12 +4,14 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2cm3"]
 texture = ExtResource("1_kjl4h")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 1:1/0 = 0
 2:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_t1yxp"]
+tile_size = Vector2i(32, 32)
 sources/2 = SubResource("TileSetAtlasSource_q2cm3")
 
 [node name="Node2D" type="Node2D"]

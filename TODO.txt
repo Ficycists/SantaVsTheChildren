@@ -14,7 +14,6 @@ For discussion, please indent the line and add a doubleslash comment.
 	powerups
 		*apply powerup to player
 		distribute throughout level
-
 	
 -Art-
 	Children
@@ -27,7 +26,7 @@ For discussion, please indent the line and add a doubleslash comment.
 	Terrain
 		Buildings!
 		Rice University
-			// Yes, we're doing this.
+			// Let's table this one until after the Jam
 	Story Backdrops
 		* Opening menu
 		santa is dead

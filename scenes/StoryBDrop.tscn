@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl48nehtcsci0"]
+
+[ext_resource type="Script" path="res://scenes/StoryBDrop.gd" id="1_aafhe"]
+[ext_resource type="FontFile" uid="uid://cnn7qnvy5hx1x" path="res://assets/m5x7.ttf" id="2_w4ovn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1y62"]
+font = ExtResource("2_w4ovn")
+font_size = 32
+
+[node name="ColorRect" type="ColorRect"]
+offset_left = -2109.0
+offset_top = -1394.0
+offset_right = 2283.0
+offset_bottom = 1451.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_aafhe")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0467487
+anchor_bottom = -0.0467487
+offset_left = 2396.0
+offset_top = 1474.0
+offset_right = 2895.0
+offset_bottom = 1791.0
+text = "Twas the night before Christmas and all through the Pole,
+Small creatures were stirring, demanding not coal."
+label_settings = SubResource("LabelSettings_t1y62")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.00667838
+anchor_bottom = -0.00667838
+offset_left = 2396.0
+offset_top = 1474.0
+offset_right = 2895.0
+offset_bottom = 1791.0
+text = "The signs were hung up on the snow mounds with care,
+Warning the residents of polar bears.
+"
+label_settings = SubResource("LabelSettings_t1y62")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue-Skip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0253076
+anchor_bottom = 0.0253076
+offset_left = 2396.0
+offset_top = 1474.0
+offset_right = 2895.0
+offset_bottom = 1791.0
+text = "PRESS Z TO CONTINUE OR Y TO SKIP"
+label_settings = SubResource("LabelSettings_t1y62")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true

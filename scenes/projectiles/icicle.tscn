@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chmjywjad6ief"]
+
+[ext_resource type="Texture2D" uid="uid://bswfgihyib1pb" path="res://assets/sprites/terrain/LEBEL 4/ICILCLCE.png" id="1_orfvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pgyj"]
+size = Vector2(8, 33)
+
+[node name="icicle" type="Sprite2D" groups=["BRICKS"]]
+texture = ExtResource("1_orfvb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["BRICKS"]]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_6pgyj")

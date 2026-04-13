@@ -1,36 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjh4okf2tkuf0"]
+[gd_scene load_steps=7 format=3 uid="uid://bjh4okf2tkuf0"]
 
 [ext_resource type="Script" path="res://scenes/characters/leftsidezombie.gd" id="1_qefyw"]
-[ext_resource type="Texture2D" uid="uid://dkv6xexl75832" path="res://assets/sprites/zombChild_1_sprpng.png" id="1_tgauh"]
+[ext_resource type="SpriteFrames" uid="uid://d3qdnrhvprlty" path="res://scenes/characters/zombi_child_2.tres" id="2_er6s6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f31ij"]
-size = Vector2(19, 31)
+size = Vector2(20, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2kbd"]
+size = Vector2(39, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqmpe"]
-size = Vector2(19, 31)
+size = Vector2(22, 31)
 
-[node name="leftsidezombie" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mfr2"]
+size = Vector2(20, 1)
+
+[node name="leftsidezombie" type="CharacterBody2D" groups=["Zombies"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 16810003
 script = ExtResource("1_qefyw")
 
-[node name="lefsidezombiesprite" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_tgauh")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 33)
-
 [node name="leftsidezombiecoll" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_f31ij")
 
-[node name="leftsidezombiearea" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 10
+[node name="left_zombie_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="leftsidezombiearea"]
-position = Vector2(0.5, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_zombie_area"]
+shape = SubResource("RectangleShape2D_k2kbd")
+
+[node name="LeftZombieArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 32778
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftZombieArea"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_nqmpe")
 
-[connection signal="area_entered" from="leftsidezombiearea" to="." method="_on_leftsidezombiearea_area_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_3mfr2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_er6s6")
+autoplay = "default"
+flip_h = true
+
+[connection signal="body_entered" from="left_zombie_area" to="." method="_on_left_zombie_area_body_entered"]
+[connection signal="body_exited" from="left_zombie_area" to="." method="_on_left_zombie_area_body_exited"]
+[connection signal="area_entered" from="LeftZombieArea" to="." method="_on_leftsidezombiearea_area_entered"]

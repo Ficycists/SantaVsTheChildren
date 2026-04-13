@@ -15,9 +15,13 @@ Programming team
 	Ignacio
 	Bryce
 
-Art by
+Sprites by
 	Medha
 	Andrew
+	Bryce
+
+Backdrop art
+	
 
 Music by
 	Andrew

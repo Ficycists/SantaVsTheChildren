@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://u18uk4slux6n"]
+
+[ext_resource type="Script" path="res://scenes/quit_ctrl.gd" id="1_0wi4c"]
+
+[node name="QuitControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0wi4c")

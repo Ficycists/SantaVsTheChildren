@@ -1,43 +1,44 @@
 extends CharacterBody2D
 
 signal change_direction
-var direction = Vector2(-1,0)
-const SPEED = 100
+
+var jumpspeed: int = 400
+var jump: bool = false
+const SPEED = 95
+const Gravity: int = 30
+@onready var animSprite = $AnimatedSprite2D
+
+const ZOMBI_CHILD_0 = preload("res://scenes/characters/zombi_child_0.tres")
+const ZOMBI_CHILD_1 = preload("res://scenes/characters/zombi_child_1.tres")
+const ZOMBI_CHILD_2 = preload("res://scenes/characters/zombi_child_2.tres")
+
 func _ready():
-	position.y=596
-func _process(_delta):
-	velocity = direction * SPEED
+	var foo : int = randi_range(0,2)
+	match foo:
+		0:
+			animSprite.sprite_frames = ZOMBI_CHILD_0
+		1:
+			animSprite.sprite_frames = ZOMBI_CHILD_1
+		2:
+			animSprite.sprite_frames = ZOMBI_CHILD_2
+	animSprite.play()
+	#position.y=300
+	pass
+func _process(delta):
+	velocity.x = -1 * SPEED*delta*75
+	
+	if jump==true and is_on_floor():
+		velocity.y = -jumpspeed
+		jump = false
+	velocity.y += ( Gravity * 60 * delta )
+	
 	move_and_slide()
-		
-
-#const SPEED = 300.0
-#const JUMP_VELOCITY = -400.0
-#
-## Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-#
-#
-#func _physics_process(delta):
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity.y += gravity * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction = Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-#
-	#move_and_slide()
-
 
 func _on_area_2d_area_entered(area):
-	if area.name=="Area2Dcoal":
+	if area.name=="Area2Dcoal" or area.name=="powerup_protect_zone":
 		queue_free() # Replace with function body.
 
+func _on_zombi_horiz_area_body_entered(body):
+	if body.is_in_group("BRICKS"):
+		jump = true
+		
